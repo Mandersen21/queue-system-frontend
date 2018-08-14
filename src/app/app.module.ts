@@ -8,11 +8,13 @@ import { AppComponent } from './app.component';
 
 // Modules from outside
 import { CalendarModule } from 'primeng/calendar';
+import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DisclaimerComponent
   ],
   imports: [
     BrowserModule,
