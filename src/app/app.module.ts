@@ -5,14 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Components
 import { AppComponent } from './app.component';
-
-// Modules from outside
-import { CalendarModule } from 'primeng/calendar';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { QueueComponent } from './queue/queue.component';
 import { QueueRowComponent } from './queue-row/queue-row.component';
 import { QueueSectionComponent } from './queue-section/queue-section.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
+// Modules from outside
 
 @NgModule({
   declarations: [
@@ -20,13 +19,13 @@ import { QueueSectionComponent } from './queue-section/queue-section.component';
     DisclaimerComponent,
     QueueComponent,
     QueueRowComponent,
-    QueueSectionComponent
+    QueueSectionComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    CalendarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
