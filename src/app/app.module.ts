@@ -4,9 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Modules from outside
-import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { TooltipModule } from 'ngx-bootstrap/tooltip';
-import { ModalModule } from 'ngx-bootstrap/modal';
+import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
 
 // Components
 import { AppComponent } from './app.component';
@@ -33,11 +31,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    ModalModule.forRoot(),
-    TooltipModule.forRoot(),
-    BsDropdownModule.forRoot()
+    AppBoostrapModule
   ],
-  exports: [BsDropdownModule, TooltipModule, ModalModule],
   providers: [],
   bootstrap: [AppComponent]
 })
