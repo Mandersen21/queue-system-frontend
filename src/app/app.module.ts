@@ -10,6 +10,9 @@ import { QueueComponent } from './queue/queue.component';
 import { QueueRowComponent } from './queue-row/queue-row.component';
 import { QueueSectionComponent } from './queue-section/queue-section.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserMenuComponent } from './user-menu/user-menu.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 // Modules from outside
 
@@ -20,7 +23,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     QueueComponent,
     QueueRowComponent,
     QueueSectionComponent,
-    DashboardComponent
+    DashboardComponent,
+    ProfileComponent,
+    UserMenuComponent,
+    UserProfileComponent
   ],
   imports: [
     BrowserModule,
