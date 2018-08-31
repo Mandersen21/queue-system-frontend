@@ -15,6 +15,7 @@ import { QueueSectionComponent } from './queue-section/queue-section.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserMenuComponent } from './user-menu/user-menu.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     QueueSectionComponent,
     DashboardComponent,
     UserMenuComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
