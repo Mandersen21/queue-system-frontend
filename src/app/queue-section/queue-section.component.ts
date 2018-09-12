@@ -10,6 +10,8 @@ export class QueueSectionComponent implements OnInit {
 
   @Input() sectionTime: SectionTime;
 
+  public patients = ['Patient 1', 'Patient 2', 'Patient 3', 'Patient 4'];
+
   constructor() { }
 
   ngOnInit() {
