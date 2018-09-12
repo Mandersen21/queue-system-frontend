@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SectionTime } from 'src/app/queue/queue.component';
 
 @Component({
   selector: 'app-queue-section',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueueSectionComponent implements OnInit {
 
+  @Input() sectionTime: SectionTime;
+
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }

@@ -8,8 +8,8 @@ import { QueueType } from '../queue/queue.component';
 })
 export class DashboardComponent implements OnInit {
 
-  public normalQueue: QueueType = QueueType.normal;
-  public fastQueue: QueueType = QueueType.fast;
+  public normalQueue: QueueType = QueueType.NORMAL;
+  public fastQueue: QueueType = QueueType.FAST;
 
   constructor() { 
     

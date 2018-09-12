@@ -5,7 +5,10 @@
             <span class="right">Prioritet</span>
         </div>
         <div class="queue-header col-md-12" [ngClass]="{'queue-section-normal': !isFasttrack(queueType), 'queue-section-fast': isFasttrack(queueType)}">
-            <app-queue-section></app-queue-section>
+            <app-queue-section [sectionTime]="smallTime"></app-queue-section>
+            <app-queue-section [sectionTime]="mediumTime"></app-queue-section>
+            <app-queue-section [sectionTime]="mediumHighTime"></app-queue-section>
+            <app-queue-section [sectionTime]="highTime"></app-queue-section>
         </div>
     </div>
     <div class="col-md-4">
@@ -14,7 +17,10 @@
             <span class="right">Prioritet</span>
         </div>
         <div class="queue-header col-md-12" [ngClass]="{'queue-section-normal': !isFasttrack(queueType), 'queue-section-fast': isFasttrack(queueType)}">
-            <app-queue-section></app-queue-section>
+            <app-queue-section [sectionTime]="smallTime"></app-queue-section>
+            <app-queue-section [sectionTime]="mediumTime"></app-queue-section>
+            <app-queue-section [sectionTime]="mediumHighTime"></app-queue-section>
+            <app-queue-section [sectionTime]="highTime"></app-queue-section>
         </div>
     </div>
     <div class="col-md-4">
@@ -23,7 +29,10 @@
             <span class="right">Prioritet</span>
         </div>
         <div class="queue-header col-md-12" [ngClass]="{'queue-section-normal': !isFasttrack(queueType), 'queue-section-fast': isFasttrack(queueType)}">
-            <app-queue-section></app-queue-section>
+            <app-queue-section [sectionTime]="smallTime"></app-queue-section>
+            <app-queue-section [sectionTime]="mediumTime"></app-queue-section>
+            <app-queue-section [sectionTime]="mediumHighTime"></app-queue-section>
+            <app-queue-section [sectionTime]="highTime"></app-queue-section>
         </div>
     </div>
 </div>
