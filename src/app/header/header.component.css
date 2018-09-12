@@ -32,3 +32,7 @@
       line-height: 27px;
     }
   }
+
+.navbar .navbar-brand .clock {
+    text-align: right !important;
+}
