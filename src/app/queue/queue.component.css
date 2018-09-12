@@ -1,0 +1,26 @@
+.queue-container {
+    border: 1px solid #47525E;
+    font-size: 1.5rem;
+    background-color: #2980B9 !important;
+}
+
+.queue-header {
+    
+    background-color: #2980B9 !important;
+    color: white;
+    width:100%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0.75rem;
+    display: block;
+}
+
+.queue-header .left {
+    padding-left: 0.5rem;
+    text-align: left;
+}
+
+.queue-header .right {
+    padding-right: 0.5rem;
+    float: right;
+}

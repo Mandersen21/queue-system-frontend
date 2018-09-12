@@ -27,3 +27,8 @@ body {
 .gutter {
   padding-top: 1rem;
 }
+
+.large-gutter {
+  padding-top: 2rem;
+  color: white;
+}
