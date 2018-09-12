@@ -14,11 +14,9 @@ export class QueueComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Queue type loaded: ", this.queueType)
   }
 
   public isFasttrack(queueType: QueueType) {
-    console.log("QueueType received:", queueType)
     return queueType === QueueType.fast ? true : false;
   }
 
