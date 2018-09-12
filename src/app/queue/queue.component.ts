@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-queue',
@@ -7,11 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueueComponent implements OnInit {
 
-  private queueType = false;
+  @Input() queueType: QueueType;
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() { 
+    
   }
 
+  ngOnInit() {
+    console.log("Queue type loaded: ", this.queueType)
+  }
+
+  public isFasttrack(queueType: QueueType) {
+    console.log("QueueType received:", queueType)
+    return queueType === QueueType.fast ? true : false;
+  }
+
+}
+
+export enum QueueType {
+  normal = 1,
+  fast = 2,
 }
