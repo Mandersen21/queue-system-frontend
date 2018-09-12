@@ -11,7 +11,12 @@
     font-family: 'Lato', sans-serif;
     color: white;
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 900;
+}
+
+.navbar-brand:hover {
+    color: white;
+    
 }
 
 .navbar .navbar-brand .header {
