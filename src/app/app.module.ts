@@ -13,11 +13,11 @@ import { QueueComponent } from './queue/queue.component';
 import { QueueRowComponent } from './queue-row/queue-row.component';
 import { QueueSectionComponent } from './queue-section/queue-section.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { UserMenuComponent } from './user-menu/user-menu.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TestComponent } from './test/test.component';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -27,7 +27,6 @@ import { ContentComponent } from './content/content.component';
     QueueRowComponent,
     QueueSectionComponent,
     DashboardComponent,
-    UserMenuComponent,
     UserProfileComponent,
     TestComponent,
     HeaderComponent,
@@ -37,7 +36,8 @@ import { ContentComponent } from './content/content.component';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AppBoostrapModule
+    AppBoostrapModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
