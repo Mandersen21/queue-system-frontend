@@ -1,17 +1,27 @@
 <div class="container-fluid custom-container dashboard-container">
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-12">
       <div class="content-header">Akutmodtagelsen</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm">
+    <div class="col-sm-12">
       <div class="content-text">
         <span>Add information text here</span>
         <span class="content-triage content-text">
           <app-triage></app-triage>
         </span>
       </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6 gutter">
+      <!-- Normal queue -->
+      <app-queue></app-queue>
+    </div>
+    <div class="col-sm-6 gutter">
+      <!-- Fasttrack queue -->
+      <app-queue></app-queue>
     </div>
   </div>
 </div>

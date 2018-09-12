@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueueComponent implements OnInit {
 
+  private queueType = false;
+
   constructor() { }
 
   ngOnInit() {

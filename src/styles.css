@@ -24,6 +24,6 @@ body {
   color: #47525E;
 }
 
-.row {
-  margin: 0;
+.gutter {
+  padding-top: 1rem;
 }
