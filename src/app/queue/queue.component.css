@@ -7,8 +7,8 @@
     width:100%;
     font-size: 1.5rem;
     font-weight: 700;
-    padding: 0.75rem;
     display: block;
+    padding: 0;
 }
 
 .queue-section {
@@ -16,8 +16,14 @@
     width:100%;
     font-size: 1.5rem;
     font-weight: 700;
-    padding: 0;
     display: block;
+    padding: 0;
+}
+
+.queue {
+    /* padding: 0; */
+    background-color: rgb(182, 182, 182);
+    /* min-height: 300rem; */
 }
 
 .queue-header-fast {
@@ -29,11 +35,11 @@
 }
 
 .queue-header .left {
-    padding-left: 0.5rem;
+    /* padding-left: 0.5rem; */
     text-align: left;
 }
 
 .queue-header .right {
-    padding-right: 0.5rem;
+    /* padding-right: 0.5rem; */
     float: right;
 }
