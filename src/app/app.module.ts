@@ -17,6 +17,7 @@ import { UserMenuComponent } from './user-menu/user-menu.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TestComponent } from './test/test.component';
 import { HeaderComponent } from './header/header.component';
+import { ContentComponent } from './content/content.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HeaderComponent } from './header/header.component';
     UserMenuComponent,
     UserProfileComponent,
     TestComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContentComponent
   ],
   imports: [
     BrowserModule,
