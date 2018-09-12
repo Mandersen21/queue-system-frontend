@@ -1,8 +1,12 @@
-<div *ngIf="sectionTime">
-  <div class="left">
-    {{sectionTime}}
+<div class="queue-section-container" *ngIf="sectionTime">
+  <div class="queue-section-header" [ngClass]="{'queue-section-header-normal': !isFasttrack(queueType), 'queue-section-header-fast': isFasttrack(queueType)}">
+    <div class="left">
+      {{sectionTime}}
+    </div>
   </div>
-  <!-- <div *ngFor="let patient of patients">
+  <div class="">
+    <div *ngFor="let patient of patients">
       <app-queue-row></app-queue-row>
-  </div> -->
+    </div>
+  </div>
 </div>

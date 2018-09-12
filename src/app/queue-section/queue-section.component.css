@@ -1,11 +1,35 @@
+.queue-section-header-normal {
+    background-color: #3498DB;
+}
+
+.queue-section-header-fast {
+    background-color: #1ABC9C;
+}
+
 .left {
     padding-left: 0.5rem;
     text-align: left;
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.5rem;
+    font-weight: 900;
 }
 
 .right {
     padding-right: 0.5rem;
     float: right;
 }
+
+.queue-section-header {
+    padding: 0.75rem;
+}
+
+.queue-section-content {
+    padding: 0.75rem;
+}
+
+/* .queue-section-fast {
+    background-color: #1ABC9C;
+}
+
+.queue-section-normal {
+    background-color: #3498DB;
+} */

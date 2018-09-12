@@ -7,10 +7,18 @@
     width:100%;
     font-size: 1.5rem;
     font-weight: 700;
-    /* padding: 0.75rem; */
+    padding: 0.75rem;
     display: block;
 }
 
+.queue-section {
+    color: white;
+    width:100%;
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 0;
+    display: block;
+}
 
 .queue-header-fast {
     background-color: #16A085;
@@ -18,14 +26,6 @@
 
 .queue-header-normal {
     background-color: #2980B9;
-}
-
-.queue-section-fast {
-    background-color: #1ABC9C;
-}
-
-.queue-section-normal {
-    background-color: #3498DB;
 }
 
 .queue-header .left {
