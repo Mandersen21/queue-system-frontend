@@ -4,17 +4,26 @@
             <span class="left">Patient ID</span>
             <span class="right">Prioritet</span>
         </div>
+        <div class="queue-header col-md-12" [ngClass]="{'queue-section-normal': !isFasttrack(queueType), 'queue-section-fast': isFasttrack(queueType)}">
+            <app-queue-section></app-queue-section>
+        </div>
     </div>
     <div class="col-md-4">
         <div class="queue-header col-md-12" [ngClass]="{'queue-header-normal': !isFasttrack(queueType), 'queue-header-fast': isFasttrack(queueType)}">
             <span class="left">Patient ID</span>
             <span class="right">Prioritet</span>
         </div>
+        <div class="queue-header col-md-12" [ngClass]="{'queue-section-normal': !isFasttrack(queueType), 'queue-section-fast': isFasttrack(queueType)}">
+            <app-queue-section></app-queue-section>
+        </div>
     </div>
     <div class="col-md-4">
         <div class="col-md-12 queue-header" [ngClass]="{'queue-header-normal': !isFasttrack(queueType), 'queue-header-fast': isFasttrack(queueType)}">
             <span class="left">Patient ID</span>
             <span class="right">Prioritet</span>
+        </div>
+        <div class="queue-header col-md-12" [ngClass]="{'queue-section-normal': !isFasttrack(queueType), 'queue-section-fast': isFasttrack(queueType)}">
+            <app-queue-section></app-queue-section>
         </div>
     </div>
 </div>

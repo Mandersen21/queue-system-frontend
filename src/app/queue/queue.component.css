@@ -1,7 +1,5 @@
 .queue-container {
     border: 1px solid #47525E;
-    font-size: 1.5rem;
-    /* background-color: #2980B9 !important; */
 }
 
 .queue-header {
@@ -10,8 +8,10 @@
     font-size: 1.5rem;
     font-weight: 700;
     padding: 0.75rem;
+    /* border: 1px solid #dfe4ea; */
     display: block;
 }
+
 
 .queue-header-fast {
     background-color: #16A085;
@@ -19,6 +19,14 @@
 
 .queue-header-normal {
     background-color: #2980B9;
+}
+
+.queue-section-fast {
+    background-color: #1ABC9C;
+}
+
+.queue-section-normal {
+    background-color: #3498DB;
 }
 
 .queue-header .left {
