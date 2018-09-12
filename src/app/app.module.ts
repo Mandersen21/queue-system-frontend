@@ -18,6 +18,7 @@ import { TestComponent } from './test/test.component';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { TriageComponent } from './triage/triage.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AppRoutingModule } from './/app-routing.module';
     UserProfileComponent,
     TestComponent,
     HeaderComponent,
-    ContentComponent
+    ContentComponent,
+    TriageComponent
   ],
   imports: [
     BrowserModule,
