@@ -9,6 +9,12 @@ export class QueueComponent implements OnInit {
 
   @Input() queueType: QueueType;
 
+  // Patient Queue
+  patientQueue: Array<IPatient>;
+
+  // Queues
+  queue: Array<IQueue>;
+
   get smallTime(): string {
     return SectionTime.SMALL;
   }
@@ -26,7 +32,8 @@ export class QueueComponent implements OnInit {
   }
 
   constructor() {
-
+    this.patientQueue = this.getPatients();
+    this.queue = this.getQueue();
   }
 
   ngOnInit() {
@@ -37,6 +44,52 @@ export class QueueComponent implements OnInit {
     return queueType === QueueType.FAST ? true : false;
   }
 
+  private getPatients(): IPatient[] {
+    return [
+      { id: 'HJ54DF', priority: Triage.IMMEDIATE, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.VERY_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
+      { id: 'HJ54DF', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
+    ]
+  }
+
+  private getQueue(): IQueue[] {
+    return [
+      {
+        rows: [
+          { id: 'Under 30 min', priority: null },
+          { id: 'HJ54DF', priority: Triage.STANDARD },
+          { id: 'JK54DS', priority: Triage.STANDARD },
+          { id: 'Fra 30 til 60 min', priority: null },
+          { id: 'HJ54DF', priority: Triage.STANDARD },
+        ]
+      },
+      {
+        rows: [
+          { id: 'Fra 30 til 60 min', priority: null },
+          { id: 'HJ54DF', priority: Triage.STANDARD },
+          { id: 'JK54DS', priority: Triage.STANDARD }
+        ]
+      },
+      {
+        rows: [
+          { id: 'Fra 60 til 120 min', priority: null },
+          { id: 'HJ54DF', priority: Triage.STANDARD },
+          { id: 'JK54DS', priority: Triage.STANDARD }
+        ]
+      }
+    ]
+  }
 }
 
 export enum QueueType {
@@ -50,3 +103,30 @@ export enum SectionTime {
   MEDIUM_HIGH = "Fra 60 til 120 min",
   HIGH = "Fra 120 min"
 }
+
+export enum Triage {
+  IMMEDIATE = 1,
+  VERY_URGENT = 2,
+  URGENT = 3,
+  STANDARD = 4,
+  NON_URGENT = 5
+}
+
+export interface IPatient {
+  id: string,
+  priority: Triage,
+  waitingTime: Date,
+  registredTime: Date,
+  name: string,
+}
+
+export interface IQueue {
+  rows: Array<IQueueRow>,
+}
+
+export interface IQueueRow {
+  id: string,
+  priority?: Triage
+}
+
+

@@ -11,13 +11,12 @@ export class QueueSectionComponent implements OnInit {
   @Input() queueType: QueueType;
   @Input() sectionTime: SectionTime;
 
-  public patients = ['Patient 1', 'Patient 2'];
+  public patients = [{PatientID: "", priority: 2}, 'Patient 2'];
 
   constructor() { }
 
   ngOnInit() {
-    console.log("queueType in section component:", this.queueType)
-    console.log("sectionTme in section component:", this.sectionTime)
+    
   }
 
   public isFasttrack(queueType: QueueType) {
