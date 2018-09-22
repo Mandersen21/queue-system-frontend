@@ -1,22 +1,21 @@
 
 .navbar {
-    min-height: 80px;
-    background-color: #2C3E50;
+    min-height: 60px;
+    background-color: white;
 }
   
 .navbar-brand {
     padding: 0 15px;
-    height: 80px;
-    line-height: 80px;
+    height: 60px;
+    line-height: 60px;
     font-family: 'Lato', sans-serif;
-    color: white;
+    color: #515151;
     font-size: 2rem;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 .navbar-brand:hover {
-    color: white;
-    
+    color: #515151; 
 }
 
 .navbar .navbar-brand .header {
@@ -24,17 +23,21 @@
 }
   
 .navbar .navbar-brand img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     margin-top: -5px;
+}
+
+.navbar-default {
+    border: none;
 }
 
   @media (min-width: 768px) {
     .navbar-nav > li > a {
       /* (80px - line-height of 27px) / 2 = 26.5px */
-      padding-top: 26.5px;
-      padding-bottom: 26.5px;
-      line-height: 27px;
+      /* padding-top: 26.5px; */
+      /* padding-bottom: 26.5px; */
+      /* line-height: 27px; */
     }
   }
 

@@ -1,41 +1,48 @@
 <div *ngIf="queueType" class="row">
-    <div *ngIf="queueType == 2" class="col-md-4"></div>
-    <div *ngIf="queueType == 1" class="col-md-4">
+    <div class="col-md-3">
         <div class="queue">
-            <div class="col-md-12 queue-header" [ngClass]="{'queue-header-normal': !isFasttrack(queueType), 'queue-header-fast': isFasttrack(queueType)}">
+            <div class="queue-header">
                 <span class="left">Patient ID</span>
                 <span class="right">Prioritet</span>
             </div>
-            <div class="col-md-12 queue-section">
-                <app-queue-section [sectionTime]="smallTime" [queueType]="queueType"></app-queue-section>
-                <app-queue-section [sectionTime]="mediumTime" [queueType]="queueType"></app-queue-section>
-                <!-- <app-queue-section [sectionTime]="mediumHighTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="highTime" [queueType]="queueType"></app-queue-section> -->
+            <div>
+                <app-queue-section [sectionTime]="smallTime"></app-queue-section>
+                <app-queue-section [sectionTime]="mediumTime"></app-queue-section>
+                <app-queue-section [sectionTime]="highTime"></app-queue-section>
             </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="col-md-12 queue-header" [ngClass]="{'queue-header-normal': !isFasttrack(queueType), 'queue-header-fast': isFasttrack(queueType)}">
-            <span class="left">Patient ID</span>
-            <span class="right">Prioritet</span>
-        </div>
-        <div class="col-md-12 queue-section">
-            <app-queue-section [sectionTime]="smallTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="mediumTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="mediumHighTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="highTime" [queueType]="queueType"></app-queue-section>
+    <div class="col-md-3">
+        <div class="queue">
+            <div class="queue-header">
+                <span class="left">Patient ID</span>
+                <span class="right">Prioritet</span>
+            </div>
+            <div>
+               
+            </div>
         </div>
     </div>
-    <div class="col-md-4">
-        <div class="col-md-12 queue-header" [ngClass]="{'queue-header-normal': !isFasttrack(queueType), 'queue-header-fast': isFasttrack(queueType)}">
-            <span class="left">Patient ID</span>
-            <span class="right">Prioritet</span>
+    <div class="col-md-3">
+        <div class="queue">
+            <div class="queue-header">
+                <span class="left">Patient ID</span>
+                <span class="right">Prioritet</span>
+            </div>
+            <div>
+               
+            </div>
         </div>
-        <div class="col-md-12 queue-section">
-            <app-queue-section [sectionTime]="smallTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="mediumTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="mediumHighTime" [queueType]="queueType"></app-queue-section>
-            <app-queue-section [sectionTime]="highTime" [queueType]="queueType"></app-queue-section>
+    </div>
+    <div class="col-md-3">
+        <div class="queue">
+            <div class="queue-header">
+                <span class="left">Patient ID</span>
+                <span class="right">Prioritet</span>
+            </div>
+            <div>
+
+            </div>
         </div>
     </div>
 </div>

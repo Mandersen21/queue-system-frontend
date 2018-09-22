@@ -1,35 +1,22 @@
-.queue-section-header-normal {
-    background-color: #3498DB;
-}
-
-.queue-section-header-fast {
+.queue-section-header {
     background-color: #1ABC9C;
 }
 
-.left {
-    /* padding-left: 0.5rem; */
-    /* text-align: left; */
+.queue-section {
+    color: white;
+    width:100%;
     font-size: 1.5rem;
     font-weight: 700;
+    display: block;
+    padding: 1rem;
 }
 
-.right {
-    /* padding-right: 0.5rem; */
+.queue-section .left {
+    padding-left: 0.5rem;
+    text-align: left;
+}
+
+.queue-section .right {
+    padding-right: 0.5rem;
     float: right;
 }
-
-.queue-section-header {
-    /* padding: 0.75rem; */
-}
-
-.queue-section-content {
-    /* padding: 0.75rem; */
-}
-
-/* .queue-section-fast {
-    background-color: #1ABC9C;
-}
-
-.queue-section-normal {
-    background-color: #3498DB;
-} */
