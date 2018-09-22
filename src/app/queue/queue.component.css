@@ -13,7 +13,8 @@
 
 .queue {
     background-color: rgb(182, 182, 182);
-    min-height: 40rem;
+    min-height: 48rem;
+    /* border: 1px solid rgba(217, 217, 217, .5) */
 }
 
 .queue-header {
