@@ -13,7 +13,7 @@
 
 .queue {
     background-color: rgb(229, 229, 229);
-    /* height: 42rem; */
+    max-height: 42rem;
     border: 1px solid #efefef;
     overflow: hidden;
 }

@@ -65,3 +65,30 @@ body {
         float: left;
     }
 }
+
+ul.list-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    grid-column-gap:1em;
+    grid-auto-flow: column;
+}
+
+ul.header-group {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    grid-column-gap: 1em;
+    grid-auto-flow: column;
+    padding: 0;
+}
+
+.list-special .list-group-item:first-child {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+  
+.list-special .list-group-item:last-child {
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}

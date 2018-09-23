@@ -1,3 +1,23 @@
 .content-container {
     
 }
+
+/* ul {
+  -moz-column-count: 4;
+  -moz-column-gap: 20px;
+  -webkit-column-count: 4;
+  -webkit-column-gap: 20px;
+  column-count: 3;
+  column-gap: 20px;
+  padding: 1rem;
+  background-color: red;
+} */
+
+ul.list-group {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-column-gap:1em;
+  grid-auto-flow: column;
+  border-radius: 0px;
+}
