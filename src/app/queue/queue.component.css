@@ -13,8 +13,9 @@
 
 .queue {
     background-color: rgb(229, 229, 229);
-    height: 48rem;
+    /* height: 42rem; */
     border: 1px solid #efefef;
+    overflow: hidden;
 }
 
 .queue-header {
