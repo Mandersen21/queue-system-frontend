@@ -11,7 +11,6 @@ import { AppComponent } from './app.component';
 import { DisclaimerComponent } from './disclaimer/disclaimer.component';
 import { QueueComponent } from './queue/queue.component';
 import { QueueRowComponent } from './queue-row/queue-row.component';
-import { QueueSectionComponent } from './queue-section/queue-section.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { TestComponent } from './test/test.component';
@@ -26,7 +25,6 @@ import { TriageComponent } from './triage/triage.component';
     DisclaimerComponent,
     QueueComponent,
     QueueRowComponent,
-    QueueSectionComponent,
     DashboardComponent,
     UserProfileComponent,
     TestComponent,
