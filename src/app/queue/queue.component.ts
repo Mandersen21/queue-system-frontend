@@ -48,6 +48,28 @@ export class QueueComponent implements OnInit {
     return queueType === QueueType.FAST ? true : false;
   }
 
+  public patients = [
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+  ];
+
   private getPatients(): IPatient[] {
     return [
       { id: 'HJ54DF', priority: Triage.IMMEDIATE, waitingTime: new Date(), registredTime: new Date(), name: '' },

@@ -1,11 +1,26 @@
 <div class="row">
     <div class="col-xs-12 mr-4">
         <ul class="header-group list-special">
-            <li class="list-group-item queue-header">Header Item</li>
-            <li class="list-group-item queue-header">Header Item</li>
-            <li class="list-group-item queue-header">Header Item</li>
-            <li class="list-group-item queue-header">Header Item</li>
-            <li class="list-group-item queue-header">Header Item</li>
+            <li class="list-group-item queue-header">
+                <span class="left">Patient nummer</span>
+                <span class="right">Prioritet</span>
+            </li>
+            <li class="list-group-item queue-header">
+                <span class="left">Patient nummer</span>
+                <span class="right">Prioritet</span>
+            </li>
+            <li class="list-group-item queue-header">
+                <span class="left">Patient nummer</span>
+                <span class="right">Prioritet</span>
+            </li>
+            <li class="list-group-item queue-header">
+                <span class="left">Patient nummer</span>
+                <span class="right">Prioritet</span>
+            </li>
+            <li class="list-group-item queue-header">
+                <span class="left">Patient nummer</span>
+                <span class="right">Prioritet</span>
+            </li>
         </ul>
     </div>
 </div>
@@ -13,77 +28,9 @@
 <div class="row">
     <div class="col-xs-12 mr-4">
         <ul class="list-group list-special">
-            <li class="list-group-item">List Item 1</li>
-            <li class="list-group-item">List Item 2</li>
-            <li class="list-group-item">List Item 3</li>
-            <li class="list-group-item">List Item 4</li>
-            <li class="list-group-item">List Item 5</li>
-            <li class="list-group-item">List Item 6</li>
-            <li class="list-group-item">List Item 7</li>
-            <li class="list-group-item">List Item 8</li>
-            <li class="list-group-item">List Item 9</li>
-            <li class="list-group-item">List Item 10</li>
-            <li class="list-group-item">List Item 11</li>
-            <li class="list-group-item">List Item 12</li>
-            <li class="list-group-item">List Item 13</li>
-            <li class="list-group-item">List Item 14</li>
-            <li class="list-group-item">List Item 15</li>
-            <li class="list-group-item">List Item 16</li>
-            <li class="list-group-item">List Item 17</li>
-            <li class="list-group-item">List Item 18</li>
-            <li class="list-group-item">List Item 19</li>
-            <li class="list-group-item">List Item 20</li>
-            <li class="list-group-item">List Item 21</li>
-            <li class="list-group-item">List Item 22</li>
-            <li class="list-group-item">List Item 23</li>
-            <li class="list-group-item">List Item 24</li>
-            <li class="list-group-item">List Item 25</li>
+            <li *ngFor="let patient of patients" class="list-group-item">
+                <app-queue-row></app-queue-row>
+            </li>
         </ul>
     </div>
 </div>
-
-
-
-<!-- <div class="col-md-5ths col-xs-6">
-            <div class="queue">
-                <div class="queue-header">
-                    <span class="left">Patient nummer</span>
-                    <span class="right">Prioritet</span>
-                </div>
-                <div>
-                    <app-queue-section [sectionTime]="smallTime"></app-queue-section>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5ths col-xs-6">
-            <div class="queue">
-                <div class="queue-header">
-                    <span class="left">Patient nummer</span>
-                    <span class="right">Prioritet</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5ths col-xs-6">
-            <div class="queue">
-                <div class="queue-header">
-                    <span class="left">Patient nummer</span>
-                    <span class="right">Prioritet</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5ths col-xs-6">
-            <div class="queue">
-                <div class="queue-header">
-                    <span class="left">Patient nummer</span>
-                    <span class="right">Prioritet</span>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-5ths col-xs-6">
-            <div class="queue">
-                <div class="queue-header">
-                    <span class="left">Patient nummer</span>
-                    <span class="right">Prioritet</span>
-                </div>
-            </div>
-        </div> -->
