@@ -9,9 +9,43 @@
 .queue-row .left {
     padding-left: 0.5rem;
     text-align: left;
+    font-weight: 700;
+    font-size: 1.6rem;
 }
 
 .queue-row .right {
     padding-right: 0.5rem;
     float: right;
+}
+
+.triage4 {
+    height: 30px;
+    width: 30px;
+    background-color: #2ECC71;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    position: absolute;
+    left: 15.5em;
+    top: 7px;
+}
+
+.triage5 {
+    height: 30px;
+    width: 30px;
+    background-color: #5BA7DB;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    font-weight: 900;
+    position: absolute;
+    left: 15.5em;
+    top: 7px;
+}
+
+.circle-number {
+    position: absolute;
+    top: 4px;
+    left: 10px;
 }

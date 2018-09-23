@@ -28,8 +28,8 @@
 <div class="row">
     <div class="col-xs-12 mr-4">
         <ul class="list-group list-special">
-            <li *ngFor="let patient of patients" class="list-group-item">
-                <app-queue-row></app-queue-row>
+            <li *ngFor="let patient of patientQueue" class="list-group-item">
+                <app-queue-row [id]="patient.id" [triage]="patient.priority"></app-queue-row>
             </li>
         </ul>
     </div>

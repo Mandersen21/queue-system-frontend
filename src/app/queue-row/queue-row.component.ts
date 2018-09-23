@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Triage } from 'src/app/queue/queue.component';
 
 @Component({
   selector: 'app-queue-row',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QueueRowComponent implements OnInit {
 
+  @Input() id: String
+  @Input() triage: Triage
+
   constructor() { }
 
   ngOnInit() {
+    
   }
 
 }
