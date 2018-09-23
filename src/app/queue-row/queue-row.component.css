@@ -6,6 +6,7 @@
     display: block;
     padding: 1rem;
     background-color: white;
+    border-top: 1px solid #efefef;
 }
 
 .queue-row .left {

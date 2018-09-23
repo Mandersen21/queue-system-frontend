@@ -11,7 +11,27 @@ export class QueueSectionComponent implements OnInit {
   @Input() queueType: QueueType;
   @Input() sectionTime: SectionTime;
 
-  public patients = [{PatientID: "", priority: 2}, 'Patient 2'];
+  public patients = [
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+    // { id: "Patient", priority: 4 },
+  ];
 
   constructor() { }
 

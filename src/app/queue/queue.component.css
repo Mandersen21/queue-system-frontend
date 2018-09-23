@@ -6,15 +6,15 @@
     color: white;
     width:100%;
     font-size: 1.5rem;
-    font-weight: 700;
+    font-weight: 900;
     display: block;
     padding: 1rem;
 }
 
 .queue {
-    background-color: rgb(182, 182, 182);
-    min-height: 48rem;
-    /* border: 1px solid rgba(217, 217, 217, .5) */
+    background-color: rgb(229, 229, 229);
+    height: 48rem;
+    border: 1px solid #efefef;
 }
 
 .queue-header {

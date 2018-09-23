@@ -31,6 +31,10 @@ export class QueueComponent implements OnInit {
     return SectionTime.HIGH;
   }
 
+  get veryHighTime(): string {
+    return SectionTime.VERY_HIGH;
+  }
+
   constructor() {
     this.patientQueue = this.getPatients();
     this.queue = this.getQueue();
@@ -98,10 +102,11 @@ export enum QueueType {
 }
 
 export enum SectionTime {
-  SMALL = "Under 30 min",
-  MEDIUM = "Fra 30 til 60 min",
-  MEDIUM_HIGH = "Fra 60 til 120 min",
-  HIGH = "Fra 120 min"
+  SMALL = "Under 30 minutter",
+  MEDIUM = "Ca. 30 - 60 minutter",
+  MEDIUM_HIGH = "Ca. 60 - 120 minutter",
+  HIGH = "Ca. 120 - 180 minutter",
+  VERY_HIGH = "Fra 180 minutter"
 }
 
 export enum Triage {
