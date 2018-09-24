@@ -74,6 +74,20 @@ ul.list-group {
     grid-auto-flow: column;
 }
 
+/* Desktops and laptops ----------- */
+@media only screen  and (min-width : 1224px) {
+    ul.list-group {
+        grid-template-rows: repeat(12, 1fr) !important;
+    }
+    }
+    
+ /* Large screens ----------- */
+ @media only screen  and (min-width : 1824px) {
+    ul.list-group {
+        grid-template-rows: repeat(20, 1fr) !important;
+    }
+ }
+
 ul.header-group {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
