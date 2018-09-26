@@ -9,9 +9,14 @@
     font-family: 'Lato', sans-serif;
     font-size: 2rem;
     color: #47525E;
+    
 }
 
-.navbar .navbar-triage .header {
+.navbar-triage:hover { 
+    text-decoration: none
+}
+
+.navbar .navbar-triage .triage {
     padding-left: 1rem;
     padding-right: 1rem;
 }
