@@ -1,4 +1,28 @@
-.content-triage {
-    text-align: center;
-    display: block;
+.navbar {
+    min-height: 50px;
+}
+  
+.navbar-triage {
+    padding: 0 15px;
+    height: 60px;
+    line-height: 60px;
+    font-family: 'Lato', sans-serif;
+    font-size: 2rem;
+    color: #47525E;
+}
+
+.navbar .navbar-triage .header {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+  
+.navbar .navbar-triage img {
+    width: 25px;
+    height: 25px;
+    margin-top: -5px;
+    margin-left: 0.2rem;
+}
+
+.navbar-default {
+    border: none;
 }
