@@ -7,10 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  // value = new Date()
+
+  toggle = false;
 
   constructor() {
-    console.log("Constructor")
-    // this.value = new Date()
+
+  }
+
+  public handleClick() {
+    console.log("Handle click:", this.toggle)
+    this.toggle = !this.toggle
   }
 }
