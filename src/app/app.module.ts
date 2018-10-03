@@ -13,7 +13,6 @@ import { QueueComponent } from './queue/queue.component';
 import { QueueRowComponent } from './queue-row/queue-row.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
-import { TestComponent } from './test/test.component';
 import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { AppRoutingModule } from './/app-routing.module';
@@ -29,7 +28,6 @@ import { ClockComponent } from './clock/clock.component';
     QueueRowComponent,
     DashboardComponent,
     UserProfileComponent,
-    TestComponent,
     HeaderComponent,
     ContentComponent,
     TriageComponent,
