@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { QueueService } from 'src/app/queue/queue.service';
 
 @Component({
   selector: 'app-queue',
@@ -35,8 +36,9 @@ export class QueueComponent implements OnInit {
     return SectionTime.VERY_HIGH;
   }
 
-  constructor() {
-    this.patientQueue = this.getPatients();
+  constructor(queueService: QueueService) {
+    this.patientQueue = queueService.getPatients()
+    // this.patientQueue = this.getPatients();
     this.queue = this.getQueue();
   }
 
