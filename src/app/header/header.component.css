@@ -18,21 +18,6 @@
     color: white; 
 }
 
-.navbar .navbar-brand .header {
-    padding-left: 1.5rem;
-}
-
-.navbar .navbar-brand .em {
-    padding-left: 1.5rem;
-    font-size: 1.8rem;
-}
-  
-.navbar .navbar-brand .em img {
-    width: 45px;
-    height: 45px;
-    margin-top: -5px;
-}
-
 .navbar .navbar-brand img {
     width: 30px;
     height: 30px;
@@ -51,8 +36,3 @@
       /* line-height: 27px; */
     }
   }
-
-.navbar .navbar-brand .clock {
-    text-align: right !important;
-    font-size: 2.7rem;
-}

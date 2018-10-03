@@ -18,6 +18,8 @@ import { HeaderComponent } from './header/header.component';
 import { ContentComponent } from './content/content.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { TriageComponent } from './triage/triage.component';
+import { AcuteComponent } from './acute/acute.component';
+import { ClockComponent } from './clock/clock.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { TriageComponent } from './triage/triage.component';
     TestComponent,
     HeaderComponent,
     ContentComponent,
-    TriageComponent
+    TriageComponent,
+    AcuteComponent,
+    ClockComponent
   ],
   imports: [
     BrowserModule,

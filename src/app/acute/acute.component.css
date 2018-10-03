@@ -1,0 +1,14 @@
+.em {
+    padding-left: 1.5rem;
+    font-size: 1.8rem;
+}
+  
+.em img {
+    width: 45px;
+    height: 45px;
+    margin-top: -5px;
+}
+
+.acute {
+    color: #c0392b;
+}
