@@ -13,7 +13,7 @@ export class QueueComponent implements OnInit {
   // Patient Queue
   patientQueue: Array<IPatient>;
 
-  // Queues
+  // Queue
   queue: Array<IQueue>;
 
   get smallTime(): string {
@@ -37,8 +37,14 @@ export class QueueComponent implements OnInit {
   }
 
   constructor(queueService: QueueService) {
-    this.patientQueue = queueService.getPatients()
-    // this.patientQueue = this.getPatients();
+    
+    // Get queue data
+    queueService.getPatients().subscribe(
+      data => { this.patientQueue = data },
+      err => console.error(err),
+      () => console.log(this.patientQueue)
+    );
+
     this.queue = this.getQueue();
   }
 
@@ -48,37 +54,6 @@ export class QueueComponent implements OnInit {
 
   public isFasttrack(queueType: QueueType) {
     return queueType === QueueType.FAST ? true : false;
-  }
-
-  private getPatients(): IPatient[] {
-    return [
-      { id: 'AA01', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA02', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA03', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA04', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA05', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA06', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA07', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA08', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA09', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA10', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA11', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA12', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA13', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA14', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA14', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA16', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA17', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA18', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA19', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA20', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA21', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA22', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA23', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA24', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA25', priority: Triage.STANDARD, waitingTime: new Date(), registredTime: new Date(), name: '' },
-      { id: 'AA26', priority: Triage.NON_URGENT, waitingTime: new Date(), registredTime: new Date(), name: '' },
-    ]
   }
 
   private getQueue(): IQueue[] {

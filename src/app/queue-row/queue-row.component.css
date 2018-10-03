@@ -1,16 +1,16 @@
 .queue-row {
     color: #515151;
     width:100%;
-    font-size: 1.5rem;
     font-weight: 700;
-    display: block;
+    font-size: 1.7rem;
+    padding: none !important;
 }
 
 .queue-row .left {
     padding-left: 0.5rem;
     text-align: left;
     font-weight: 700;
-    font-size: 1.6rem;
+    color: black;
 }
 
 .queue-row .right {
@@ -18,34 +18,53 @@
     float: right;
 }
 
-.triage4 {
+.triage1 {
+    position: absolute;
+    content:url('../../assets/images/1.png');
+    width: 35px;
     height: 30px;
-    width: 30px;
-    background-color: #2ECC71;
-    border-radius: 50%;
-    text-align: center;
-    color: white;
-    font-weight: 900;
-    /* position: absolute; */
-    left: 15.5em;
-    top: 7px;
+    margin: auto;
+    top: 0; bottom: 0; right: 10px;
+}
+
+.triage2 {
+    position: absolute;
+    content:url('../../assets/images/2.png');
+    width: 35px;
+    height: 30px;
+    margin: auto;
+    top: 0; bottom: 0; right: 10px;
+}
+
+.triage3 {
+    position: absolute;
+    content:url('../../assets/images/3.png');
+    width: 35px;
+    height: 30px;
+    margin: auto;
+    top: 0; bottom: 0; right: 10px;
+}
+
+.triage4 {
+    position: absolute;
+    content:url('../../assets/images/4.png');
+    width: 35px;
+    height: 30px;
+    margin: auto;
+    top: 0; bottom: 0; right: 10px;
 }
 
 .triage5 {
+    position: absolute;
+    content:url('../../assets/images/5.png');
+    width: 35px;
     height: 30px;
-    width: 30px;
-    background-color: #5BA7DB;
-    border-radius: 50%;
-    text-align: center;
-    color: white;
-    font-weight: 900;
-    /* position: absolute; */
-    left: 15.5em;
-    top: 7px;
+    margin: auto;
+    top: 0; bottom: 0; right: 10px;
 }
 
-.circle-number {
+/* .circle-number {
     position: absolute;
     top: 4px;
     left: 10px;
-}
+} */
