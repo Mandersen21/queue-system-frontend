@@ -11,10 +11,12 @@ export class QueueRowComponent implements OnInit {
   @Input() id: string
   @Input() patientId: String
   @Input() triage: Triage
+  @Input() baby: boolean;
 
   constructor() { }
 
   ngOnInit() {
+    console.log(this.baby)
   }
 
 }

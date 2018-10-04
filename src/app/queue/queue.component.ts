@@ -14,6 +14,8 @@ export class QueueComponent implements OnInit {
   standardPatients: Array<IQueueRow> = [];
   nonUrgentPatientQueue: Array<IQueueRow> = [];
 
+  sectionTimes: Array<SectionTime> = []
+
   get smallTime(): string {
     return SectionTime.SMALL;
   }
@@ -36,11 +38,18 @@ export class QueueComponent implements OnInit {
 
   constructor(queueService: QueueService) {
 
-    // Get patients from backend
+    // SectionTimes in from small to high
+    this.sectionTimes.push(SectionTime.SMALL)
+    this.sectionTimes.push(SectionTime.MEDIUM)
+    this.sectionTimes.push(SectionTime.MEDIUM_HIGH)
+    this.sectionTimes.push(SectionTime.HIGH)
+    this.sectionTimes.push(SectionTime.VERY_HIGH)
+
+    // Get patients from backend via service
     queueService.getPatients().subscribe(
       data => { this.patientQueue = data },
       err => console.error(err),
-      () => this.sortPatients() // Sort patients after received data
+      () => this.sortPatients()
     )
   }
 
@@ -48,51 +57,31 @@ export class QueueComponent implements OnInit {
 
   }
 
-  // TODO: Do this a little nicer
   private sortPatients() {
+    this.sectionTimes.forEach(time => {
+      this.pushPatientsToArray(time)
+    });
+  }
 
-    // Add time at start
-    this.patientQueueSorted.push({ id: SectionTime.SMALL })
+  // TODO: Add if statements based on waiting times
+  private pushPatientsToArray(sectionTime: SectionTime) {
+    
+    // Add section time to patient sorted array
+    this.patientQueueSorted.push({ id: sectionTime })
 
+    // Add patients to patient sorted array
     this.patientQueue.forEach(p => {
-      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
+      this.patientQueueSorted.push({
+        id: p.id,
+        patientId: p.patientInitials,
+        baby: p.age < 4 ? true : false,
+        decreased: false,
+        increased: false,
+        triage: p.triage
+      })
     })
-
-    // Add next time
-    this.patientQueueSorted.push({ id: SectionTime.MEDIUM })
-
-    this.patientQueue.forEach(p => {
-      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
-    })
-
-    // Add next time
-    this.patientQueueSorted.push({ id: SectionTime.MEDIUM_HIGH })
-
-    this.patientQueue.forEach(p => {
-      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
-    })
-
-    // Add next time
-    this.patientQueueSorted.push({ id: SectionTime.HIGH })
-
-    this.patientQueue.forEach(p => {
-      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
-    })
-
-    this.patientQueueSorted.forEach(patient => {
-      if (patient.triage === 4) {
-        this.standardPatients.push(patient)
-      }
-  
-      if (patient.triage === Triage.NON_URGENT) {
-        this.nonUrgentPatientQueue.push(patient)
-      }
-    })
-
-    // Add patient numbers
-    this.standardPatients.forEach(function (p, i) {
-      console.log(p)
-    })
+    console.log(this.patientQueue)
+    // console.log(this.patientQueueSorted)
   }
 
 }
