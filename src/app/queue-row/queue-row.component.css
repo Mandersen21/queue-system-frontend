@@ -29,16 +29,23 @@
 .baby {
     position: absolute;
     content:url('../../assets/images/baby.png');
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     margin: auto;
-    top: 0; bottom: 0; right: 70px;
+    top: 0; bottom: 0; right: 80px;
+}
+
+.baby:after
+{  /*this for firefox browser*/
+    position: absolute;
+    content: url('../../assets/images/crying-baby.png');
+    top: 0; bottom: 0; right: 40px;
 }
 
 .triage1 {
     position: absolute;
     content:url('../../assets/images/1.png');
-    width: 35px;
+    width: 37px;
     height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 30px;
@@ -47,7 +54,7 @@
 .triage2 {
     position: absolute;
     content:url('../../assets/images/2.png');
-    width: 35px;
+    width: 37px;
     height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 30px;
@@ -56,7 +63,7 @@
 .triage3 {
     position: absolute;
     content:url('../../assets/images/3.png');
-    width: 35px;
+    width: 37px;
     height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 30px;
@@ -65,18 +72,33 @@
 .triage4 {
     position: absolute;
     content:url('../../assets/images/4.png');
-    width: 35px;
+    width: 37px;
     height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 30px;
 }
 
+.triage4:after
+{  /*this for firefox browser*/
+    position: absolute;
+    /* content: url('../../assets/images/4.png'); */
+    top: 0; bottom: 0; right: 20px;
+}
+
 .triage5 {
     position: absolute;
     content:url('../../assets/images/5.png');
-    width: 35px;
+    width: 37px;
     height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 30px;
+}
+
+.triage5:after
+{  /*this for firefox browser*/
+    position: absolute;
+    /* content: url('../../assets/images/5.png'); */
+    /* transform: scale(.09); */
+    top: 0; bottom: 0; right: 20px;
 }
 

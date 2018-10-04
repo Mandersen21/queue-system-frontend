@@ -80,8 +80,6 @@ export class QueueComponent implements OnInit {
         triage: p.triage
       })
     })
-    console.log(this.patientQueue)
-    // console.log(this.patientQueueSorted)
   }
 
 }
