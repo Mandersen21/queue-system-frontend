@@ -8,9 +8,11 @@ import { QueueService } from 'src/app/queue/queue.service';
 })
 export class QueueComponent implements OnInit {
 
-  // Patient Queue
+  // Patient Queues
   patientQueue: Array<IPatient>;
   patientQueueSorted: Array<IQueueRow> = [];
+  standardPatients: Array<IQueueRow> = [];
+  nonUrgentPatientQueue: Array<IQueueRow> = [];
 
   get smallTime(): string {
     return SectionTime.SMALL;
@@ -75,6 +77,21 @@ export class QueueComponent implements OnInit {
 
     this.patientQueue.forEach(p => {
       this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
+    })
+
+    this.patientQueueSorted.forEach(patient => {
+      if (patient.triage === 4) {
+        this.standardPatients.push(patient)
+      }
+  
+      if (patient.triage === Triage.NON_URGENT) {
+        this.nonUrgentPatientQueue.push(patient)
+      }
+    })
+
+    // Add patient numbers
+    this.standardPatients.forEach(function (p, i) {
+      console.log(p)
     })
   }
 
