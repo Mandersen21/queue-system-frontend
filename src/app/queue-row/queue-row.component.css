@@ -6,8 +6,12 @@
     padding: none !important;
 }
 
-.queue-row .time {
-    background-color: #1ABC9C !important;
+.queue-row .header {
+    color: white;
+    padding-left: 0.5rem;
+    width:100%;
+    font-size: 1.7rem;
+    font-weight: 700;
 }
 
 .queue-row .left {

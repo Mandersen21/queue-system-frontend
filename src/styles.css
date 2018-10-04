@@ -46,12 +46,12 @@ ul.list-group {
     ul.list-group {
         grid-template-rows: repeat(12, 1fr) !important;
     }
-    }
+}
     
  /* Large screens ----------- */
  @media only screen  and (min-width : 1824px) {
     ul.list-group {
-        grid-template-rows: repeat(20, 1fr) !important;
+        grid-template-rows: repeat(15, 1fr) !important;
     }
  }
 

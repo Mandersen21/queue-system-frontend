@@ -20,6 +20,12 @@
     position: relative;
 }
 
+.list-header-item {
+    /* position: relative; */
+    background-color: #1ABC9C;
+    color: white !important;
+}
+
 .queue-header {
     background-color: #16A085;
 }

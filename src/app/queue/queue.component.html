@@ -28,7 +28,7 @@
 <div class="row">
     <div class="col-xs-12 mr-4">
         <ul class="list-group list-special">
-            <li *ngFor="let row of patientQueueSorted" class="list-group-item">
+            <li *ngFor="let row of patientQueueSorted" [ngClass]="{'list-group-item': row.id, 'list-header-item': !row.patientId}">
                 <app-queue-row [id]="row.id" [patientId]="row.patientId" [triage]="row.triage"></app-queue-row>
             </li>
         </ul>
