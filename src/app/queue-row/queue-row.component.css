@@ -24,7 +24,7 @@
     width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 10px;
+    top: 0; bottom: 0; right: 30px;
 }
 
 .triage2 {
@@ -33,7 +33,7 @@
     width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 10px;
+    top: 0; bottom: 0; right: 30px;
 }
 
 .triage3 {
@@ -42,7 +42,7 @@
     width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 10px;
+    top: 0; bottom: 0; right: 30px;
 }
 
 .triage4 {
@@ -51,7 +51,7 @@
     width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 10px;
+    top: 0; bottom: 0; right: 30px;
 }
 
 .triage5 {
@@ -60,11 +60,5 @@
     width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 10px;
+    top: 0; bottom: 0; right: 30px;
 }
-
-/* .circle-number {
-    position: absolute;
-    top: 4px;
-    left: 10px;
-} */
