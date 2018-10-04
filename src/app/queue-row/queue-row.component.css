@@ -6,6 +6,10 @@
     padding: none !important;
 }
 
+.queue-row .time {
+    background-color: #1ABC9C !important;
+}
+
 .queue-row .left {
     padding-left: 0.5rem;
     text-align: left;
@@ -62,3 +66,4 @@
     margin: auto;
     top: 0; bottom: 0; right: 30px;
 }
+

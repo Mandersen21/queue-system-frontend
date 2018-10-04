@@ -8,13 +8,9 @@ import { QueueService } from 'src/app/queue/queue.service';
 })
 export class QueueComponent implements OnInit {
 
-  @Input() queueType: QueueType;
-
   // Patient Queue
   patientQueue: Array<IPatient>;
-
-  // Queue
-  queue: Array<IQueue>;
+  patientQueueSorted: Array<IQueueRow> = [];
 
   get smallTime(): string {
     return SectionTime.SMALL;
@@ -37,57 +33,51 @@ export class QueueComponent implements OnInit {
   }
 
   constructor(queueService: QueueService) {
-    
-    // Get queue data
+
+    // Get patients from backend
     queueService.getPatients().subscribe(
       data => { this.patientQueue = data },
       err => console.error(err),
-      () => console.log(this.patientQueue)
-    );
-
-    this.queue = this.getQueue();
+      () => this.sortPatients() // Sort patients after received data
+    )
   }
 
   ngOnInit() {
 
   }
 
-  public isFasttrack(queueType: QueueType) {
-    return queueType === QueueType.FAST ? true : false;
+  // TODO: Do this a little nicer
+  private sortPatients() {
+
+    // Add time at start
+    this.patientQueueSorted.push({ id: SectionTime.SMALL })
+
+    this.patientQueue.forEach(p => {
+      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
+    })
+
+    // Add next time
+    this.patientQueueSorted.push({ id: SectionTime.MEDIUM })
+
+    this.patientQueue.forEach(p => {
+      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
+    })
+
+    // Add next time
+    this.patientQueueSorted.push({ id: SectionTime.MEDIUM_HIGH })
+
+    this.patientQueue.forEach(p => {
+      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
+    })
+
+    // Add next time
+    this.patientQueueSorted.push({ id: SectionTime.HIGH })
+
+    this.patientQueue.forEach(p => {
+      this.patientQueueSorted.push({ id: p.id, patientId: p.patientInitials, baby: p.age > 4 ? true : false, decreased: false, increased: false, triage: p.triage })
+    })
   }
 
-  private getQueue(): IQueue[] {
-    return [
-      {
-        rows: [
-          { id: 'Under 30 min', priority: null },
-          { id: 'HJ54DF', priority: Triage.STANDARD },
-          { id: 'JK54DS', priority: Triage.STANDARD },
-          { id: 'Fra 30 til 60 min', priority: null },
-          { id: 'HJ54DF', priority: Triage.STANDARD },
-        ]
-      },
-      {
-        rows: [
-          { id: 'Fra 30 til 60 min', priority: null },
-          { id: 'HJ54DF', priority: Triage.STANDARD },
-          { id: 'JK54DS', priority: Triage.STANDARD }
-        ]
-      },
-      {
-        rows: [
-          { id: 'Fra 60 til 120 min', priority: null },
-          { id: 'HJ54DF', priority: Triage.STANDARD },
-          { id: 'JK54DS', priority: Triage.STANDARD }
-        ]
-      }
-    ]
-  }
-}
-
-export enum QueueType {
-  NORMAL = 1,
-  FAST = 2,
 }
 
 export enum SectionTime {
@@ -108,19 +98,19 @@ export enum Triage {
 
 export interface IPatient {
   id: string,
-  priority: Triage,
-  waitingTime: Date,
+  fullname: string,
+  age: number,
+  patientInitials: string,
+  triage: Triage,
   registredTime: Date,
-  name: string,
-}
-
-export interface IQueue {
-  rows: Array<IQueueRow>,
+  waitingTime: Date,
 }
 
 export interface IQueueRow {
   id: string,
-  priority?: Triage
+  patientId?: string,
+  decreased?: boolean,
+  increased?: boolean,
+  baby?: boolean,
+  triage?: Triage
 }
-
-

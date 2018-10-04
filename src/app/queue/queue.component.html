@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" *ngIf="patientQueueSorted">
     <div class="col-xs-12 mr-4">
         <ul class="header-group list-special">
             <li class="list-group-item queue-header">
@@ -28,8 +28,8 @@
 <div class="row">
     <div class="col-xs-12 mr-4">
         <ul class="list-group list-special">
-            <li *ngFor="let patient of patientQueue" class="list-group-item">
-                <app-queue-row [patientInitials]="patient.patientInitials" [triage]="patient.triage"></app-queue-row>
+            <li *ngFor="let row of patientQueueSorted" class="list-group-item">
+                <app-queue-row [id]="row.id" [patientId]="row.patientId" [triage]="row.triage"></app-queue-row>
             </li>
         </ul>
     </div>

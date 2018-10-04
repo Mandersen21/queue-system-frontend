@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { QueueType } from '../queue/queue.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +6,6 @@ import { QueueType } from '../queue/queue.component';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  public normalQueue: QueueType = QueueType.NORMAL;
-  public fastQueue: QueueType = QueueType.FAST;
 
   constructor() { 
     
