@@ -10,7 +10,6 @@
     border-top: 1px solid rgba(217, 217, 217, .5);
     text-align: center;
     padding-top: 0.5rem;
-    /* padding-bottom: 1rem; */
 }
 
 .footer .footer-text {
@@ -23,15 +22,15 @@
                 -o-transition: all 0.3s ease-in-out;
                 -ms-transition: all 0.3s ease-in-out;
     position:absolute;
-    -webkit-animation: anim 17.5s infinite;
-    animation: anim 17.5s infinite;
+    -webkit-animation: anim 25.5s infinite;
+    animation: anim 25.5s infinite;
     -webkit-animation-timing-function: linear; /* Chrome, Safari, Opera */
     animation-timing-function: linear;
 }
 
 @-webkit-keyframes anim {
     from {
-        right: -150%;
+        right: -300%;
     }
     to {
         right: 100%;
@@ -40,7 +39,7 @@
 
 @keyframes anim {
    from {
-         right: -150%;
+         right: -300%;
      }
      to {
          right: 100%;
