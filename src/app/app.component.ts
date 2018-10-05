@@ -13,9 +13,4 @@ export class AppComponent {
   constructor() {
 
   }
-
-  public handleClick() {
-    console.log("Handle click:", this.toggle)
-    this.toggle = !this.toggle
-  }
 }

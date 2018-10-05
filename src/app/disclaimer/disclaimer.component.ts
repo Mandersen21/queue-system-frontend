@@ -8,10 +8,14 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
   styleUrls: ['./disclaimer.component.css'],
   animations: [
     trigger('toggleState', [
-      state('true' , style({  })),
-      state('false', style({ maxHeight: 0, padding: 0, display: 'none' })),
-      // transition
-      transition('* => *', animate('3000ms')),
+      state('in', style({
+        transform: 'translate3d(0, 0, 0)'
+      })),
+      state('out', style({
+        transform: 'translate3d(0, 0, 200px)'
+      })),
+      transition('in => out', animate('400ms ease-in-out')),
+      transition('out => in', animate('400ms ease-in-out'))
     ])
   ],
 })
