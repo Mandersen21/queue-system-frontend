@@ -11,20 +11,21 @@ export class DisclaimerComponent implements OnInit {
 
   infoMessages: Array<IMessage> = [];
 
+  currentMessage: IMessage
+  @Input() errorMessage: IMessage
+
   constructor() {
-    this.infoMessages.push({
-      message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandle inden for rimelig tid.',
-      error: false
-    }, {
-      message: 'Ventetiden er forhøjet',
-      error: true
-    })
+
+    if (this.errorMessage) {
+      this.currentMessage = this.errorMessage;
+      this.currentMessage.error = true;
+    }
+    else {
+      this.currentMessage = {message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandling indenfor rimelig tid.', error: false}
+    }
   }
 
-  ngOnInit() {
-    
-  }
-
+  ngOnInit() {}
 }
 
 export interface IMessage {

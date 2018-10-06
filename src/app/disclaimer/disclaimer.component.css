@@ -3,6 +3,7 @@
     left: 0;
     bottom: 0;
     width: 100%;
+    /* display: block; */
     height: 7rem;
     display: inline-block;
     background-color: #fcfcfc;
@@ -28,8 +29,8 @@
     animation-timing-function: linear;
 }
 
-.footer .footer-text .text {
-    padding-right: 10rem;
+.footer .footer-text .error {
+    color: red !important;
 }
 
 @-webkit-keyframes anim {
