@@ -1,5 +1,6 @@
-<div class="footer">
-    <div class="footer-text">Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandle inden for rimelig tid.
+<div *ngIf="infoMessages.length > 0" class="footer">
+    <div class="footer-text" *ngFor="let m of infoMessages">
+        <span>{{m.message}}</span>
     </div>
     <div class="transparent_div"></div>
 </div>

@@ -6,26 +6,25 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
   selector: 'app-disclaimer',
   templateUrl: './disclaimer.component.html',
   styleUrls: ['./disclaimer.component.css'],
-  animations: [
-    trigger('toggleState', [
-      state('in', style({
-        transform: 'translate3d(0, 0, 0)'
-      })),
-      state('out', style({
-        transform: 'translate3d(0, 0, 200px)'
-      })),
-      transition('in => out', animate('400ms ease-in-out')),
-      transition('out => in', animate('400ms ease-in-out'))
-    ])
-  ],
 })
 export class DisclaimerComponent implements OnInit {
 
-  @Input() shouldToggle = false;
+  infoMessages: Array<IMessage> = [];
 
-  constructor() { }
-
-  ngOnInit() {
+  constructor() {
+    this.infoMessages.push({
+      message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandle inden for rimelig tid.',
+      error: false
+    })
   }
 
+  ngOnInit() {
+    
+  }
+
+}
+
+export interface IMessage {
+  message: string,
+  error: boolean,
 }
