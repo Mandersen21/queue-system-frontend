@@ -1,6 +1,7 @@
 <div *ngIf="infoMessages.length > 0" class="footer">
     <div class="footer-text" *ngFor="let m of infoMessages">
         <span>{{m.message}}</span>
+        <span class="text">-</span>
     </div>
     <div class="transparent_div"></div>
 </div>

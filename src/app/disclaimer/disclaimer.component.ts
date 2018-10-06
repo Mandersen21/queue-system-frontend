@@ -15,6 +15,9 @@ export class DisclaimerComponent implements OnInit {
     this.infoMessages.push({
       message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandle inden for rimelig tid.',
       error: false
+    }, {
+      message: 'Ventetiden er forhøjet',
+      error: true
     })
   }
 
