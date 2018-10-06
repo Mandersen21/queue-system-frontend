@@ -65,11 +65,12 @@ export class QueueComponent implements OnInit {
     // Add section time to patient sorted array
     this.patientQueueSorted.push({ id: sectionTime })
 
-    if (SectionTime.SMALL) {
+    if (sectionTime === SectionTime.SMALL) {
       // Add patients that has under 30 min left
       this.patientQueue.forEach(p => {
         this.patientQueueSorted.push({
           id: p.id,
+          position: p.position,
           patientId: p.patientInitials,
           baby: p.age < 4 ? true : false,
           decreased: false,
@@ -119,6 +120,7 @@ export interface IPatient {
   id: string,
   fullname: string,
   age: number,
+  position?: string,
   patientInitials: string,
   triage: Triage,
   registredTime: Date,
@@ -127,6 +129,7 @@ export interface IPatient {
 
 export interface IQueueRow {
   id: string,
+  position?: string,
   patientId?: string,
   decreased?: boolean,
   increased?: boolean,

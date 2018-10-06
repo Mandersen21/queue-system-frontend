@@ -9,6 +9,7 @@ import { Triage } from 'src/app/queue/queue.component';
 export class QueueRowComponent implements OnInit {
 
   @Input() id: string
+  @Input() position: string
   @Input() patientId: String
   @Input() triage: Triage
   @Input() baby: boolean;
@@ -16,7 +17,7 @@ export class QueueRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.baby)
+    
   }
 
 }
