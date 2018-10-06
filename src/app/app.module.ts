@@ -20,6 +20,7 @@ import { TriageComponent } from './triage/triage.component';
 import { AcuteComponent } from './acute/acute.component';
 import { ClockComponent } from './clock/clock.component';
 import { AdminComponent } from './admin/admin.component';
+import { InformationComponent } from './information/information.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { AdminComponent } from './admin/admin.component';
     TriageComponent,
     AcuteComponent,
     ClockComponent,
-    AdminComponent
+    AdminComponent,
+    InformationComponent
   ],
   imports: [
     BrowserModule,
