@@ -61,21 +61,40 @@ export class QueueComponent implements OnInit {
 
   // TODO: Add if statements based on waiting times
   private pushPatientsToArray(sectionTime: SectionTime) {
-    
+
     // Add section time to patient sorted array
     this.patientQueueSorted.push({ id: sectionTime })
 
-    // Add patients to patient sorted array
-    this.patientQueue.forEach(p => {
-      this.patientQueueSorted.push({
-        id: p.id,
-        patientId: p.patientInitials,
-        baby: p.age < 4 ? true : false,
-        decreased: false,
-        increased: false,
-        triage: p.triage
+    if (SectionTime.SMALL) {
+      // Add patients that has under 30 min left
+      this.patientQueue.forEach(p => {
+        this.patientQueueSorted.push({
+          id: p.id,
+          patientId: p.patientInitials,
+          baby: p.age < 4 ? true : false,
+          decreased: false,
+          increased: false,
+          triage: p.triage
+        })
       })
-    })
+    }
+
+    if (SectionTime.MEDIUM) {
+      // Add patients that has 30 - 60 min left
+    }
+
+    if (SectionTime.MEDIUM_HIGH) {
+      // Add patients that has 60 - 120 min left
+    }
+
+    if (SectionTime.HIGH) {
+      // Add patients that has 120 - 180 min left
+    }
+
+    if (SectionTime.VERY_HIGH) {
+      // Add patients that has Over 180 min left
+    }
+
   }
 
 }

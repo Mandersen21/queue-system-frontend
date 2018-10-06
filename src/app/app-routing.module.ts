@@ -5,13 +5,15 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'dashboard', component: DashboardComponent},
   { path: 'content', component: ContentComponent },
-  { path: 'user', component: UserProfileComponent }
+  { path: 'user', component: UserProfileComponent },
+  { path: 'admin', component: AdminComponent }
 ];
 
 @NgModule({
