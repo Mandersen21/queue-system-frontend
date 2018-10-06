@@ -8,7 +8,7 @@ import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
 
 // Components
 import { AppComponent } from './app.component';
-import { DisclaimerComponent } from './disclaimer/disclaimer.component';
+import { FooterComponent } from './footer/footer.component';
 import { QueueComponent } from './queue/queue.component';
 import { QueueRowComponent } from './queue-row/queue-row.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -24,7 +24,7 @@ import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
-    DisclaimerComponent,
+    FooterComponent,
     QueueComponent,
     QueueRowComponent,
     DashboardComponent,

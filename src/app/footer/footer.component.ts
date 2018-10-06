@@ -3,11 +3,11 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
 
 
 @Component({
-  selector: 'app-disclaimer',
-  templateUrl: './disclaimer.component.html',
-  styleUrls: ['./disclaimer.component.css'],
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css'],
 })
-export class DisclaimerComponent implements OnInit {
+export class FooterComponent implements OnInit {
 
   infoMessages: Array<IMessage> = [];
 
