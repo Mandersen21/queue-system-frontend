@@ -54,6 +54,12 @@ export class QueueComponent implements OnInit {
   }
 
   private sortPatients() {
+
+    // Sort patients positions
+    this.patientQueue.forEach(function(p, index) {
+      p.position = (index + 1).toString();
+    })
+
     this.sectionTimes.forEach(time => {
       this.pushPatientsToArray(time)
     });
@@ -80,20 +86,32 @@ export class QueueComponent implements OnInit {
       })
     }
 
-    if (SectionTime.MEDIUM) {
+    if (sectionTime === SectionTime.MEDIUM) {
       // Add patients that has 30 - 60 min left
+
+      // Add section time to patient sorted array
+      this.patientQueueSorted.push({ id: sectionTime })
     }
 
-    if (SectionTime.MEDIUM_HIGH) {
+    if (sectionTime === SectionTime.MEDIUM_HIGH) {
       // Add patients that has 60 - 120 min left
+
+      // Add section time to patient sorted array
+      this.patientQueueSorted.push({ id: sectionTime })
     }
 
-    if (SectionTime.HIGH) {
+    if (sectionTime === SectionTime.HIGH) {
       // Add patients that has 120 - 180 min left
+
+      // Add section time to patient sorted array
+      this.patientQueueSorted.push({ id: sectionTime })
     }
 
-    if (SectionTime.VERY_HIGH) {
+    if (sectionTime === SectionTime.VERY_HIGH) {
       // Add patients that has Over 180 min left
+
+      // Add section time to patient sorted array
+      this.patientQueueSorted.push({ id: sectionTime })
     }
 
   }
