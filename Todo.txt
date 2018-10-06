@@ -1,0 +1,27 @@
+MIKKEL - Sort based on waiting time (both registred time and waiting time needs to be taken into consideration)
+
+MADS - Add clock functionalty so it works.
+
+MIKKEL - Figure out how patient ID should look like, and sort accourding to that.
+
+MIKKEL - Add resource functionality, like QUEUE_HEADER and so on, so english can be enabled.
+
+MADS - Add green arrow in queue if time decreased and red arrow if time increased. note use Ngclass.
+
+BOTH - Figure out how animation/transition should look like when we change to information screen english screen and so on.
+
+MADS - Add functionality on admin component, so patient can be registred. Make a service with post methods and so on.
+
+MADS - Figure out if text is correct spelled both on danish and english.
+
+- Add functionality on information page. What should we show?
+
+- Add timer functionality to change between components on dashboard. (figure out if structure is correct or if we need a main dashboard component)
+
+- Add functionality to change timers settings on admin page.
+
+- Add functionality to fire an event if acute patient is coming in. (should work with header and footer component)
+
+- Add functionality to change the speed of footer text from admin page.
+
+- Add functionality so the list will update on any change to DB and every 3-5 minute.
