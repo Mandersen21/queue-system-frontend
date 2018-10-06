@@ -8,21 +8,24 @@
 
 .queue-row .header {
     color: white;
-    padding-left: 0.5rem;
     width:100%;
     font-size: 1.7rem;
     font-weight: 700;
 }
 
 .queue-row .left {
-    padding-left: 0.5rem;
+    padding-left: 1rem;
     text-align: left;
     font-weight: 700;
     color: black;
 }
 
+.queue-row .center {
+    padding-left: 7rem;
+}
+
 .queue-row .right {
-    padding-right: 0.5rem;
+    /* padding-right: 0.5rem; */
     float: right;
 }
 
@@ -54,7 +57,7 @@
 .triage2 {
     position: absolute;
     content:url('../../assets/images/2.png');
-    width: 37px;
+    width: 30px;
     height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 30px;
@@ -72,10 +75,10 @@
 .triage4 {
     position: absolute;
     content:url('../../assets/images/4.png');
-    width: 37px;
+    width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 30px;
+    top: 0; bottom: 0; right: 20px;
 }
 
 .triage4:after
@@ -88,10 +91,10 @@
 .triage5 {
     position: absolute;
     content:url('../../assets/images/5.png');
-    width: 37px;
+    width: 35px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 30px;
+    top: 0; bottom: 0; right: 20px;
 }
 
 .triage5:after

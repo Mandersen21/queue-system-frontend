@@ -19,6 +19,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TriageComponent } from './triage/triage.component';
 import { AcuteComponent } from './acute/acute.component';
 import { ClockComponent } from './clock/clock.component';
+import { AdminComponent } from './admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { ClockComponent } from './clock/clock.component';
     ContentComponent,
     TriageComponent,
     AcuteComponent,
-    ClockComponent
+    ClockComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

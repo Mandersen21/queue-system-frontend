@@ -44,7 +44,7 @@ ul.list-group {
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
     ul.list-group {
-        grid-template-rows: repeat(12, 1fr) !important;
+        grid-template-rows: repeat(11, 1fr) !important;
     }
 }
     

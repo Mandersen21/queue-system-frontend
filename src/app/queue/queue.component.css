@@ -27,14 +27,17 @@
 
 .queue-header {
     background-color: #16A085;
+    display: block;
 }
 
 .queue-header .left {
-    padding-left: 0.5rem;
-    text-align: left;
+    float: left;
+}
+
+.queue-header .center {
+    padding-left: 1rem;
 }
 
 .queue-header .right {
-    padding-right: 0.5rem;
     float: right;
 }
