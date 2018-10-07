@@ -21,6 +21,8 @@ import { AcuteComponent } from './acute/acute.component';
 import { ClockComponent } from './clock/clock.component';
 import { AdminComponent } from './admin/admin.component';
 import { InformationComponent } from './information/information.component';
+import { Information2Component } from './information2/information2.component';
+import { Information3Component } from './information3/information3.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { InformationComponent } from './information/information.component';
     AcuteComponent,
     ClockComponent,
     AdminComponent,
-    InformationComponent
+    InformationComponent,
+    Information2Component,
+    Information3Component
   ],
   imports: [
     BrowserModule,
