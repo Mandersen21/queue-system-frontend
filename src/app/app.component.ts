@@ -37,7 +37,6 @@ export class AppComponent {
   changeIntervalBasedOnRoute() {
     if (this.currentInterval === this.dashboardInterval) {
       this.currentInterval = this.informationInterval
-      console.log("Change interval to information")
       this.router.navigateByUrl('/information');
       this.sub.unsubscribe();
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
@@ -46,7 +45,6 @@ export class AppComponent {
 
     if (this.currentInterval === this.informationInterval) {
       this.currentInterval = this.information2Interval
-      console.log("Change interval to information 2")
       this.router.navigateByUrl('/information2');
       this.sub.unsubscribe();
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
@@ -55,7 +53,6 @@ export class AppComponent {
 
     if (this.currentInterval === this.information2Interval) {
       this.currentInterval = this.information3Interval
-      console.log("Change interval to information 3")
       this.router.navigateByUrl('/information3');
       this.sub.unsubscribe();
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
@@ -64,7 +61,6 @@ export class AppComponent {
 
     if (this.currentInterval === this.information3Interval) {
       this.currentInterval = this.dashboardInterval
-      console.log("Change interval to dashboard")
       this.router.navigateByUrl('/dashboard');
       this.sub.unsubscribe();
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
