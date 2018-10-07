@@ -8,7 +8,7 @@ MIKKEL - Add resource functionality, like QUEUE_HEADER and so on, so english can
 
 MADS - Add green arrow in queue if time decreased and red arrow if time increased. note use Ngclass.
 
-BOTH - Figure out how animation/transition should look like when we change to information screen english screen and so on.
+DONE - Figure out how animation/transition should look like when we change to information screen english screen and so on.
 
 MADS - Add functionality on admin component, so patient can be registred. Make a service with post methods and so on.
 
@@ -16,7 +16,7 @@ MADS - Figure out if text is correct spelled both on danish and english.
 
 - Add functionality on information page. What should we show?
 
-- Add timer functionality to change between components on dashboard. (figure out if structure is correct or if we need a main dashboard component)
+DONE - Add timer functionality to change between components on dashboard. (figure out if structure is correct or if we need a main dashboard component)
 
 - Add functionality to change timers settings on admin page.
 
