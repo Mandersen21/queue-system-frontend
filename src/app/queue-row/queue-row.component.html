@@ -1,6 +1,6 @@
 <div *ngIf="patientId && triage" class="queue-row">
     <span class="left">{{position}}</span>
-    <span class="center">{{patientId}}</span>
+    <span class="center">{{patientId}}B01</span>
     <span *ngIf="baby" class="baby"></span>
     <span class="right" [ngClass]="{'triage1': triage === 1 ,'triage2': triage === 2 ,'triage3': triage === 3, 'triage4': triage === 4, 'triage5': triage === 5}"></span>
 </div>

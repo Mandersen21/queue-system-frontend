@@ -17,10 +17,12 @@
 }
 
 .list-group-item {
+    
     position: relative;
 }
 
 .list-header-item {
+    /* border: 1px solid #1ABC9C; */
     background-color: #1ABC9C;
     color: white !important;
 }
