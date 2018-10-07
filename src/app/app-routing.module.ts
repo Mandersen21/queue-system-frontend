@@ -10,10 +10,10 @@ import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
-  { path: 'dashboard', component: DashboardComponent},
-  { path: 'content', component: ContentComponent },
-  { path: 'user', component: UserProfileComponent },
-  { path: 'admin', component: AdminComponent }
+  { path: 'dashboard', component: DashboardComponent, data: { state: 'dashboard' }},
+  { path: 'content', component: ContentComponent, data: { state: 'content' } },
+  { path: 'user', component: UserProfileComponent, data: { state: 'user' } },
+  { path: 'admin', component: AdminComponent, data: { state: 'admin' } }
 ];
 
 @NgModule({
