@@ -39,6 +39,7 @@ ul.list-group {
     grid-template-rows: repeat(10, 1fr);
     grid-column-gap:1em;
     grid-auto-flow: column;
+
 }
 
 /* Desktops and laptops ----------- */
@@ -68,6 +69,7 @@ ul.header-group {
 .list-special .list-group-item:first-child {
     border-top-right-radius: 0px !important;
     border-top-left-radius: 0px !important;
+    border: none;
 }
   
 .list-special .list-group-item:last-child {
