@@ -72,7 +72,9 @@ ul.header-group {
 }
 
 .list-special .list-group-item {
-    border: none;
+    /* border: none; */
+    border-left: none;
+    border-right: none;
 }
 
 .list-special .list-group-item:first-child {

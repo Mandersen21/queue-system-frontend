@@ -9,18 +9,21 @@
 .queue-row .header {
     color: white;
     width:100%;
-    font-size: 1.7rem;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
 .queue-row .left {
     padding-left: 0.5rem;
     text-align: left;
+    /* font-family: 'Montserrat', sans-serif !important; */
     font-weight: 600;
     color: black;
 }
 
 .queue-row .center {
+    /* font-family: 'Montserrat', sans-serif !important; */
     padding-left: 8rem;
     color: black;
 }
@@ -32,8 +35,8 @@
 .baby {
     position: absolute;
     content:url('../../assets/images/baby.png');
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
     margin: auto;
     top: 0; bottom: 0; right: 70px;
 }

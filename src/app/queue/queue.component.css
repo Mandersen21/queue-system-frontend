@@ -1,5 +1,5 @@
 .queue-container {
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .queue {
@@ -28,6 +28,7 @@
     width:100%;
     font-size: 1.7rem;
     font-weight: 500;
+    font-family: 'Montserrat', sans-serif !important;
     background-color: #0098D1;
     display: block;
 }
@@ -35,8 +36,9 @@
 .queue-header-fast {
     color: white;
     width:100%;
-    font-size: 1.7rem;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important;
     background-color: #16A085;
     display: block;
 }
@@ -55,6 +57,11 @@
 
 .queue-header-fast .center {
     padding-left: 3rem;
+}
+
+.queue-header-fast .center .english {
+    font-size: 1rem !important;
+    color: #efefef;
 }
 
 .queue-header .right {
