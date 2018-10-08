@@ -8,6 +8,8 @@ import { QueueService } from 'src/app/queue/queue.service';
 })
 export class QueueComponent implements OnInit {
 
+  @Input() fastTrack: boolean;
+
   // Patient Queues
   patientQueue: Array<IPatient>;
   patientQueueSorted: Array<IQueueRow> = [];

@@ -2,13 +2,6 @@
     border: 1px solid red;
 }
 
-.queue-header {
-    color: white;
-    width:100%;
-    font-size: 1.7rem;
-    font-weight: 900;
-}
-
 .queue {
     background-color: rgb(229, 229, 229);
     max-height: 42rem;
@@ -25,8 +18,26 @@
     color: white !important;
 }
 
+.list-header-item-fast {
+    background-color: #1ABC9C;
+    color: white !important;
+}
+
 .queue-header {
+    color: white;
+    width:100%;
+    font-size: 1.7rem;
+    font-weight: 500;
     background-color: #0098D1;
+    display: block;
+}
+
+.queue-header-fast {
+    color: white;
+    width:100%;
+    font-size: 1.7rem;
+    font-weight: 500;
+    background-color: #16A085;
     display: block;
 }
 
@@ -34,10 +45,22 @@
     float: left;
 }
 
+.queue-header-fast .left {
+    float: left;
+}
+
 .queue-header .center {
-    padding-left: 1rem;
+    padding-left: 3rem;
+}
+
+.queue-header-fast .center {
+    padding-left: 3rem;
 }
 
 .queue-header .right {
+    float: right;
+}
+
+.queue-header-fast .right {
     float: right;
 }

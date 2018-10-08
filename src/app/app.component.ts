@@ -13,10 +13,10 @@ export class AppComponent {
   title = 'app';
 
   // Route intervals
-  dashboardInterval: number = 40000
-  informationInterval: number = 10000
-  information2Interval: number = 10001
-  information3Interval: number = 10002
+  dashboardInterval: number = 10000
+  informationInterval: number = 5000
+  information2Interval: number = 5001
+  information3Interval: number = 5002
   
   // Main interval
   currentInterval: number = 0
@@ -31,7 +31,7 @@ export class AppComponent {
     this.currentInterval = this.dashboardInterval
 
     // Start timer
-    this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    // this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
   }
 
   changeIntervalBasedOnRoute() {

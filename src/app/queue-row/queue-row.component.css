@@ -1,7 +1,7 @@
 .queue-row {
     color: #515151;
     width:100%;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.7rem;
     padding: none !important;
 }
@@ -10,18 +10,18 @@
     color: white;
     width:100%;
     font-size: 1.7rem;
-    font-weight: 900;
+    font-weight: 600;
 }
 
 .queue-row .left {
-    padding-left: 1rem;
+    padding-left: 0.5rem;
     text-align: left;
-    font-weight: 900;
+    font-weight: 600;
     color: black;
 }
 
 .queue-row .center {
-    padding-left: 6rem;
+    padding-left: 8rem;
     color: black;
 }
 
@@ -51,7 +51,7 @@
     width: 30px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 30px;
+    top: 0; bottom: 0; right: 20px;
 }
 
 .triage2 {
@@ -60,7 +60,7 @@
     width: 30px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 30px;
+    top: 0; bottom: 0; right: 20px;
 }
 
 .triage3 {
@@ -69,7 +69,7 @@
     width: 30px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 30px;
+    top: 0; bottom: 0; right: 20px;
 }
 
 .triage4 {

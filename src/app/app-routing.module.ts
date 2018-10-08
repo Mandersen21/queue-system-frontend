@@ -10,10 +10,10 @@ import { InformationComponent } from './information/information.component';
 import { Information2Component } from 'src/app/information2/information2.component';
 import { Information3Component } from 'src/app/information3/information3.component';
 
-
 const routes: Routes = [
   { path: '', component: DashboardComponent},
-  { path: 'dashboard', component: DashboardComponent, data: { state: 'dashboard' }},
+  { path: 'dashboard', component: DashboardComponent, data: { state: 'dashboard', fastTrack: false }},
+  { path: 'dashboard-fast', component: DashboardComponent, data: { state: 'dashboard-fast', fastTrack: true }},
   { path: 'content', component: ContentComponent, data: { state: 'content' } },
   { path: 'user', component: UserProfileComponent, data: { state: 'user' } },
   { path: 'admin', component: AdminComponent, data: { state: 'admin' } },
