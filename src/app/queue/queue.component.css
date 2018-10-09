@@ -1,3 +1,7 @@
+.queue-container {
+    /* border: 1px solid #dfdfdf; */
+}
+
 .queue {
     background-color: rgb(229, 229, 229);
     max-height: 42rem;
