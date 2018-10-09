@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.list-group-item-even {
+    background-color: #efefef;
+}
+
 .list-header-item {
     background-color: #00AEEF;
     color: white !important;
@@ -30,7 +34,6 @@
 }
 
 .queue-header-fast {
-    color: white;
     width:100%;
     font-size: 1.5rem;
     font-weight: 600;
@@ -39,31 +42,11 @@
     display: block;
 }
 
-.queue-header .left {
-    float: left;
+.queue-header-fast .main-text {
+    color: white;
 }
 
-.queue-header-fast .left {
-    float: left;
-}
-
-.queue-header .center {
-    padding-left: 3rem;
-}
-
-.queue-header-fast .center {
-    padding-left: 3rem;
-}
-
-.queue-header-fast .center .english {
-    font-size: 1rem !important;
-    color: #efefef;
-}
-
-.queue-header .right {
-    float: right;
-}
-
-.queue-header-fast .right {
-    float: right;
+.queue-header-fast .secondary-text {
+    font-size: 1.2rem;
+    color: #d7d7d7;
 }

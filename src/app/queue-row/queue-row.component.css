@@ -12,6 +12,13 @@
     font-family: 'Montserrat', sans-serif !important;
     font-size: 1.5rem;
     font-weight: 600;
+    padding-right: 1rem;
+}
+
+.queue-row .secondary-text {
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif !important;
+    color: #d7d7d7;
 }
 
 .queue-row .left {

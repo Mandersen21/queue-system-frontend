@@ -67,14 +67,8 @@ ul.header-group {
     margin: 0;
 }
 
-.list-special {
-    /* background-color: #47525E; */
-}
-
 .list-special .list-group-item {
-    /* border: none; */
-    border-left: none;
-    border-right: none;
+    border: none;
 }
 
 .list-special .list-group-item:first-child {
@@ -89,4 +83,8 @@ ul.header-group {
 
 .navbar .navbar-brand .header {
     padding-left: 1.5rem;
+}
+
+.nopadding {
+    padding: 0;
 }

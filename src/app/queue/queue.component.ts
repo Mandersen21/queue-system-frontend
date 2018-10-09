@@ -41,7 +41,7 @@ export class QueueComponent implements OnInit {
   constructor(queueService: QueueService) {
 
     // SectionTimes in from small to high
-    this.sectionTimes.push(SectionTime.SMALL, SectionTime.MEDIUM) //SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
+    this.sectionTimes.push(SectionTime.SMALL) //SectionTime.MEDIUM) //SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
 
     // Get patients from backend via service
     queueService.getPatients().subscribe(
