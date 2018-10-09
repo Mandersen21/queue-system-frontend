@@ -46,6 +46,15 @@
     display: block;
 }
 
+.queue-header .main-text {
+    color: white;
+}
+
+.queue-header .secondary-text {
+    font-size: 1.2rem;
+    color: #d7d7d7;
+}
+
 .queue-header-fast .main-text {
     color: white;
 }
