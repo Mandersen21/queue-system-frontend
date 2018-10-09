@@ -41,7 +41,7 @@ export class QueueComponent implements OnInit {
   constructor(queueService: QueueService) {
 
     // SectionTimes in from small to high
-    this.sectionTimes.push(SectionTime.SMALL) //SectionTime.MEDIUM) //SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
+    this.sectionTimes.push(SectionTime.SMALL, SectionTime.MEDIUM, SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
 
     // Get patients from backend via service
     queueService.getPatients().subscribe(
@@ -84,7 +84,7 @@ export class QueueComponent implements OnInit {
           decreased: false,
           increased: false,
           triage: p.triage,
-          fastTrack: false // Fasttrack
+          fastTrack: true // Fasttrack
         })
       })
     }
@@ -93,7 +93,20 @@ export class QueueComponent implements OnInit {
       // Add patients that has 30 - 60 min left
 
       // Add section time to patient sorted array
-      this.patientQueueSorted.push({ id: sectionTime })
+      // this.patientQueueSorted.push({ id: sectionTime })
+
+      this.patientQueue.forEach(p => {
+        this.patientQueueSorted.push({
+          id: p.id,
+          position: p.position,
+          patientId: p.patientInitials,
+          baby: p.age < 4 ? true : false,
+          decreased: false,
+          increased: false,
+          triage: p.triage,
+          fastTrack: false // Fasttrack
+        })
+      })
     }
 
     if (sectionTime === SectionTime.MEDIUM_HIGH) {
