@@ -11,32 +11,11 @@ export class QueueComponent implements OnInit {
   @Input() fastTrack: boolean;
 
   // Patient Queues
-  patientQueue: Array<IPatient>;
+  patients: Array<IPatient>;
   patientQueueSorted: Array<IQueueRow> = [];
-  standardPatients: Array<IQueueRow> = [];
-  nonUrgentPatientQueue: Array<IQueueRow> = [];
+  patientFastTrackQueueSorted: Array<IQueueRow> = [];
 
   sectionTimes: Array<SectionTime> = []
-
-  get smallTime(): string {
-    return SectionTime.SMALL;
-  }
-
-  get mediumTime(): string {
-    return SectionTime.MEDIUM;
-  }
-
-  get mediumHighTime(): string {
-    return SectionTime.MEDIUM_HIGH;
-  }
-
-  get highTime(): string {
-    return SectionTime.HIGH;
-  }
-
-  get veryHighTime(): string {
-    return SectionTime.VERY_HIGH;
-  }
 
   constructor(queueService: QueueService) {
 
@@ -45,7 +24,7 @@ export class QueueComponent implements OnInit {
 
     // Get patients from backend via service
     queueService.getPatients().subscribe(
-      data => { this.patientQueue = data },
+      data => { this.patients = data },
       err => console.error(err),
       () => this.sortPatients()
     )
@@ -56,12 +35,6 @@ export class QueueComponent implements OnInit {
   }
 
   private sortPatients() {
-
-    // Sort patients positions
-    this.patientQueue.forEach(function(p, index) {
-      p.position = (index + 1).toString();
-    })
-
     this.sectionTimes.forEach(time => {
       this.pushPatientsToArray(time)
     });
@@ -70,22 +43,20 @@ export class QueueComponent implements OnInit {
   // TODO: Add if statements based on waiting times
   private pushPatientsToArray(sectionTime: SectionTime) {
 
-    // Add section time to patient sorted array
-    this.patientQueueSorted.push({ id: sectionTime })
-
     if (sectionTime === SectionTime.SMALL) {
+
+      // Add section time to patient sorted array
+      this.patientQueueSorted.push({ id: sectionTime })
+      this.patientFastTrackQueueSorted.push({ id: sectionTime })
+
       // Add patients that has under 30 min left
-      this.patientQueue.forEach(p => {
-        this.patientQueueSorted.push({
-          id: p.id,
-          position: p.position,
-          patientId: p.patientInitials,
-          baby: p.age < 4 ? true : false,
-          decreased: false,
-          increased: false,
-          triage: p.triage,
-          fastTrack: true // Fasttrack
-        })
+      this.patients.forEach(p => {
+        if (!p.fastTrack) {
+          this.addPatientToQueue(this.patientQueueSorted, p);
+        }
+        if (p.fastTrack) {
+          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+        }
       })
     }
 
@@ -94,42 +65,59 @@ export class QueueComponent implements OnInit {
 
       // Add section time to patient sorted array
       // this.patientQueueSorted.push({ id: sectionTime })
-
-      this.patientQueue.forEach(p => {
-        this.patientQueueSorted.push({
-          id: p.id,
-          position: p.position,
-          patientId: p.patientInitials,
-          baby: p.age < 4 ? true : false,
-          decreased: false,
-          increased: false,
-          triage: p.triage,
-          fastTrack: false // Fasttrack
-        })
-      })
     }
 
     if (sectionTime === SectionTime.MEDIUM_HIGH) {
       // Add patients that has 60 - 120 min left
 
       // Add section time to patient sorted array
-      this.patientQueueSorted.push({ id: sectionTime })
+      // this.patientQueueSorted.push({ id: sectionTime })
     }
 
     if (sectionTime === SectionTime.HIGH) {
       // Add patients that has 120 - 180 min left
 
       // Add section time to patient sorted array
-      this.patientQueueSorted.push({ id: sectionTime })
+      // this.patientQueueSorted.push({ id: sectionTime })
     }
 
     if (sectionTime === SectionTime.VERY_HIGH) {
       // Add patients that has Over 180 min left
 
       // Add section time to patient sorted array
-      this.patientQueueSorted.push({ id: sectionTime })
+      // this.patientQueueSorted.push({ id: sectionTime })
     }
 
+    // Sort positions for both lists
+    let index = 0;
+    this.patientQueueSorted.forEach(function (p) {
+      if (p.patientId) {
+        index = index + 1;
+        p.position = (index).toString();
+      }
+    })
+
+    index = 0;
+    this.patientFastTrackQueueSorted.forEach(function (p) {
+      if (p.patientId) {
+        index = index + 1;
+        p.position = (index).toString();
+      }
+    })
+
+  }
+
+  private addPatientToQueue(patientArray: IQueueRow[], patient: IPatient) {
+    patientArray.push({
+      id: patient.id,
+      position: patient.position,
+      patientId: patient.patientInitials,
+      baby: patient.age < 4 ? true : false,
+      decreased: false,
+      increased: false,
+      triage: patient.triage,
+      fastTrack: patient.fastTrack
+    })
   }
 
 }

@@ -25,3 +25,5 @@ DONE - Add timer functionality to change between components on dashboard. (figur
 - Add functionality to change the speed of footer text from admin page.
 
 - Add functionality so the list will update on any change to DB and every 3-5 minute.
+
+DONE - Add two queues, so we have a normal and a fast track queue with patients in both.

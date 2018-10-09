@@ -121,11 +121,24 @@
         </div>
     </div>
 
-    <div class="row">
+    <div *ngIf="!fastTrack" class="row">
         <div class="col-xs-12">
             <div class="special">
                 <ul class="list-group list-special">
                     <li *ngFor="let row of patientQueueSorted; let i = index" class="" [ngClass]="{'list-group-item': row.id, 'list-header-item': !row.patientId && !fastTrack, 'list-header-item-fast': !row.patientId && fastTrack, 'list-group-item-even': i%2==0}">
+                        <app-queue-row [id]="row.id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
+                            [baby]="row.baby" [fastTrack]="row.fastTrack"></app-queue-row>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="fastTrack" class="row">
+        <div class="col-xs-12">
+            <div class="special">
+                <ul class="list-group list-special">
+                    <li *ngFor="let row of patientFastTrackQueueSorted; let i = index" class="" [ngClass]="{'list-group-item': row.id, 'list-header-item': !row.patientId && !fastTrack, 'list-header-item-fast': !row.patientId && fastTrack, 'list-group-item-even': i%2==0}">
                         <app-queue-row [id]="row.id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
                             [baby]="row.baby" [fastTrack]="row.fastTrack"></app-queue-row>
                     </li>
