@@ -84,7 +84,7 @@ export class QueueComponent implements OnInit {
           decreased: false,
           increased: false,
           triage: p.triage,
-          fastTrack: true
+          fastTrack: false // Fasttrack
         })
       })
     }
