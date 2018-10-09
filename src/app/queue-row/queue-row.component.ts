@@ -12,12 +12,13 @@ export class QueueRowComponent implements OnInit {
   @Input() position: string
   @Input() patientId: String
   @Input() triage: Triage
-  @Input() baby: boolean;
+  @Input() baby: boolean
+  @Input() fastTrack: boolean
 
   constructor() { }
 
   ngOnInit() {
-    
+    console.log(this.fastTrack)
   }
 
 }

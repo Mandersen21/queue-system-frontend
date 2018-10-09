@@ -83,7 +83,8 @@ export class QueueComponent implements OnInit {
           baby: p.age < 4 ? true : false,
           decreased: false,
           increased: false,
-          triage: p.triage
+          triage: p.triage,
+          fastTrack: true
         })
       })
     }
@@ -143,6 +144,7 @@ export interface IPatient {
   position?: string,
   patientInitials: string,
   triage: Triage,
+  fastTrack: boolean,
   registredTime: Date,
   waitingTime: Date,
 }
@@ -154,5 +156,6 @@ export interface IQueueRow {
   decreased?: boolean,
   increased?: boolean,
   baby?: boolean,
-  triage?: Triage
+  triage?: Triage,
+  fastTrack?: boolean,
 }

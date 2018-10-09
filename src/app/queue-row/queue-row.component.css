@@ -107,6 +107,15 @@
     top: 0; bottom: 0; right: 20px;
 }
 
+.fasttrack {
+    position: absolute;
+    content:url('../../assets/images/fast_track.png');
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    top: 0; bottom: 0; right: 20px;
+}
+
 .triage5:after
 {  /*this for firefox browser*/
     position: absolute;
