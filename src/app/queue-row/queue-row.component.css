@@ -2,7 +2,7 @@
     color: #515151;
     width:100%;
     font-weight: 600;
-    font-size: 1.7rem;
+    font-size: 1.9rem;
     padding: none !important;
 }
 
@@ -10,9 +10,19 @@
     color: white;
     width:100%;
     font-family: 'Montserrat', sans-serif !important;
-    font-size: 1.5rem;
-    font-weight: 600;
+    font-size: 1.9rem;
+    font-weight: 700;
     padding-right: 1rem;
+}
+
+.queue-row .position {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.queue-row .id {
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important;
 }
 
 .queue-row .secondary-text {
@@ -21,31 +31,13 @@
     color: #d7d7d7;
 }
 
-.queue-row .left {
-    padding-left: 0.5rem;
-    text-align: left;
-    /* font-family: 'Montserrat', sans-serif !important; */
-    font-weight: 600;
-    color: black;
-}
-
-.queue-row .center {
-    /* font-family: 'Montserrat', sans-serif !important; */
-    padding-left: 8rem;
-    color: black;
-}
-
-.queue-row .right {
-    float: right;
-}
-
 .baby {
     position: absolute;
     content:url('../../assets/images/baby.png');
     width: 30px;
     height: 30px;
     margin: auto;
-    top: 0; bottom: 0; right: 130px;
+    top: 0; bottom: 0; right: 120px;
 }
 
 .baby:after

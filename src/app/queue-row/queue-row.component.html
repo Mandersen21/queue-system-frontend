@@ -1,8 +1,8 @@
 <div *ngIf="patientId && triage" class="queue-row">
-    <div class="col-xs-4 nopadding">
+    <div class="col-xs-4 nopadding position">
         {{position}}
     </div>
-    <div class="col-xs-4 nopadding">
+    <div class="col-xs-4 nopadding id">
         {{patientId}}-B01
     </div>
     <span *ngIf="baby" class="baby"></span>
@@ -10,6 +10,6 @@
 </div>
 <div *ngIf="id && !patientId" class="queue-row">
     <div class="col-xs-12 nopadding">
-        <span class="header">{{id}}</span><span class="secondary-text">(Less than 30 min)</span>
+        <span class="header">{{id}}</span><span class="secondary-text">Less than 30 min</span>
     </div>
 </div>

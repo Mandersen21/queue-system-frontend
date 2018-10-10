@@ -8,6 +8,16 @@
     color: #47525E;
 }
 
+.navbar-fastTrack {
+    padding: 0;
+    /* height: 60px; */
+    /* line-height: 60px; */
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif !important;
+    font-size: 1.5rem;
+    color: #47525E;
+}
+
 .navbar-triage:hover { 
     text-decoration: none
 }
@@ -15,11 +25,22 @@
 .navbar-triage .triage {
     padding-left: 1rem;
 }
+
+.navbar-fastTrack .fasttrack {
+    padding-right: 1rem;
+}
   
 .navbar-triage img {
     width: 30px;
     height: 30px;
     margin-top: -5px;
+}
+
+.navbar-fastTrack img {
+    width: 30px;
+    height: 30px;
+    margin-top: -5px;
+    margin-right: 5rem;
 }
 
 .margin-right {
