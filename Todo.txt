@@ -4,9 +4,7 @@ MADS - Add clock functionalty so it works.
 
 MIKKEL - Figure out how patient ID should look like, and sort accourding to that.
 
-MIKKEL - Add resource functionality, like QUEUE_HEADER and so on, so english can be enabled.
-
-MADS - Add green arrow in queue if time decreased and red arrow if time increased. note use Ngclass.
+DONE - Add green arrow in queue if time decreased and red arrow if time increased. note use Ngclass.
 
 DONE - Figure out how animation/transition should look like when we change to information screen english screen and so on.
 

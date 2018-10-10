@@ -113,7 +113,7 @@ export class QueueComponent implements OnInit {
       position: patient.position,
       patientId: patient.patientInitials,
       baby: patient.age < 4 ? true : false,
-      decreased: false,
+      decreased: true,
       increased: false,
       triage: patient.triage,
       fastTrack: patient.fastTrack

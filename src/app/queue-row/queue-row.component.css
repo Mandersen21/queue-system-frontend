@@ -40,6 +40,24 @@
     top: 0; bottom: 0; right: 120px;
 }
 
+.increased {
+    position: absolute;
+    content:url('../../assets/images/arrow-up.png');
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    top: 0; bottom: 0; left: 65px;
+}
+
+.decreased {
+    position: absolute;
+    content:url('../../assets/images/arrow-down.png');
+    width: 20px;
+    height: 20px;
+    margin: auto;
+    top: 0; bottom: 0; left: 65px;
+}
+
 .baby:after
 {  /*this for firefox browser*/
     position: absolute;
