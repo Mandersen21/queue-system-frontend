@@ -3,13 +3,13 @@
         {{position}}
     </div>
     <div class="col-xs-4 nopadding id">
-        {{patientId}}-B01
+        {{patientId}}???
     </div>
     <span *ngIf="baby" class="baby"></span>
     <span class="right" [ngClass]="{'triage1': triage === 1 && !fastTrack,'triage2': triage === 2 && !fastTrack ,'triage3': triage === 3 && !fastTrack, 'triage4': triage === 4 && !fastTrack, 'triage5': triage === 5 && !fastTrack, 'fasttrack': fastTrack}"></span>
 </div>
 <div *ngIf="id && !patientId" class="queue-row">
     <div class="col-xs-12 nopadding">
-        <span class="header">{{id}}</span><span class="secondary-text">Less than 30 min</span>
+        <span class="header">{{id}}</span>
     </div>
 </div>

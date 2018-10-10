@@ -1,22 +1,21 @@
 
 .navbar {
-    min-height: 60px;
-    background-color: #2C3E50;
+    min-height: 80px;
+    background-color: #23313f;
 }
   
 .navbar-brand {
     padding: 0 15px;
-    height: 60px;
-    line-height: 60px;
-    /* font-family: 'Lato', sans-serif; */
+    height: 80px;
+    line-height: 80px;
     font-family: 'Montserrat', sans-serif !important;
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 600;
 }
 
 .navbar-brand .header {
-    padding-left: 5rem;
+    padding-left: 2rem;
 }
 
 .navbar-brand:hover {
@@ -24,13 +23,17 @@
 }
 
 .navbar .navbar-brand img {
-    width: 30px;
-    height: 30px;
+    max-width: 80%;
+    max-height: 80%;
     margin-top: -5px;
 }
 
 .navbar-default {
     border: none;
+}
+
+a .acute {
+    padding-left: 4rem !important;
 }
 
   @media (min-width: 768px) {

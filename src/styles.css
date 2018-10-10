@@ -7,6 +7,10 @@ body {
   background-color: #F4F4F4;
 }
 
+ul > .list-group {
+    background-color: #47525E;
+}
+
 .custom-container {
     margin-left: 2rem;
     margin-right: 2rem;
@@ -40,7 +44,7 @@ ul.list-group {
     grid-template-rows: repeat(10, 1fr);
     grid-column-gap:1em;
     grid-auto-flow: column;
-
+    /* background-color: #47525E; */
 }
 
 /* Desktops and laptops ----------- */

@@ -5,6 +5,8 @@
     width: 100%;
     /* display: block; */
     height: 7rem;
+    font-family: 'Montserrat', sans-serif !important;
+    font-weight: 600;
     display: inline-block;
     background-color: #fcfcfc;
     color: black;
