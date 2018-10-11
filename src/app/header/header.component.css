@@ -1,8 +1,7 @@
 
 .navbar {
     min-height: 80px;
-    background-color: white;
-    border-bottom: 1px solid #D5D5D5;
+    background-color: #F4F4F4;;
 }
   
 .navbar-brand {
@@ -10,10 +9,9 @@
     height: 100px;
     line-height: 100px;
     font-family: 'Open Sans', sans-serif;
-    /* font-family: 'Montserrat', sans-serif !important; */
-    color: black;
-    font-size: 3rem;
-    font-weight: 600;
+    color: #262626;
+    font-size: 4rem;
+    font-weight: 700;
 }
 
 .navbar-brand .header {
@@ -21,7 +19,7 @@
 }
 
 .navbar-brand:hover {
-    color: white; 
+    color: black; 
 }
 
 .navbar .navbar-brand img {

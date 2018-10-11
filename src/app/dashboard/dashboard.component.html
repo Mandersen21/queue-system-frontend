@@ -1,30 +1,12 @@
 <div class="container-fluid custom-container dashboard-container">
   <div class="row">
-    <div class="col-sm-6">
-      <div *ngIf="!fastTrack" class="content-header">Ventetider for mindre skader</div>
-      <div *ngIf="fastTrack" class="content-header">Fast-track sporet (fra kl. 15 til 23)</div>
-    </div>
-    <div class="col-sm-6 text-right gutter">
-        <app-triage [fastTrack]="fastTrack"></app-triage>
-    </div>
-    <div class="col-sm-12 line gutter">
-
+    <div class="col-sm-12 gutter">
+      <span *ngIf="!fastTrack" class="content-text">Patienter der skal vente længe kan tjekke sin estimeret ventetid ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="fastTrack" class="content-text">Fast-track sporet er åben fra 15-23 hver dag.</span>
+      <span class="text-right"><app-triage [fastTrack]="fastTrack"></app-triage></span>
     </div>
   </div>
-  <!-- <div class="row">
-    <div class="col-sm-6">
-      <div class="content-text">
-        <span>Velkommen til akutmodtagelsen - følg din estimeret ventetid.</span>
-        <div>Find dit patient ID forneden.</div>
-      </div>
-    </div>
-    <div *ngIf="!fastTrack" class="col-sm-6">
-      <div class="content-triage content-text">
-        <app-triage></app-triage>
-      </div>
-    </div>
-  </div> -->
-  <div class="row">
+  <div class="row gutter">
     <div class="col-sm-12 gutter">
       <app-queue [fastTrack]="fastTrack"></app-queue>
     </div>
