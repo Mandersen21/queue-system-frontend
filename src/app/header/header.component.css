@@ -1,16 +1,18 @@
 
 .navbar {
     min-height: 80px;
-    background-color: #23313f;
+    background-color: white;
+    border-bottom: 1px solid #D5D5D5;
 }
   
 .navbar-brand {
     padding: 0 15px;
-    height: 80px;
-    line-height: 80px;
-    font-family: 'Montserrat', sans-serif !important;
-    color: white;
-    font-size: 2.5rem;
+    height: 100px;
+    line-height: 100px;
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Montserrat', sans-serif !important; */
+    color: black;
+    font-size: 3rem;
     font-weight: 600;
 }
 
@@ -23,8 +25,8 @@
 }
 
 .navbar .navbar-brand img {
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 75%;
+    max-height: 75%;
     margin-top: -5px;
 }
 

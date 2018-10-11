@@ -1,7 +1,7 @@
 .navbar-triage {
     padding: 0;
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.7rem;
     color: black
 }
@@ -9,7 +9,7 @@
 .navbar-fastTrack {
     padding: 0;
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif !important;
+    font-family: 'Open Sans', sans-serif;
     font-size: 1.7rem;
     color: black
 }

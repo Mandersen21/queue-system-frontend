@@ -3,7 +3,8 @@
 @import './styles/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 
 body {
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
   background-color: #F4F4F4;
 }
 
@@ -17,14 +18,16 @@ ul > .list-group {
 }
 
 .content-header {
-    font-family: 'Montserrat', sans-serif !important;
+    /* font-family: 'Montserrat', sans-serif !important; */
+font-family: 'Open Sans', sans-serif;
   font-size: 3rem;
   color: black;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .content-text {
-  font-family: 'Lato', sans-serif;
+  /* font-family: 'Lato', sans-serif; */
+  font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
   color: #47525E;
 }

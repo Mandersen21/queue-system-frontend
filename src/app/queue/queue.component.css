@@ -18,7 +18,7 @@
 }
 
 .list-header-item {
-    background-color: #00AEEF;
+    background-color: #6DC3EB;
     color: white !important;
 }
 
@@ -30,18 +30,20 @@
 .queue-header {
     color: white;
     width:100%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif !important;
-    background-color: #0098D1;
+    /* font-family: 'Montserrat', sans-serif !important; */
+    font-family: 'Open Sans', sans-serif;
+    background-color: #5DBDEA;
     display: block;
 }
 
 .queue-header-fast {
     width:100%;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     font-weight: 600;
-    font-family: 'Montserrat', sans-serif !important;
+    /* font-family: 'Montserrat', sans-serif !important; */
+    font-family: 'Open Sans', sans-serif;
     background-color: #16A085;
     display: block;
 }
@@ -51,7 +53,7 @@
 }
 
 .queue-header .secondary-text {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     color: #d7d7d7;
 }
 
@@ -60,6 +62,6 @@
 }
 
 .queue-header-fast .secondary-text {
-    font-size: 1.2rem;
+    font-size: 1.35rem;
     color: #d7d7d7;
 }
