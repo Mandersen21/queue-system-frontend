@@ -1,17 +1,26 @@
 .em {
     padding-left: 0.5rem;
-    font-size: 1.6rem;
+    font-size: 2rem;
     font-weight: 600;
+    /* display: relative; */
     font-family: 'Open Sans', sans-serif;
 }
   
 .em img {
-    width: 40px;
-    height: 40px;
-    margin-top: -5px;
-    opacity: 0.4;
+    /* display: absolute; */
+    /* top: 0; */
+    /* left: 0; */
+    width: 60px;
+    height: 60px;
+    opacity: 0.7;
 }
 
 .acute {
     color: #c0392b;
+}
+
+.acute-container {
+    /* top: 0; */
+    /* left: 0; */
+    /* display: absolute; */
 }

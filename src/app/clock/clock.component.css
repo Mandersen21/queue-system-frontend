@@ -1,11 +1,35 @@
 .clock {
     text-align: right !important;
     font-size: 4rem;
+    padding-left: 4rem;
 }
 
 .date {
     position: absolute;
-    right: 25px;
+    right: 35px;
     top: 35px;
     font-size: 2rem;
+}
+
+.acute-container {
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: middle;
+    font-size: 2rem;
+    /* top: 0; */
+}
+
+
+.acute {
+    color: #c0392b;
+}
+
+
+.em img {
+    width: 60px;
+    height: 60px;
+    /* display: absolute; */
+    /* vertical-align: top; */
+    vertical-align: -webkit-baseline-top;
+    /* vertical-align: middle; */
+    /* vertical-align: -webkit-baseline-middle; */
 }
