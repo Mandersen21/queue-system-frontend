@@ -24,7 +24,7 @@ export class QueueComponent implements OnInit {
 
     // Get patients from backend via service
     queueService.getPatients().subscribe(
-      data => { this.patients = data },
+      data => { console.log(data), this.patients = data },
       err => console.error(err),
       () => this.sortPatients()
     )
@@ -50,9 +50,9 @@ export class QueueComponent implements OnInit {
 
       // Add section time to patient sorted array
       if (standardPatients)
-        this.patientQueueSorted.push({ id: sectionTime })
+        this.patientQueueSorted.push({ _id: sectionTime })
       if (fastTrackPatients)
-        this.patientFastTrackQueueSorted.push({ id: sectionTime })
+        this.patientFastTrackQueueSorted.push({ _id: sectionTime })
 
       // Add patients that has under 30 min left
       this.patients.forEach(p => {
@@ -72,9 +72,9 @@ export class QueueComponent implements OnInit {
 
       // Add section time to patient sorted array
       if (standardPatients)
-        this.patientQueueSorted.push({ id: sectionTime })
+        this.patientQueueSorted.push({ _id: sectionTime })
       if (fastTrackPatients)
-        this.patientFastTrackQueueSorted.push({ id: sectionTime })
+        this.patientFastTrackQueueSorted.push({ _id: sectionTime })
 
       // Add patients that has 30 - 60 min left
       this.patients.forEach(p => {
@@ -94,9 +94,9 @@ export class QueueComponent implements OnInit {
 
       // Add section time to patient sorted array
       if (standardPatients)
-        this.patientQueueSorted.push({ id: sectionTime })
+        this.patientQueueSorted.push({ _id: sectionTime })
       if (fastTrackPatients)
-        this.patientFastTrackQueueSorted.push({ id: sectionTime })
+        this.patientFastTrackQueueSorted.push({ _id: sectionTime })
 
       // Add patients that has 60 - 120 min left
       this.patients.forEach(p => {
@@ -116,9 +116,9 @@ export class QueueComponent implements OnInit {
 
       // Add section time to patient sorted array
       if (standardPatients)
-        this.patientQueueSorted.push({ id: sectionTime })
+        this.patientQueueSorted.push({ _id: sectionTime })
       if (fastTrackPatients)
-        this.patientFastTrackQueueSorted.push({ id: sectionTime })
+        this.patientFastTrackQueueSorted.push({ _id: sectionTime })
 
       // Add patients that has 120 - 180 min left
       this.patients.forEach(p => {
@@ -137,8 +137,8 @@ export class QueueComponent implements OnInit {
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 180).length > 0
 
       // Add section time to patient sorted array
-      if (standardPatients) { this.patientQueueSorted.push({ id: sectionTime }) }
-      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ id: sectionTime }) }
+      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
         
       // Add patients that has Over 180 min left
       this.patients.forEach(p => {
@@ -172,7 +172,7 @@ export class QueueComponent implements OnInit {
 
   private addPatientToQueue(patientArray: IQueueRow[], patient: IPatient) {
     patientArray.push({
-      id: patient.id,
+      _id: patient._id,
       position: patient.position,
       patientId: patient.patientInitials,
       baby: patient.age < 4 ? true : false,
@@ -201,8 +201,8 @@ export enum Triage {
 }
 
 export interface IPatient {
-  id: string,
-  fullname: string,
+  _id: string,
+  name: string,
   age: number,
   position?: string,
   patientInitials: string,
@@ -214,7 +214,7 @@ export interface IPatient {
 }
 
 export interface IQueueRow {
-  id: string,
+  _id: string,
   position?: string,
   patientId?: string,
   decreased?: boolean,
