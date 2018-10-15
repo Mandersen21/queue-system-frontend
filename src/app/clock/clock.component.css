@@ -25,8 +25,9 @@
 
 
 .em img {
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
+    margin-right: 1rem;
     /* display: absolute; */
     /* vertical-align: top; */
     vertical-align: -webkit-baseline-top;

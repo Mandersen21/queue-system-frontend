@@ -18,11 +18,10 @@ ul > .list-group {
 }
 
 .content-header {
-    /* font-family: 'Montserrat', sans-serif !important; */
-font-family: 'Open Sans', sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 3rem;
   color: black;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .content-text {
