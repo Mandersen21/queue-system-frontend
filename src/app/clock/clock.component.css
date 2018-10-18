@@ -1,6 +1,6 @@
 .clock {
     text-align: right !important;
-    font-size: 4rem;
+    font-size: 5rem;
     padding-left: 4rem;
 }
 
@@ -9,6 +9,8 @@
     right: 35px;
     top: 35px;
     font-size: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
 }
 
 .acute-container {
@@ -20,17 +22,25 @@
 
 
 .acute {
+    position: absolute;
+    right: 200px;
+    top: 35px;
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.acute-text {
     color: #c0392b;
 }
 
-
-.em img {
+.acute-img {
     width: 55px;
     height: 55px;
-    margin-right: 1rem;
-    /* display: absolute; */
-    /* vertical-align: top; */
-    vertical-align: -webkit-baseline-top;
-    /* vertical-align: middle; */
-    /* vertical-align: -webkit-baseline-middle; */
+    position: absolute;
+    right: 260px;
+    top: -10px;
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
 }
