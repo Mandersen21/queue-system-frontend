@@ -13,7 +13,8 @@ export class AppComponent {
   title = 'app';
 
   // Route intervals
-  dashboardInterval: number = 10000
+  normalQueueInterval: number = 10000
+  fastQueueInterval: number = 10001
   informationInterval: number = 5000
   information2Interval: number = 5001
   information3Interval: number = 5002
@@ -28,14 +29,22 @@ export class AppComponent {
     this.router = router;
 
     // Set dashboard as first page
-    this.currentInterval = this.dashboardInterval
+    this.currentInterval = this.normalQueueInterval
 
     // Start timer
-    // this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
   }
 
   changeIntervalBasedOnRoute() {
-    if (this.currentInterval === this.dashboardInterval) {
+    if (this.currentInterval === this.normalQueueInterval) {
+      this.currentInterval = this.fastQueueInterval
+      this.router.navigateByUrl('/dashboard-fast');
+      this.sub.unsubscribe();
+      this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+      return
+    }
+    
+    if (this.currentInterval === this.fastQueueInterval) {
       this.currentInterval = this.informationInterval
       this.router.navigateByUrl('/information');
       this.sub.unsubscribe();
@@ -60,7 +69,7 @@ export class AppComponent {
     }
 
     if (this.currentInterval === this.information3Interval) {
-      this.currentInterval = this.dashboardInterval
+      this.currentInterval = this.normalQueueInterval
       this.router.navigateByUrl('/dashboard');
       this.sub.unsubscribe();
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
