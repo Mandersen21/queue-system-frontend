@@ -174,7 +174,7 @@ export class QueueComponent implements OnInit {
     patientArray.push({
       _id: patient._id,
       position: patient.position,
-      patientId: patient.patientInitials,
+      patientId: patient.patientId,
       baby: patient.age < 4 ? true : false,
       decreased: false,
       increased: false,
@@ -204,6 +204,7 @@ export interface IPatient {
   _id: string,
   name: string,
   age: number,
+  patientId: string,
   position?: string,
   patientInitials: string,
   triage: Triage,
