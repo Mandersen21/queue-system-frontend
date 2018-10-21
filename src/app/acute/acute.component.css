@@ -1,26 +1,31 @@
-.em {
-    padding-left: 0.5rem;
+.acute-container {
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: middle;
     font-size: 2rem;
-    font-weight: 600;
-    /* display: relative; */
-    font-family: 'Open Sans', sans-serif;
-}
-  
-.em img {
-    /* display: absolute; */
     /* top: 0; */
-    /* left: 0; */
-    width: 60px;
-    height: 60px;
-    opacity: 0.7;
 }
 
+
 .acute {
+    position: absolute;
+    right: 200px;
+    top: 35px;
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.acute-text {
     color: #c0392b;
 }
 
-.acute-container {
-    /* top: 0; */
-    /* left: 0; */
-    /* display: absolute; */
+.acute-img {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    right: 260px;
+    top: -5px;
+    font-size: 2rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
 }

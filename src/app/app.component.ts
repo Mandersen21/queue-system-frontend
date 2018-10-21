@@ -32,7 +32,7 @@ export class AppComponent {
     this.currentInterval = this.normalQueueInterval
 
     // Start timer
-    this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    // this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
   }
 
   changeIntervalBasedOnRoute() {
