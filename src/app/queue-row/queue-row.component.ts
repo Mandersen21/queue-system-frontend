@@ -20,8 +20,7 @@ export class QueueRowComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log("increase", this.increased)
-    console.log("decreased", this.decreased)
+    
   }
 
 }

@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { routerTransition } from 'src/app/router.animations';
 import { interval, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
+import { PusherService } from './pusher.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css'],
   animations: [routerTransition],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'app';
 
   // Route intervals
@@ -18,7 +19,7 @@ export class AppComponent {
   informationInterval: number = 5000
   information2Interval: number = 5001
   information3Interval: number = 5002
-  
+
   // Main interval
   currentInterval: number = 0
 
@@ -35,6 +36,9 @@ export class AppComponent {
     // this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
   }
 
+  ngOnInit() {
+  }
+
   changeIntervalBasedOnRoute() {
     if (this.currentInterval === this.normalQueueInterval) {
       this.currentInterval = this.fastQueueInterval
@@ -43,7 +47,7 @@ export class AppComponent {
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
       return
     }
-    
+
     if (this.currentInterval === this.fastQueueInterval) {
       this.currentInterval = this.informationInterval
       this.router.navigateByUrl('/information');
