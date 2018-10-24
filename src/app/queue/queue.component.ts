@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { QueueService } from 'src/app/queue/queue.service';
+import { PusherService } from '../pusher.service';
 
 @Component({
   selector: 'app-queue',
@@ -17,24 +18,39 @@ export class QueueComponent implements OnInit {
 
   sectionTimes: Array<SectionTime> = []
 
-  constructor(queueService: QueueService) {
+  constructor(private queueService: QueueService, private pusherService: PusherService) {
 
     // SectionTimes in from small to high
     this.sectionTimes.push(SectionTime.SMALL, SectionTime.MEDIUM, SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
+    this.getPatients()
+  }
 
+  ngOnInit() {
+    this.pusherService.channel.bind('new-update', data => {
+      console.log("New update happened")
+      this.getPatients()
+    });
+  }
+
+  private getPatients() {
     // Get patients from backend via service
-    queueService.getPatients().subscribe(
+    this.queueService.getPatients().subscribe(
       data => { console.log(data), this.patients = data },
       err => console.error(err),
       () => this.sortPatients()
     )
   }
 
-  ngOnInit() {
-
-  }
-
   private sortPatients() {
+
+    if (this.patientQueueSorted.length > 0) {
+      this.patientQueueSorted = []
+    }
+
+    if (this.patientFastTrackQueueSorted.length > 0) {
+      this.patientFastTrackQueueSorted = []
+    }
+
     this.sectionTimes.forEach(time => {
       this.pushPatientsToArray(time)
     });
@@ -139,7 +155,7 @@ export class QueueComponent implements OnInit {
       // Add section time to patient sorted array
       if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
       if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
-        
+
       // Add patients that has Over 180 min left
       this.patients.forEach(p => {
         if (!p.fastTrack && (p.minutesToWait > 180)) {

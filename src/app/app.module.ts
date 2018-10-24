@@ -24,6 +24,9 @@ import { InformationComponent } from './information/information.component';
 import { Information2Component } from './information2/information2.component';
 import { Information3Component } from './information3/information3.component';
 
+// Services
+import { PusherService } from './pusher.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,7 +52,7 @@ import { Information3Component } from './information3/information3.component';
     AppBoostrapModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ PusherService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
