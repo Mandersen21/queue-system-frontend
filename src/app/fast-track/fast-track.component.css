@@ -1,0 +1,39 @@
+.fastTrack-container {
+    vertical-align: -webkit-baseline-middle;
+    vertical-align: middle;
+    font-size: 2rem;
+    /* top: 0; */
+}
+
+
+.fastTrack {
+    position: absolute;
+    right: 475px;
+    top: 35px;
+    font-size: 2rem;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600;
+    color: black;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.behind {
+    z-index: 999;
+}
+
+.infront {
+    z-index: 1;
+}
+
+.fastTrack-img {
+    width: 55px;
+    height: 55px;
+    position: absolute;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
+    right: 530px;
+    top: -5px;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
