@@ -2,7 +2,7 @@
     padding: 0;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: black
 }
 
@@ -10,11 +10,15 @@
     padding: 0;
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: black
 }
 
 .navbar-triage:hover { 
+    text-decoration: none
+}
+
+.navbar-fastTrack:hover { 
     text-decoration: none
 }
 

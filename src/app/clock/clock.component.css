@@ -1,6 +1,8 @@
 .clock {
     text-align: right !important;
     font-size: 5rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
     padding-left: 4rem;
 }
 
@@ -11,6 +13,8 @@
     font-size: 2rem;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .acute-container {
@@ -27,11 +31,15 @@
     top: 35px;
     font-size: 2rem;
     padding-top: 0.5rem;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
     padding-right: 0.5rem;
 }
 
 .acute-text {
     color: #c0392b;
+    font-weight: 600;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .acute-img {
