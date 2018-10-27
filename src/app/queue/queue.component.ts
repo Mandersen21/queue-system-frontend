@@ -20,43 +20,40 @@ export class QueueComponent implements OnInit {
 
   constructor(private queueService: QueueService, private pusherService: PusherService) {
 
-    // SectionTimes in from small to high
+    // SectionTimes in from small to very high
     this.sectionTimes.push(SectionTime.SMALL, SectionTime.MEDIUM, SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
-    this.getPatients()
+    this.getPatientsData()
+
+    // Get fresh data every 1 min
+    setInterval(() => {
+      this.getPatientsData()
+    }, 60000);
   }
 
   ngOnInit() {
     this.pusherService.channel.bind('new-update', data => {
-      console.log("New update happened")
-      this.getPatients()
+      this.getPatientsData()
     });
   }
 
-  private getPatients() {
+  private getPatientsData(): void {
     // Get patients from backend via service
     this.queueService.getPatients().subscribe(
-      data => { console.log(data), this.patients = data },
+      data => { this.patients = data },
       err => console.error(err),
       () => this.sortPatients()
     )
   }
 
   private sortPatients() {
-
-    if (this.patientQueueSorted.length > 0) {
-      this.patientQueueSorted = []
-    }
-
-    if (this.patientFastTrackQueueSorted.length > 0) {
-      this.patientFastTrackQueueSorted = []
-    }
+    if (this.patientQueueSorted.length > 0) { this.patientQueueSorted = [] }
+    if (this.patientFastTrackQueueSorted.length > 0) { this.patientFastTrackQueueSorted = [] }
 
     this.sectionTimes.forEach(time => {
       this.pushPatientsToArray(time)
     });
   }
 
-  // TODO: Add if statements based on waiting times
   private pushPatientsToArray(sectionTime: SectionTime) {
 
     if (sectionTime === SectionTime.SMALL && this.patients.filter(p => p.minutesToWait < 30).length > 0) {
@@ -64,7 +61,7 @@ export class QueueComponent implements OnInit {
       let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait < 30).length > 0
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait < 30).length > 0
 
-      // Add section time to patient sorted array
+      // Add section time to arrays
       if (standardPatients)
         this.patientQueueSorted.push({ _id: sectionTime })
       if (fastTrackPatients)
