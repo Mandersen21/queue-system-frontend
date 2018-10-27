@@ -1,8 +1,8 @@
 MIKKEL - Sort based on waiting time (both registred time and waiting time needs to be taken into consideration)
 
-MADS - Add clock functionalty so it works.
+DONE - Add clock functionalty so it works.
 
-MIKKEL - Figure out how patient ID should look like, and sort accourding to that.
+DONE - Figure out how patient ID should look like, and sort accourding to that.
 
 DONE - Add green arrow in queue if time decreased and red arrow if time increased. note use Ngclass.
 
@@ -20,8 +20,8 @@ DONE - Add timer functionality to change between components on dashboard. (figur
 
 - Add functionality to fire an event if acute patient is coming in. (should work with header and footer component)
 
-- Add functionality to change the speed of footer text from admin page.
+DONE - Add functionality so the list will update on any change to DB.
 
-- Add functionality so the list will update on any change to DB and every 3-5 minute.
+- Add functionality so the list will update every 2-3 minute.
 
 DONE - Add two queues, so we have a normal and a fast track queue with patients in both.

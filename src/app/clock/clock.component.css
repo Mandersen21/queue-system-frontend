@@ -4,6 +4,7 @@
     font-weight: 600;
     font-family: 'Open Sans', sans-serif;
     padding-left: 4rem;
+    color: black;
 }
 
 .date {
@@ -14,6 +15,7 @@
     padding-top: 0.5rem;
     padding-right: 0.5rem;
     font-weight: 600;
+    color: black;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -22,33 +24,4 @@
     vertical-align: middle;
     font-size: 2rem;
     /* top: 0; */
-}
-
-
-.acute {
-    position: absolute;
-    right: 200px;
-    top: 35px;
-    font-size: 2rem;
-    padding-top: 0.5rem;
-    font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    padding-right: 0.5rem;
-}
-
-.acute-text {
-    color: #c0392b;
-    font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-}
-
-.acute-img {
-    width: 55px;
-    height: 55px;
-    position: absolute;
-    right: 260px;
-    top: -5px;
-    font-size: 2rem;
-    padding-top: 0.5rem;
-    padding-right: 0.5rem;
 }
