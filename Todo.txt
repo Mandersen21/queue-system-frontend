@@ -22,6 +22,6 @@ DONE - Add timer functionality to change between components on dashboard. (figur
 
 DONE - Add functionality so the list will update on any change to DB.
 
-- Add functionality so the list will update every 2-3 minute.
+DONE - Add functionality so the list will update every 2-3 minute.
 
 DONE - Add two queues, so we have a normal and a fast track queue with patients in both.
