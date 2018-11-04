@@ -50,23 +50,36 @@ export class QueueComponent implements OnInit {
     if (this.patientQueueSorted.length > 0) { this.patientQueueSorted = [] }
     if (this.patientFastTrackQueueSorted.length > 0) { this.patientFastTrackQueueSorted = [] }
 
-    this.sectionTimes.forEach(time => {
-      this.pushPatientsToArray(time)
-    });
+    if (!this.usePrioritisation) {
+      this.sectionTimes.forEach(time => {
+        this.sortOnWaitingTime(time)
+      });
+    }
+    else {
+      this.sortOnRegistredTimeAndTriage()
+    }
   }
 
-  private pushPatientsToArray(sectionTime: SectionTime) {
+  private sortOnRegistredTimeAndTriage() {
+    let sortedArray = this.patients.sort((a: IPatient, b: IPatient) => {
+      return this.getTime(a.registredTime) - this.getTime(b.registredTime);
+    });
+
+    sortedArray.forEach(p => {
+      this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+  }
+
+  private sortOnWaitingTime(sectionTime: SectionTime) {
 
     if (sectionTime === SectionTime.SMALL && this.patients.filter(p => p.minutesToWait < 30).length > 0) {
 
       let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait < 30).length > 0
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait < 30).length > 0
 
-      // Add section time to arrays
-      if (standardPatients && !this.usePrioritisation) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients && !this.usePrioritisation) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
 
-      // Add patients that has under 30 min left
       this.patients.forEach(p => {
         if (!p.fastTrack && p.minutesToWait < 30) {
           this.addPatientToQueue(this.patientQueueSorted, p);
@@ -83,8 +96,8 @@ export class QueueComponent implements OnInit {
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 29 && p.minutesToWait < 60).length > 0
 
       // Add section time to patient sorted array
-      if (standardPatients && !this.usePrioritisation) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients && !this.usePrioritisation) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
 
       // Add patients that has 30 - 60 min left
       this.patients.forEach(p => {
@@ -103,8 +116,8 @@ export class QueueComponent implements OnInit {
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 59 && p.minutesToWait < 121).length > 0
 
       // Add section time to patient sorted array
-      if (standardPatients && !this.usePrioritisation) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients && !this.usePrioritisation) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
 
       // Add patients that has 60 - 120 min left
       this.patients.forEach(p => {
@@ -123,8 +136,8 @@ export class QueueComponent implements OnInit {
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 120 && p.minutesToWait < 181).length > 0
 
       // Add section time to patient sorted array
-      if (standardPatients && !this.usePrioritisation) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients && !this.usePrioritisation) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
 
       // Add patients that has 120 - 180 min left
       this.patients.forEach(p => {
@@ -143,8 +156,8 @@ export class QueueComponent implements OnInit {
       let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 180).length > 0
 
       // Add section time to patient sorted array
-      if (standardPatients && !this.usePrioritisation) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients && !this.usePrioritisation) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
 
       // Add patients that has Over 180 min left
       this.patients.forEach(p => {
@@ -176,6 +189,10 @@ export class QueueComponent implements OnInit {
 
   }
 
+  private getTime(date?: Date) {
+    return date != null ? new Date(date).getTime() : 0;
+  }
+
   private addPatientToQueue(patientArray: IQueueRow[], patient: IPatient) {
     patientArray.push({
       _id: patient._id,
@@ -185,7 +202,8 @@ export class QueueComponent implements OnInit {
       decreased: false,
       increased: false,
       triage: patient.triage,
-      fastTrack: patient.fastTrack
+      fastTrack: patient.fastTrack,
+      registredTime: patient.registredTime
     })
   }
 }
@@ -229,4 +247,5 @@ export interface IQueueRow {
   baby?: boolean,
   triage?: Triage,
   fastTrack?: boolean,
+  registredTime?: Date,
 }
