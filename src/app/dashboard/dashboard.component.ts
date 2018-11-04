@@ -8,6 +8,8 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  usePrioritisation: boolean = true
+
   @Input() fastTrack: boolean;
 
   constructor(private route: ActivatedRoute) { 

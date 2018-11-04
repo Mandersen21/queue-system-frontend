@@ -1,19 +1,21 @@
 <div class="container-fluid custom-container dashboard-container">
   <div class="row">
     <div class="col-sm-12">
-      <div class="content-header">Ventetider for mindre skader</div>
+      <div *ngIf="!usePrioritisation" class="content-header">Ventetider for mindre skader</div>
+      <div *ngIf="usePrioritisation" class="content-header">Patient prioritet</div>
     </div>
   </div>
   <div class="row">
     <div class="col-sm-12 gutter">
-      <span *ngIf="!fastTrack" class="content-text">Patienter der skal vente længe kan tjekke sin estimeret ventetid ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin estimeret ventetid ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="!fastTrack && usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin prioritet i køen ved at følge sit patient id nedenfor.</span>
       <span *ngIf="fastTrack" class="content-text">Fast-track sporet er åben fra 15-23 hver dag.</span>
       <span class="text-right"><app-triage [fastTrack]="fastTrack"></app-triage></span>
     </div>
   </div>
   <div class="row gutter">
     <div class="col-sm-12 gutter">
-      <app-queue [fastTrack]="fastTrack"></app-queue>
+      <app-queue [usePrioritisation]="usePrioritisation" [fastTrack]="fastTrack"></app-queue>
     </div>
   </div>
 </div>
