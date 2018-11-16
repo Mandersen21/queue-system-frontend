@@ -27,6 +27,7 @@ import { Information3Component } from './information3/information3.component';
 // Services
 import { PusherService } from './pusher.service';
 import { FastTrackComponent } from './fast-track/fast-track.component';
+import { RoomComponent } from './room/room.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { FastTrackComponent } from './fast-track/fast-track.component';
     InformationComponent,
     Information2Component,
     Information3Component,
-    FastTrackComponent
+    FastTrackComponent,
+    RoomComponent
   ],
   imports: [
     BrowserModule,

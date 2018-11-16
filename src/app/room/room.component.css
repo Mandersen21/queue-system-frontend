@@ -1,4 +1,4 @@
-.acute-container {
+.room-container {
     vertical-align: -webkit-baseline-middle;
     vertical-align: middle;
     font-size: 2rem;
@@ -6,9 +6,9 @@
 }
 
 
-.acute {
+.room {
     position: absolute;
-    right: 525px;
+    right: 275px;
     top: 35px;
     font-size: 2rem;
     font-family: 'Open Sans', sans-serif;
@@ -18,12 +18,12 @@
     padding-right: 0.5rem;
 }
 
-.acute-text {
+.room-text {
     color: #c0392b;
 }
 
-.acute-img {
-    width: 315px;
+.room-img {
+    width: 55px;
     height: 55px;
     position: absolute;
     font-weight: 600;
