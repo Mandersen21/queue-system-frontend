@@ -14,7 +14,7 @@ export class AdminComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.patientRegisterModel = { name: '', infant: false, triage: number, queueType: false }
+    this.patientRegisterModel = { name: '', infant: false, triage: 0, queueType: false }
   }
 
   private registerPatient() {
