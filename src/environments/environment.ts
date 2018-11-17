@@ -7,7 +7,8 @@ export const environment = {
   pusher: {
     key: '05e5eaf769413204241b',
     cluster: 'eu',
-  }
+  },
+  backend: 'http://localhost:3000'
 };
 
 /*

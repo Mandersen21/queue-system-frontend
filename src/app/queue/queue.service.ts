@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from "rxjs/operators";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 import { IPatient } from './queue.component';
 
@@ -17,7 +18,8 @@ export class QueueService {
   constructor(private http: HttpClient) { }
 
   getPatients() {
-    return this.http.get<IPatient[]>('http://localhost:3000/api/patients')
+    console.log("Backend url to use: ", environment.backend + '/api/patients')
+    return this.http.get<IPatient[]>(environment.backend + '/api/patients')
   }
 
 }
