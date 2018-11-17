@@ -23,11 +23,11 @@ import { AdminComponent } from './admin/admin.component';
 import { InformationComponent } from './information/information.component';
 import { Information2Component } from './information2/information2.component';
 import { Information3Component } from './information3/information3.component';
+import { FastTrackComponent } from './fast-track/fast-track.component';
+import { RoomComponent } from './room/room.component';
 
 // Services
 import { PusherService } from './pusher.service';
-import { FastTrackComponent } from './fast-track/fast-track.component';
-import { RoomComponent } from './room/room.component';
 
 @NgModule({
   declarations: [

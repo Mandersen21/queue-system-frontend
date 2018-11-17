@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.currentInterval = this.normalQueueInterval
 
     // Start timer
-    // this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
   }
 
   ngOnInit() {
@@ -49,36 +49,36 @@ export class AppComponent implements OnInit {
     }
 
     if (this.currentInterval === this.fastQueueInterval) {
-      this.currentInterval = this.informationInterval
-      this.router.navigateByUrl('/information');
+      this.currentInterval = this.normalQueueInterval
+      this.router.navigateByUrl('/dashboard');
       this.sub.unsubscribe();
       this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
       return
     }
 
-    if (this.currentInterval === this.informationInterval) {
-      this.currentInterval = this.information2Interval
-      this.router.navigateByUrl('/information2');
-      this.sub.unsubscribe();
-      this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
-      return;
-    }
+    // if (this.currentInterval === this.informationInterval) {
+    //   this.currentInterval = this.information2Interval
+    //   this.router.navigateByUrl('/information2');
+    //   this.sub.unsubscribe();
+    //   this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    //   return;
+    // }
 
-    if (this.currentInterval === this.information2Interval) {
-      this.currentInterval = this.information3Interval
-      this.router.navigateByUrl('/information3');
-      this.sub.unsubscribe();
-      this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
-      return;
-    }
+    // if (this.currentInterval === this.information2Interval) {
+    //   this.currentInterval = this.information3Interval
+    //   this.router.navigateByUrl('/information3');
+    //   this.sub.unsubscribe();
+    //   this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    //   return;
+    // }
 
-    if (this.currentInterval === this.information3Interval) {
-      this.currentInterval = this.normalQueueInterval
-      this.router.navigateByUrl('/dashboard');
-      this.sub.unsubscribe();
-      this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
-      return;
-    }
+    // if (this.currentInterval === this.information3Interval) {
+    //   this.currentInterval = this.normalQueueInterval
+    //   this.router.navigateByUrl('/dashboard');
+    //   this.sub.unsubscribe();
+    //   this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    //   return;
+    // }
   }
 
   getState(outlet) {
