@@ -1,67 +1,170 @@
 <div class="container-fluid custom-container dashboard-container">
   <div class="row">
-    <div class="col-sm-12">
-      <div class="content-header">Patient registration</div>
+    <div class="col-sm-3">
+      <div class="content-header">Register patient</div>
+    </div>
+    <div class="col-sm-6">
+      <div class="content-header">Patient list</div>
+    </div>
+    <div class="col-sm-3">
+      <div class="content-header">Update patient</div>
     </div>
   </div>
   <div class="row">
-    <div class="col-sm-4">
+    <div class="col-sm-3">
       <div class="row">
         <div class="col-sm-12 white">
           <form>
             <div class="form-group">
-              <label for="Nameofinput1">Name of input</label>
-              <input type="text" class="form-control" id="Nameofinput1" placeholder="Enter Name of input">
+              <label for="name">Patient name</label>
+              <input type="text" [(ngModel)]="patientRegisterModel.name" class="form-control" name="patientName" id="Nameofinput1"
+                placeholder="Name of patient">
             </div>
             <div class="form-group">
-              <label for="Nameofinput2">Name of input</label>
-              <input type="text" class="form-control" id="Nameofinput2" placeholder="Enter Name of input">
+              <label for="name">Patient type:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" [(ngModel)]="patientRegisterModel.infant" type="radio" name="radioPatientType"
+                  value="false" checked>
+                <label class="form-check-label" for="inlineRadio1">Adult</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" [(ngModel)]="patientRegisterModel.infant" type="radio" name="radioPatientType"
+                  value="true">
+                <label class="form-check-label" for="inlineRadio2">Infant</label>
+              </div>
             </div>
             <div class="form-group">
-              <label for="Nameofinput2">Name of input</label>
-              <input type="text" class="form-control" id="Nameofinput2" placeholder="Enter Name of input">
+              <label for="name">Patient triage:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.infant" name="radioPatientTriage" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Red</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Orange</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Yellow</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio3" value="option3"
+                  checked>
+                <label class="form-check-label" for="inlineRadio3">Green</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Blue</label>
+              </div>
+            </div>
+            <!-- <div class="form-group">
+              <label for="name">Queue type:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientQueue" id="inlineRadio2" value="option2"
+                  checked>
+                <label class="form-check-label" for="inlineRadio2">Regular</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientQueue" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Fast-track</label>
+              </div>
+            </div> -->
+            <button type="submit" (click)="registerPatient()" class="btn btn-primary">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <!-- <div class="col-sm-12">
+        <div class="row">
+          <div class="col-4">
+            <div class="list-group" id="list-tab" role="tablist">
+              <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                role="tab" aria-controls="home">Home</a>
+              <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                role="tab" aria-controls="profile">Profile</a>
+              <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                role="tab" aria-controls="messages">Messages</a>
+              <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                role="tab" aria-controls="settings">Settings</a>
+            </div>
+          </div>
+          <div class="col-8">
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
+              <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
+              <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
+              <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="col-sm-3">
+      <div class="row">
+        <div class="col-sm-12 white">
+          <form>
+            <div class="form-group">
+              <label for="name">Patient name</label>
+              <input type="text" class="form-control" id="Nameofinput1" placeholder="Name of patient">
             </div>
             <div class="form-group">
-              <label for="Nameofinput2">Name of select (triage)</label>
-              <select class="form-control">
-                <option>Default select</option>
-              </select>
+              <label for="name">Patient type:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientType" id="inlineRadio1" value="option1"
+                  checked>
+                <label class="form-check-label" for="inlineRadio1">Adult</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientType" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Infant</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Patient triage:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio1" value="option1">
+                <label class="form-check-label" for="inlineRadio1">Red</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio2" value="option2">
+                <label class="form-check-label" for="inlineRadio2">Orange</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Yellow</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio3" value="option3"
+                  checked>
+                <label class="form-check-label" for="inlineRadio3">Green</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientTriage" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Blue</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Queue type:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientQueue" id="inlineRadio2" value="option2"
+                  checked>
+                <label class="form-check-label" for="inlineRadio2">Regular</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="radioPatientQueue" id="inlineRadio3" value="option3">
+                <label class="form-check-label" for="inlineRadio3">Fast-track</label>
+              </div>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-2">
-      <div class="col-sm-12">
-        <!-- Nothing should be here -->
-      </div>
-    </div>
-    <div class="col-sm-5">
-      <div class="row">
-        <div class="col-sm-12 white">
-          <form>
-            <div class="form-group">
-              <label for="Nameofselect1">Name of select (number of acute patients)</label>
-              <select class="form-control">
-                <option>Default select</option>
-              </select>
-            </div>
-            <div class="form-group">
-                <label for="Nameofselect1">Name of select (Speed of footer text)</label>
-                <select class="form-control">
-                  <option>Default select</option>
-                </select>
-              </div>
-              <div class="form-group">
-                  <label for="Nameofselect1">Name of select (Speed of footer text)</label>
-                  <select class="form-control">
-                    <option>Default select</option>
-                  </select>
-                </div>
-          </form>
-        </div>
-      </div>
+  </div>
+  <div class="row options">
+    <div class="col-sm-3">
+      <div class="content-header">Options</div>
     </div>
   </div>
 </div>

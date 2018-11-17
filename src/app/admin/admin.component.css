@@ -3,6 +3,29 @@
     /* padding: 2rem; */
     padding-top: 2rem;
     font-family: 'Open Sans', sans-serif;
-    font-size: 2rem;
+    font-size: 1.5rem;
+    /* font-weight: 400; */
+}
+
+.form-control {
+    padding: 2rem;
+}
+
+.container-fluid {
+    background-color: white;
+    padding: 3rem !important;
+}
+
+input[type=radio] {
+    width: 25px;
+    height: 25px;
+    margin-right: 1rem;
+}
+
+label {
     font-weight: 600;
+}
+
+.options {
+    padding-top: 5rem;
 }
