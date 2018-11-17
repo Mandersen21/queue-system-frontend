@@ -32,9 +32,9 @@ export class QueueComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.pusherService.channel.bind('new-update', data => {
-    //   this.getPatientsData()
-    // });
+    this.pusherService.channel.bind('new-update', data => {
+      this.getPatientsData()
+    });
   }
 
   private getPatientsData(): void {
