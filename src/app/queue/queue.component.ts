@@ -32,9 +32,9 @@ export class QueueComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.pusherService.channel.bind('new-update', data => {
-      this.getPatientsData()
-    });
+    // this.pusherService.channel.bind('new-update', data => {
+    //   this.getPatientsData()
+    // });
   }
 
   private getPatientsData(): void {
@@ -90,10 +90,10 @@ export class QueueComponent implements OnInit {
       })
     }
 
-    if (sectionTime === SectionTime.MEDIUM && this.patients.filter(p => p.minutesToWait > 29 && p.minutesToWait < 60).length > 0) {
+    if (sectionTime === SectionTime.MEDIUM && this.patients.filter(p => p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0) {
 
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 29 && p.minutesToWait < 60).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 29 && p.minutesToWait < 60).length > 0
+      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0
+      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0
 
       // Add section time to patient sorted array
       if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
@@ -110,10 +110,10 @@ export class QueueComponent implements OnInit {
       })
     }
 
-    if (sectionTime === SectionTime.MEDIUM_HIGH && this.patients.filter(p => p.minutesToWait > 59 && p.minutesToWait < 121).length > 0) {
+    if (sectionTime === SectionTime.MEDIUM_HIGH && this.patients.filter(p => p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0) {
 
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 59 && p.minutesToWait < 121).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 59 && p.minutesToWait < 121).length > 0
+      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0
+      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0
 
       // Add section time to patient sorted array
       if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
@@ -130,10 +130,10 @@ export class QueueComponent implements OnInit {
       })
     }
 
-    if (sectionTime === SectionTime.HIGH && this.patients.filter(p => p.minutesToWait > 120 && p.minutesToWait < 181).length > 0) {
+    if (sectionTime === SectionTime.HIGH && this.patients.filter(p => p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0) {
 
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 120 && p.minutesToWait < 181).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 120 && p.minutesToWait < 181).length > 0
+      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0
+      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0
 
       // Add section time to patient sorted array
       if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
@@ -170,6 +170,10 @@ export class QueueComponent implements OnInit {
       })
     }
 
+    this.addPositions()
+  }
+
+  private addPositions() {
     // Sort positions for both lists
     let index = 0;
     this.patientQueueSorted.forEach(function (p) {
@@ -186,7 +190,6 @@ export class QueueComponent implements OnInit {
         p.position = (index).toString();
       }
     })
-
   }
 
   private getTime(date?: Date) {

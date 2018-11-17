@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     this.currentInterval = this.normalQueueInterval
 
     // Start timer
-    this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
+    // this.sub = interval(this.currentInterval).subscribe((val) => { this.changeIntervalBasedOnRoute() })
   }
 
   ngOnInit() {
