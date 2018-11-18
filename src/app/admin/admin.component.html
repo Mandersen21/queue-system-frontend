@@ -101,7 +101,7 @@
         <div class="col-sm-5 white">
           <div class="form-group">
             <label for="name">Number of acute</label>
-            <select [(ngModel)]="acutePatients" name="acutePatients">
+            <select [(ngModel)]="acutePatients" (change)="updateOptions()" name="acutePatients">
               <option value="0">
                 0
               </option>

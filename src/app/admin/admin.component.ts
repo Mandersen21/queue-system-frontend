@@ -20,6 +20,7 @@ export class AdminComponent implements OnInit {
   constructor(private adminService: AdminServiceService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
     this.getPatients()
+    // this.getPatientOption()
   }
 
   ngOnInit() {
@@ -74,6 +75,21 @@ export class AdminComponent implements OnInit {
     )
   }
 
+  private updateOptions() {
+    console.log("Update options")
+    this.adminService.updateOptions(this.acutePatients).subscribe(
+      data => { console.log("Options updated"), console.log(data) },
+      error => { console.log("Error", error) }
+    )
+  }
+
+  private getPatientOption() {
+    this.adminService.getOptions().subscribe(
+      data => { console.log("Options found"), console.log(data) },
+      error => { console.log("Error", error) }
+    )
+  }
+
 }
 
 export interface IUpdatePatient {
@@ -82,4 +98,8 @@ export interface IUpdatePatient {
   infant: string,
   triage: string,
   queueType: string
+}
+
+export interface IPatientOption {
+  acutePatients: number
 }

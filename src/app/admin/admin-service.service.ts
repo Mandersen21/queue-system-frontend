@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { IPatient } from '../queue/queue.component';
+import { IPatientOption } from './admin.component';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -40,5 +41,16 @@ export class AdminServiceService {
 
   public getPatients() {
     return this.http.get<IPatient[]>(environment.backend + '/api/patients/');
+  }
+
+  public getOptions() {
+    return this.http.get<IPatientOption>(environment.backend + 'api/patients/options');
+  }
+
+  public updateOptions(acutePatients) {
+    return this.http.post(environment.backend + 'api/patients/options', 
+    {
+      acutePatients: acutePatients
+    })
   }
 }
