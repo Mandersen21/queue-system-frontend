@@ -44,17 +44,17 @@ export class AdminServiceService {
   }
 
   public getOptions() {
-    return this.http.get<IPatientOption>(environment.backend + 'api/patients/options');
+    return this.http.get<IPatientOption[]>(environment.backend + '/api/options');
   }
 
   public updateOptions(acutePatients) {
-    return this.http.post(environment.backend + 'api/patients/options',
+    return this.http.put(environment.backend + '/api/options',
       {
-        acutePatients: acutePatients
+        "acutePatients": acutePatients
       })
   }
 
   public deletePatient(patientId) {
-    return this.http.delete(environment.backend + '/api/patients' + patientId)
+    return this.http.delete(environment.backend + '/api/patients/' + patientId)
   }
 }

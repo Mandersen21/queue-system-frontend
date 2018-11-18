@@ -15,21 +15,21 @@ export class AdminComponent implements OnInit {
   patientData: any
   patients: Array<IPatient>
 
-  acutePatients: number = 0
+  acutePatients: any = 4
 
   constructor(private adminService: AdminServiceService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
     this.getPatients()
-    // this.getPatientOption()
   }
 
   ngOnInit() {
     this.patientRegisterModel = { name: '', infant: "false", triage: "4", queueType: "false" }
-    this.patientUpdateModel = { name: '', infant: "true", triage: "1", queueType: "true" }
+    this.patientUpdateModel = { patientId: '', name: '', infant: "true", triage: "1", queueType: "true" }
+
+    this.getPatientOption()
   }
 
   private registerPatient() {
-    console.log("Register patient", this.patientRegisterModel)
     if (this.patientRegisterModel.name.length > 0) {
       let name = this.patientRegisterModel.name
       let infant = this.patientRegisterModel.infant == "false" ? false : true
@@ -44,7 +44,6 @@ export class AdminComponent implements OnInit {
   }
 
   private updatePatient() {
-    console.log("Update patient", this.patientUpdateModel)
     if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
       let patientId = this.patientUpdateModel.patientId
       let name = this.patientUpdateModel.name
@@ -60,7 +59,6 @@ export class AdminComponent implements OnInit {
   }
 
   private updateValues(patientId, name, age, triage, fastTrack) {
-    console.log(patientId, name, age, triage, fastTrack)
     let _name = name
     let infant = age > 3 ? "false" : "true"
     let _triage = triage.toString()
@@ -75,23 +73,21 @@ export class AdminComponent implements OnInit {
     )
   }
 
+  private getPatientOption() {
+    this.adminService.getOptions().subscribe(
+      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients },
+      error => { console.log("Error", error) }
+    )
+  }
+
   private updateOptions() {
-    console.log("Update options")
     this.adminService.updateOptions(this.acutePatients).subscribe(
       data => { console.log("Options updated"), console.log(data) },
       error => { console.log("Error", error) }
     )
   }
 
-  private getPatientOption() {
-    this.adminService.getOptions().subscribe(
-      data => { console.log("Options found"), console.log(data) },
-      error => { console.log("Error", error) }
-    )
-  }
-
   private deletePatient() {
-    console.log("Delete patient", this.patientUpdateModel)
     if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
       let patientId = this.patientUpdateModel.patientId
       this.adminService.deletePatient(patientId).subscribe(
