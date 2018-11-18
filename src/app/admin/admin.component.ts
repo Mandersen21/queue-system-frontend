@@ -58,7 +58,7 @@ export class AdminComponent implements OnInit {
       );
     }
   }
-  
+
   private updateValues(patientId, name, age, triage, fastTrack) {
     console.log(patientId, name, age, triage, fastTrack)
     let _name = name
@@ -75,7 +75,6 @@ export class AdminComponent implements OnInit {
     )
   }
 
-<<<<<<< HEAD
   private updateOptions() {
     console.log("Update options")
     this.adminService.updateOptions(this.acutePatients).subscribe(
@@ -89,7 +88,8 @@ export class AdminComponent implements OnInit {
       data => { console.log("Options found"), console.log(data) },
       error => { console.log("Error", error) }
     )
-=======
+  }
+
   private deletePatient() {
     console.log("Delete patient", this.patientUpdateModel)
     if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
@@ -100,7 +100,6 @@ export class AdminComponent implements OnInit {
         () => this.getPatients()
       );
     }
->>>>>>> 3bbe0f64dd7bf11f12958309d1d13cc9465bcc6c
   }
 
 }
