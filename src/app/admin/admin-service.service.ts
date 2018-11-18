@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { IPatient } from '../queue/queue.component';
 
 const httpOptions = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -24,16 +25,20 @@ export class AdminServiceService {
   }
 
   public updatePatient(patientId, name, infant, triage, queueType) {
-    return this.http.put(environment.backend + '/api/patients/' + patientId, 
-    {
-      "name": name,
-      "age": infant == true ? 2 : 50,
-      "triage": triage,
-      "fastTrack": queueType
-    })
+    return this.http.put(environment.backend + '/api/patients/' + patientId,
+      {
+        "name": name,
+        "age": infant == true ? 2 : 50,
+        "triage": triage,
+        "fastTrack": queueType
+      })
   }
 
   public getPatient(patientId) {
     return this.http.get(environment.backend + '/api/patients/' + patientId)
+  }
+
+  public getPatients() {
+    return this.http.get<IPatient[]>(environment.backend + '/api/patients/');
   }
 }

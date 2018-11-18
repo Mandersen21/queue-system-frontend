@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdminServiceService } from './admin-service.service';
+import { IPatient } from '../queue/queue.component';
 
 @Component({
   selector: 'app-admin',
@@ -9,12 +10,14 @@ import { AdminServiceService } from './admin-service.service';
 })
 export class AdminComponent implements OnInit {
 
-  patientRegisterModel: IPatient
-  patientUpdateModel: IPatient
-  patientDataFound: any
+  patientRegisterModel: IUpdatePatient
+  patientUpdateModel: IUpdatePatient
+  patientData: any
+  patients: Array<IPatient>
 
   constructor(private adminService: AdminServiceService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
+    this.getPatients()
   }
 
   ngOnInit() {
@@ -46,31 +49,31 @@ export class AdminComponent implements OnInit {
       let queueType = this.patientUpdateModel.queueType == "false" ? false : true
       this.adminService.updatePatient(patientId, name, infant, triage, queueType).subscribe(
         data => { console.log("Update Request is successful ", data); },
-        error => { console.log("Error", error); }
+        error => { console.log("Error", error); },
+        () => this.getPatients()
       );
     }
   }
   
-  private getPatient() {
-    console.log("Getting patient info")
-    console.log(this.patientUpdateModel.patientId)
-    if (this.patientUpdateModel.patientId.length > 0) {
-      let patientId = this.patientUpdateModel.patientId
-      this.adminService.getPatient(patientId).subscribe(
-        data => { console.log("Patient found "), this.patientDataFound = data },
-        error => { console.log("Error", error) },
-        () => this.updateValues()
-      )
-    }
+  private updateValues(patientId, name, age, triage, fastTrack) {
+    console.log(patientId, name, age, triage, fastTrack)
+    let _name = name
+    let infant = age > 3 ? "false" : "true"
+    let _triage = triage.toString()
+    let queueType = fastTrack === true ? "true" : "false"
+    this.patientUpdateModel = { patientId: patientId, name: _name, infant: infant, triage: _triage, queueType: queueType }
   }
 
-  private updateValues() {
-    console.log(this.patientDataFound)
+  private getPatients() {
+    this.adminService.getPatients().subscribe(
+      data => { console.log("Patient found "), this.patients = data, console.log(this.patients) },
+      error => { console.log("Error", error) }
+    )
   }
 
 }
 
-export interface IPatient {
+export interface IUpdatePatient {
   patientId?: string,
   name: string,
   infant: string,
