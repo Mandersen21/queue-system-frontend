@@ -34,7 +34,8 @@ export class AdminComponent implements OnInit {
       let queueType = this.patientRegisterModel.queueType == "false" ? false : true
       this.adminService.addPatient(name, infant, triage, queueType).subscribe(
         data => { console.log("POST Request is successful ", data); },
-        error => { console.log("Error", error); }
+        error => { console.log("Error", error); },
+        () => this.getPatients()
       );
     }
   }
