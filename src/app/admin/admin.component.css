@@ -29,3 +29,7 @@ label {
 .options {
     padding-top: 5rem;
 }
+
+select.form-control {
+    color: black;
+  }
