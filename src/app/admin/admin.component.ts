@@ -75,6 +75,7 @@ export class AdminComponent implements OnInit {
     )
   }
 
+<<<<<<< HEAD
   private updateOptions() {
     console.log("Update options")
     this.adminService.updateOptions(this.acutePatients).subscribe(
@@ -88,6 +89,18 @@ export class AdminComponent implements OnInit {
       data => { console.log("Options found"), console.log(data) },
       error => { console.log("Error", error) }
     )
+=======
+  private deletePatient() {
+    console.log("Delete patient", this.patientUpdateModel)
+    if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
+      let patientId = this.patientUpdateModel.patientId
+      this.adminService.deletePatient(patientId).subscribe(
+        data => { console.log("Delete Request is successful ", data); },
+        error => { console.log("Error", error); },
+        () => this.getPatients()
+      );
+    }
+>>>>>>> 3bbe0f64dd7bf11f12958309d1d13cc9465bcc6c
   }
 
 }

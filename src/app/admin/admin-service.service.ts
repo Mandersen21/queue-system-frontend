@@ -48,9 +48,13 @@ export class AdminServiceService {
   }
 
   public updateOptions(acutePatients) {
-    return this.http.post(environment.backend + 'api/patients/options', 
-    {
-      acutePatients: acutePatients
-    })
+    return this.http.post(environment.backend + 'api/patients/options',
+      {
+        acutePatients: acutePatients
+      })
+  }
+
+  public deletePatient(patientId) {
+    return this.http.delete(environment.backend + '/api/patients' + patientId)
   }
 }
