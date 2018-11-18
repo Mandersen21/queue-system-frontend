@@ -51,12 +51,13 @@ export class QueueComponent implements OnInit {
     if (this.patientFastTrackQueueSorted.length > 0) { this.patientFastTrackQueueSorted = [] }
 
     if (!this.usePrioritisation) {
-      this.sectionTimes.forEach(time => {
-        this.sortOnWaitingTime(time)
-      });
+      this.sortOnWaitingTime();
+      // this.sectionTimes.forEach(time => {
+      //   this.sortOnWaitingTime(time)
+      // });
     }
     else {
-      this.sortOnRegistredTimeAndTriage()
+      this.sortOnPriority()
     }
   }
 
@@ -70,108 +71,157 @@ export class QueueComponent implements OnInit {
     })
   }
 
-  private sortOnWaitingTime(sectionTime: SectionTime) {
+  private sortOnWaitingTime() {
 
-    if (sectionTime === SectionTime.SMALL && this.patients.filter(p => p.minutesToWait < 30).length > 0) {
-
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait < 30).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait < 30).length > 0
-
-      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
-
-      this.patients.forEach(p => {
-        if (!p.fastTrack && p.minutesToWait < 30) {
-          this.addPatientToQueue(this.patientQueueSorted, p);
-        }
-        if (p.fastTrack && p.minutesToWait < 30) {
-          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-        }
-      })
-    }
-
-    if (sectionTime === SectionTime.MEDIUM && this.patients.filter(p => p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0) {
-
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0
-
-      // Add section time to patient sorted array
-      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
-
-      // Add patients that has 30 - 60 min left
-      this.patients.forEach(p => {
-        if (!p.fastTrack && (p.minutesToWait > 29 && p.minutesToWait < 60)) {
-          this.addPatientToQueue(this.patientQueueSorted, p);
-        }
-        if (p.fastTrack && (p.minutesToWait > 29 && p.minutesToWait < 60)) {
-          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-        }
-      })
-    }
-
-    if (sectionTime === SectionTime.MEDIUM_HIGH && this.patients.filter(p => p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0) {
-
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0
-
-      // Add section time to patient sorted array
-      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
-
-      // Add patients that has 60 - 120 min left
-      this.patients.forEach(p => {
-        if (!p.fastTrack && (p.minutesToWait > 59 && p.minutesToWait < 121)) {
-          this.addPatientToQueue(this.patientQueueSorted, p);
-        }
-        if (p.fastTrack && (p.minutesToWait > 59 && p.minutesToWait < 121)) {
-          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-        }
-      })
-    }
-
-    if (sectionTime === SectionTime.HIGH && this.patients.filter(p => p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0) {
-
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0
-
-      // Add section time to patient sorted array
-      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
-
-      // Add patients that has 120 - 180 min left
-      this.patients.forEach(p => {
-        if (!p.fastTrack && (p.minutesToWait > 120 && p.minutesToWait < 181)) {
-          this.addPatientToQueue(this.patientQueueSorted, p);
-        }
-        if (p.fastTrack && (p.minutesToWait > 120 && p.minutesToWait < 181)) {
-          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-        }
-      })
-    }
-
-    if (sectionTime === SectionTime.VERY_HIGH && this.patients.filter(p => p.minutesToWait > 180).length > 0) {
-
-      let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 180).length > 0
-      let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 180).length > 0
-
-      // Add section time to patient sorted array
-      if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
-      if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
-
-      // Add patients that has Over 180 min left
-      this.patients.forEach(p => {
-        if (!p.fastTrack && (p.minutesToWait > 180)) {
-          this.addPatientToQueue(this.patientQueueSorted, p);
-        }
-        if (p.fastTrack && (p.minutesToWait > 180)) {
-          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-        }
-      })
-    }
-
-    this.addPositions()
   }
+  private sortOnPriority() {
+
+    let redPatients  = this.patients.filter(p => p.triage == Triage.IMMEDIATE);
+    console.log(redPatients);
+    let orangePatients  = this.patients.filter(p => p.triage == Triage.VERY_URGENT);
+    console.log(orangePatients);
+    let yelloPatients  = this.patients.filter(p => p.triage == Triage.URGENT);
+    console.log(yelloPatients);
+    let greenPatients  = this.patients.filter(p => p.triage == Triage.STANDARD);
+    console.log(greenPatients);
+    let bluePatients  = this.patients.filter(p => p.triage == Triage.NON_URGENT);
+    console.log(greenPatients);
+
+    redPatients.forEach(p => {
+      if(p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      }else 
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+    orangePatients.forEach(p => {
+      if(p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      }else 
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+    yelloPatients.forEach(p => {
+      if(p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      }else 
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+    greenPatients.forEach(p => {
+      if(p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      }else 
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+    bluePatients.forEach(p => {
+      if(p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      }else 
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+
+    this.addPositions();
+  }
+  // private sortOnWaitingTime(sectionTime: SectionTime) {
+
+  //   if (sectionTime === SectionTime.SMALL && this.patients.filter(p => p.minutesToWait < 30).length > 0) {
+
+  //     let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait < 30).length > 0
+  //     let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait < 30).length > 0
+
+  //     if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+  //     if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+
+  //     this.patients.forEach(p => {
+  //       if (!p.fastTrack && p.minutesToWait < 30) {
+  //         this.addPatientToQueue(this.patientQueueSorted, p);
+  //       }
+  //       if (p.fastTrack && p.minutesToWait < 30) {
+  //         this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+  //       }
+  //     })
+  //   }
+
+  //   if (sectionTime === SectionTime.MEDIUM && this.patients.filter(p => p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0) {
+
+  //     let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0
+  //     let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait >= 30 && p.minutesToWait <= 60).length > 0
+
+  //     // Add section time to patient sorted array
+  //     if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+  //     if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+
+  //     // Add patients that has 30 - 60 min left
+  //     this.patients.forEach(p => {
+  //       if (!p.fastTrack && (p.minutesToWait > 29 && p.minutesToWait < 60)) {
+  //         this.addPatientToQueue(this.patientQueueSorted, p);
+  //       }
+  //       if (p.fastTrack && (p.minutesToWait > 29 && p.minutesToWait < 60)) {
+  //         this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+  //       }
+  //     })
+  //   }
+
+  //   if (sectionTime === SectionTime.MEDIUM_HIGH && this.patients.filter(p => p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0) {
+
+  //     let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0
+  //     let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 60 && p.minutesToWait <= 120).length > 0
+
+  //     // Add section time to patient sorted array
+  //     if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+  //     if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+
+  //     // Add patients that has 60 - 120 min left
+  //     this.patients.forEach(p => {
+  //       if (!p.fastTrack && (p.minutesToWait > 59 && p.minutesToWait < 121)) {
+  //         this.addPatientToQueue(this.patientQueueSorted, p);
+  //       }
+  //       if (p.fastTrack && (p.minutesToWait > 59 && p.minutesToWait < 121)) {
+  //         this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+  //       }
+  //     })
+  //   }
+
+  //   if (sectionTime === SectionTime.HIGH && this.patients.filter(p => p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0) {
+
+  //     let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0
+  //     let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 120 && p.minutesToWait <= 180).length > 0
+
+  //     // Add section time to patient sorted array
+  //     if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+  //     if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+
+  //     // Add patients that has 120 - 180 min left
+  //     this.patients.forEach(p => {
+  //       if (!p.fastTrack && (p.minutesToWait > 120 && p.minutesToWait < 181)) {
+  //         this.addPatientToQueue(this.patientQueueSorted, p);
+  //       }
+  //       if (p.fastTrack && (p.minutesToWait > 120 && p.minutesToWait < 181)) {
+  //         this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+  //       }
+  //     })
+  //   }
+
+  //   if (sectionTime === SectionTime.VERY_HIGH && this.patients.filter(p => p.minutesToWait > 180).length > 0) {
+
+  //     let fastTrackPatients: boolean = this.patients.filter(p => p.fastTrack == true && p.minutesToWait > 180).length > 0
+  //     let standardPatients: boolean = this.patients.filter(p => p.fastTrack == false && p.minutesToWait > 180).length > 0
+
+  //     // Add section time to patient sorted array
+  //     if (standardPatients) { this.patientQueueSorted.push({ _id: sectionTime }) }
+  //     if (fastTrackPatients) { this.patientFastTrackQueueSorted.push({ _id: sectionTime }) }
+
+  //     // Add patients that has Over 180 min left
+  //     this.patients.forEach(p => {
+  //       if (!p.fastTrack && (p.minutesToWait > 180)) {
+  //         this.addPatientToQueue(this.patientQueueSorted, p);
+  //       }
+  //       if (p.fastTrack && (p.minutesToWait > 180)) {
+  //         this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+  //       }
+  //     })
+  //   }
+
+  //   this.addPositions()
+  // }
 
   private addPositions() {
     // Sort positions for both lists
@@ -210,6 +260,20 @@ export class QueueComponent implements OnInit {
     })
   }
 }
+
+// function array_move(arr, old_index, new_index) {
+//   if (new_index >= arr.length) {
+//       var k = new_index - arr.length + 1;
+//       while (k--) {
+//           arr.push(undefined);
+//       }
+//   }
+//   arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+//   return arr; // for testing
+// };
+
+// // returns [2, 1, 3]
+// console.log(array_move([1, 2, 3], 0, 1)); 
 
 export enum SectionTime {
   SMALL = "Under 30 minutter",
