@@ -41,4 +41,8 @@ export class AdminServiceService {
   public getPatients() {
     return this.http.get<IPatient[]>(environment.backend + '/api/patients/');
   }
+
+  public deletePatient(patientId) {
+    return this.http.delete(environment.backend + '/api/patients' + patientId)
+  }
 }

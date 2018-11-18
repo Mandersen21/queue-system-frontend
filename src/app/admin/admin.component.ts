@@ -72,6 +72,18 @@ export class AdminComponent implements OnInit {
     )
   }
 
+  private deletePatient() {
+    console.log("Delete patient", this.patientUpdateModel)
+    if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
+      let patientId = this.patientUpdateModel.patientId
+      this.adminService.deletePatient(patientId).subscribe(
+        data => { console.log("Delete Request is successful ", data); },
+        error => { console.log("Error", error); },
+        () => this.getPatients()
+      );
+    }
+  }
+
 }
 
 export interface IUpdatePatient {
