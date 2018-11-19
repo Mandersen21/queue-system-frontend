@@ -12,7 +12,7 @@ export class AcuteComponent implements OnInit {
   @Input() acutePatients: number
 
   constructor(private pusherService: PusherService, private adminService: AdminServiceService) { 
-    
+   this.getPatientOptions()
   }
 
   ngOnInit() {

@@ -16,6 +16,7 @@ export class AdminComponent implements OnInit {
   patients: Array<IPatient>
 
   acutePatients: any = 4
+  acuteText: string = ''
 
   constructor(private adminService: AdminServiceService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
