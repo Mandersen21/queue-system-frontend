@@ -1,6 +1,6 @@
-<div class="container-fluid custom-container dashboard-container">
+<div class="container-fluid custom-container dashboard-container padding-bottom">
   <div class="row">
-    <div class="col-sm-3 line-right padding-right">
+    <div class="col-sm-3 line-right padding-right padding-bottom">
       <div class="content-header">Register patient</div>
       <div class="row">
         <div class="col-sm-12 padding-top">
@@ -73,7 +73,7 @@
         </div>
       </div>
     </div>
-    <div class="col-sm-3 line-right padding-middle">
+    <div class="col-sm-3 line-right padding-middle padding-bottom">
       <div class="content-header">Update patient</div>
       <div class="row">
         <div class="col-sm-12 padding-top">
@@ -141,13 +141,13 @@
                 <label class="form-check-label content-label" for="inlineRadio3">Fast-track</label>
               </div>
             </div>
-            <button type="submit" (click)="updatePatient()" class="btn btn-primary btn-block">Submit</button>
-            <button type="submit" (click)="deletePatient()" class="btn btn-danger btn-block">Delete</button>
+            <button type="submit" (click)="updatePatient()" class="btn btn-primary btn-block content-button">Submit</button>
+            <button type="submit" (click)="deletePatient()" class="btn btn-danger btn-block content-button">Delete</button>
           </form>
         </div>
       </div>
     </div>
-    <div class="col-sm-6 padding-left">
+    <div class="col-sm-6 padding-left padding-bottom">
       <div class="content-header">Patient list</div>
       <div *ngIf="patients" class="row">
         <div class="col-sm-12 padding-top">

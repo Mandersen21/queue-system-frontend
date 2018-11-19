@@ -33,8 +33,7 @@
     width:100%;
     font-size: 1.7rem;
     font-weight: 600;
-    /* font-family: 'Montserrat', sans-serif !important; */
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Segoe UI';
     background-color: #0063B1;
     display: block;
 }
@@ -43,8 +42,7 @@
     width:100%;
     font-size: 1.7rem;
     font-weight: 600;
-    /* font-family: 'Montserrat', sans-serif !important; */
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Segoe UI';
     background-color: #16A085;
     display: block;
 }

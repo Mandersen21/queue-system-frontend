@@ -1,8 +1,6 @@
 .acute-container {
     vertical-align: -webkit-baseline-middle;
     vertical-align: middle;
-    font-size: 2rem;
-    /* top: 0; */
 }
 
 
@@ -10,8 +8,8 @@
     position: absolute;
     right: 250px;
     top: 35px;
+    font-family: 'Segoe UI';
     font-size: 2rem;
-    font-family: 'Open Sans', sans-serif;
     font-weight: 600;
     color: black;
     padding-top: 0.5rem;
@@ -26,9 +24,10 @@
     width: 35px;
     height: 55px;
     position: absolute;
+    font-family: 'Segoe UI';
+    font-size: 2rem;
     font-weight: 600;
-    font-family: 'Open Sans', sans-serif;
-    right: 330px;
+    right: 325px;
     top: -5px;
     font-size: 1.8rem;
     padding-top: 0.5rem;

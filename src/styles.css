@@ -7,9 +7,14 @@
     src: url(assets/fonts/Helvetica.woff);
 }
 
+@font-face {
+    font-family: 'HelveticaBold';
+    src: url(assets/fonts/Helvetica-Bold.woff);
+}
+
 body {
   background-color: #F4F4F4;
-  font-family: 'Helvetica';
+  font-family: 'Segoe UI';
   font-size: 16px;
   font-weight: 300;
 }
@@ -24,27 +29,25 @@ ul > .list-group {
 }
 
 .content-header {
-  font-family: 'Helvetica';
-  font-size: 30px;
-  font-weight: bold;
+  font-family: 'Segoe UI';
+  font-size: 3.5rem;
+  font-weight: 700;
 }
 
 .content-label {
-  font-family: 'Helvetica';
-  font-weight: 300;
-  font-size: 1.8rem;
+  font-family: 'Segoe UI';
+  font-weight: 400;
+  font-size: 2rem;
 }
 
 .content-button {
-    font-family: 'Helvetica';
-    font-size: 1.7rem;
+    font-family: 'Segoe UI';
+    font-size: 1.8rem;
     font-weight: 300;
 }
 
 .content-text {
-  /* font-family: 'Lato', sans-serif; */
-  /* font-family: 'Open Sans', sans-serif; */
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: #47525E;
 }
 
