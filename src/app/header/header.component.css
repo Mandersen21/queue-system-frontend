@@ -1,6 +1,5 @@
 .navbar {
     min-height: 80px;
-    background-color: #dfe4ea;;
 }
   
 .navbar-brand {
@@ -9,8 +8,6 @@
     line-height: 100px;
     font-family: 'Open Sans', sans-serif;
     color: #262626;
-    /* display: relative; */
-    /* display: inline-block; */
     font-size: 4rem;
     font-weight: 700;
 }
@@ -30,7 +27,6 @@
 .navbar .navbar-brand img {
     max-width: 75%;
     max-height: 75%;
-    /* margin-top: -5px; */
 }
 
 .navbar-default {
