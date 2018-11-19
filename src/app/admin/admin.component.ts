@@ -16,7 +16,7 @@ export class AdminComponent implements OnInit {
   patients: Array<IPatient>
 
   acutePatients: any = 4
-  acuteText: string = ''
+  acuteMessage: string = ''
 
   constructor(private adminService: AdminServiceService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
@@ -76,13 +76,13 @@ export class AdminComponent implements OnInit {
 
   private getPatientOption() {
     this.adminService.getOptions().subscribe(
-      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients },
+      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients, this.acuteMessage = data[0].acutePatientMessage },
       error => { console.log("Error", error) }
     )
   }
 
   private updateOptions() {
-    this.adminService.updateOptions(this.acutePatients).subscribe(
+    this.adminService.updateOptions(this.acutePatients, this.acuteMessage).subscribe(
       data => { console.log("Options updated"), console.log(data) },
       error => { console.log("Error", error) }
     )
@@ -110,5 +110,6 @@ export interface IUpdatePatient {
 }
 
 export interface IPatientOption {
-  acutePatients: number
+  acutePatients: number,
+  acutePatientMessage: string
 }

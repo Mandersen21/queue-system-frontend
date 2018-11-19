@@ -63,3 +63,7 @@ select.form-control {
 .btn {
     padding: 1rem !important;
 }
+
+.acuteText {
+    margin-bottom: 1rem;
+}

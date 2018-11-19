@@ -38,6 +38,7 @@ ul > .list-group {
   font-family: 'Segoe UI';
   font-weight: 400;
   font-size: 2rem;
+  padding-right: 2rem;
 }
 
 .content-button {

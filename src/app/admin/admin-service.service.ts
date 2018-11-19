@@ -47,10 +47,11 @@ export class AdminServiceService {
     return this.http.get<IPatientOption[]>(environment.backend + '/api/options');
   }
 
-  public updateOptions(acutePatients) {
+  public updateOptions(acutePatients, message) {
     return this.http.put(environment.backend + '/api/options',
       {
-        "acutePatients": acutePatients
+        "acutePatients": acutePatients,
+        "acutePatientMessage": message
       })
   }
 
