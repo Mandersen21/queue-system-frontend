@@ -141,8 +141,10 @@
                 <label class="form-check-label content-label" for="inlineRadio3">Fast-track</label>
               </div>
             </div>
-            <button type="submit" (click)="updatePatient()" class="btn btn-primary btn-block content-button">Update patient</button>
-            <button type="submit" (click)="deletePatient()" class="btn btn-danger btn-block content-button">Delete patient</button>
+            <button type="submit" (click)="updatePatient()" class="btn btn-primary btn-block content-button">Update
+              patient</button>
+            <button type="submit" (click)="deletePatient()" class="btn btn-danger btn-block content-button">Delete
+              patient</button>
           </form>
         </div>
       </div>
@@ -155,7 +157,7 @@
             <label class="content-label">Patient queue</label>
             <div *ngIf="patients.length > 0" class="row">
               <div class="col-sm-12">
-                <div *ngFor="let patient of patients; let i = index" >
+                <div *ngFor="let patient of patients; let i = index">
                   <input class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack)"
                     type="radio" name="radioPatient" />
                   <label class="form-check-label content-label">{{i + 1}}</label>
@@ -172,23 +174,23 @@
           <div class="form-group">
             <label class="content-label">Number of acute</label>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients" id="inlineRadio3"
-                value="0">
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
+                id="inlineRadio3" value="0">
               <label class="form-check-label content-label" for="inlineRadio3">0</label>
-              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients" id="inlineRadio3"
-                value="1">
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
+                id="inlineRadio3" value="1">
               <label class="form-check-label content-label" for="inlineRadio3">1</label>
-              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients" id="inlineRadio3"
-                value="2">
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
+                id="inlineRadio3" value="2">
               <label class="form-check-label content-label" for="inlineRadio3">2</label>
-              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients" id="inlineRadio3"
-                value="3">
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
+                id="inlineRadio3" value="3">
               <label class="form-check-label content-label" for="inlineRadio3">3</label>
-              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients" id="inlineRadio3"
-                value="4">
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
+                id="inlineRadio3" value="4">
               <label class="form-check-label content-label" for="inlineRadio3">4</label>
-              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients" id="inlineRadio3"
-                value="5">
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
+                id="inlineRadio3" value="5">
               <label class="form-check-label content-label" for="inlineRadio3">5</label>
             </div>
           </div>
@@ -197,11 +199,15 @@
             <input type="text" [(ngModel)]="acuteMessage" class="acuteText form-control" name="patientName" id="Nameofinput1"
               placeholder="Acute message">
             <div>
-              <button type="submit" (click)="updatePatient()" class="gutter btn btn-primary btn-block content-button">Update message</button>
+              <button type="submit" (click)="updatePatient()" class="acuteText btn btn-primary btn-block content-button">Update
+                message</button>
+            </div>
+            <div>
+              <button type="submit" (click)="updatePatient()" class="acuteText gutter btn btn-secondary btn-block content-button">Clear
+                message</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>

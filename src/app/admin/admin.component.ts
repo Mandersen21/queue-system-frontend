@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   patientData: any
   patients: Array<IPatient>
 
-  acutePatients: any = 4
+  acutePatients: string = "4"
   acuteMessage: string = ''
 
   constructor(private adminService: AdminServiceService) {
@@ -76,7 +76,7 @@ export class AdminComponent implements OnInit {
 
   private getPatientOption() {
     this.adminService.getOptions().subscribe(
-      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients, this.acuteMessage = data[0].acutePatientMessage },
+      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage },
       error => { console.log("Error", error) }
     )
   }
