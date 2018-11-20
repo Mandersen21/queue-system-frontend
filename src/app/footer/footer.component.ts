@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { trigger, state, transition, animate, style } from '@angular/animations'
+import { PusherService } from '../pusher.service';
+import { AdminServiceService } from '../admin/admin-service.service';
 
 
 @Component({
@@ -10,22 +12,36 @@ import { trigger, state, transition, animate, style } from '@angular/animations'
 export class FooterComponent implements OnInit {
 
   infoMessages: Array<IMessage> = [];
-
+  errorMessage: IMessage
   currentMessage: IMessage
-  @Input() errorMessage: IMessage
 
-  constructor() {
-
-    if (this.errorMessage) {
-      this.currentMessage = this.errorMessage;
-      this.currentMessage.error = true;
-    }
-    else {
-      this.currentMessage = {message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandling indenfor rimelig tid.', error: false}
-    }
+  constructor(private pusherService: PusherService, private adminService: AdminServiceService) {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.getPatientOptions()
+
+    this.pusherService.channel.bind('new-option', data => {
+      this.getPatientOptions()
+    });
+  }
+
+  private getPatientOptions() {
+    this.adminService.getOptions().subscribe(
+      data => { console.log("Options found"), this.errorMessage = { message: data[0].acutePatientMessage, error: false } },
+      error => { console.log("Error", error) },
+      () => { this.updateValues() }
+    )
+  }
+
+  private updateValues() {
+    if (this.errorMessage.message.length > 0 ) {
+      this.currentMessage = { message: this.errorMessage.message, error: true}
+    }
+    else {
+      this.currentMessage = { message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandling indenfor rimelig tid.', error: false }
+    }
+  }
 }
 
 export interface IMessage {

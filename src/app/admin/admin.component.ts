@@ -99,6 +99,11 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  private clearMessage() {
+    this.acuteMessage = ''
+    this.updateOptions()
+  }
+
 }
 
 export interface IUpdatePatient {
