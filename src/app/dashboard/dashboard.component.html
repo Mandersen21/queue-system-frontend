@@ -9,7 +9,7 @@
     <div class="col-sm-12 gutter">
       <span *ngIf="!fastTrack && !usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin estimeret ventetid ved at følge sit patient id nedenfor.</span>
       <span *ngIf="!fastTrack && usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin prioritet i køen ved at følge sit patient id nedenfor.</span>
-      <span *ngIf="fastTrack" class="content-text">Fast-track sporet er åben fra 15-23 hver dag.</span>
+      <span *ngIf="fastTrack" class="content-text">Fast-track sporet kan være åben fra 10-23 hver dag.</span>
       <span class="text-right"><app-triage [fastTrack]="fastTrack"></app-triage></span>
     </div>
   </div>
