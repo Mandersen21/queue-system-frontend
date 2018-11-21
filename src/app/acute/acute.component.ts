@@ -9,7 +9,7 @@ import { AdminServiceService } from '../admin/admin-service.service';
 })
 export class AcuteComponent implements OnInit {
 
-  @Input() acutePatients: number
+  acutePatients: number = 0
 
   constructor(private pusherService: PusherService, private adminService: AdminServiceService) { 
    this.getPatientOptions()
@@ -25,7 +25,7 @@ export class AcuteComponent implements OnInit {
 
   private getPatientOptions() {
     this.adminService.getOptions().subscribe(
-      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients },
+      data => { this.acutePatients = data[0].acutePatients },
       error => { console.log("Error", error) }
     )
   }

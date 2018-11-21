@@ -14,6 +14,5 @@ export class PusherService {
       encrypted: true
     });
     this.channel = this.pusher.subscribe('events-channel');
-    console.log("Channel:", this.channel)
   }
 }

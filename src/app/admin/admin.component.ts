@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   patientData: any
   patients: Array<IPatient>
 
-  acutePatients: string = "4"
+  acutePatients: string = "0"
   acuteMessage: string = ''
 
   constructor(private adminService: AdminServiceService) {
@@ -37,7 +37,7 @@ export class AdminComponent implements OnInit {
       let triage = Number(this.patientRegisterModel.triage)
       let queueType = this.patientRegisterModel.queueType == "false" ? false : true
       this.adminService.addPatient(name, infant, triage, queueType).subscribe(
-        data => { console.log("POST Request is successful ", data); },
+        data => { },
         error => { console.log("Error", error); },
         () => this.getPatients()
       );
@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit {
       let triage = Number(this.patientUpdateModel.triage)
       let queueType = this.patientUpdateModel.queueType == "false" ? false : true
       this.adminService.updatePatient(patientId, name, infant, triage, queueType).subscribe(
-        data => { console.log("Update Request is successful ", data); },
+        data => { },
         error => { console.log("Error", error); },
         () => this.getPatients()
       );
@@ -69,21 +69,21 @@ export class AdminComponent implements OnInit {
 
   public getPatients() {
     this.adminService.getPatients().subscribe(
-      data => { console.log("Patient found "), this.patients = data, console.log(this.patients) },
+      data => { this.patients = data },
       error => { console.log("Error", error) }
     )
   }
 
   public getPatientOption() {
     this.adminService.getOptions().subscribe(
-      data => { console.log("Options found"), this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage },
+      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage },
       error => { console.log("Error", error) }
     )
   }
 
   public updateOptions() {
     this.adminService.updateOptions(this.acutePatients, this.acuteMessage).subscribe(
-      data => { console.log("Options updated"), console.log(data) },
+      data => { },
       error => { console.log("Error", error) }
     )
   }
@@ -92,7 +92,7 @@ export class AdminComponent implements OnInit {
     if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
       let patientId = this.patientUpdateModel.patientId
       this.adminService.deletePatient(patientId).subscribe(
-        data => { console.log("Delete Request is successful ", data); },
+        data => { },
         error => { console.log("Error", error); },
         () => this.getPatients()
       );

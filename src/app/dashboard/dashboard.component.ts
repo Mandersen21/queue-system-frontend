@@ -20,7 +20,6 @@ export class DashboardComponent implements OnInit {
     this.route
       .data
       .subscribe(v => this.fastTrack = v.fastTrack);
-      console.log("Fast track status:", this.fastTrack)
   }
 
 }

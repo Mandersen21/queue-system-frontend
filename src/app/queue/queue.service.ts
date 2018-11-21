@@ -18,7 +18,6 @@ export class QueueService {
   constructor(private http: HttpClient) { }
 
   getPatients() {
-    console.log("Backend url to use: ", environment.backend + '/api/patients')
     return this.http.get<IPatient[]>(environment.backend + '/api/patients')
   }
 

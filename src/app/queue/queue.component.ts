@@ -77,15 +77,10 @@ export class QueueComponent implements OnInit {
   private sortOnPriority() {
 
     let redPatients  = this.patients.filter(p => p.triage == Triage.IMMEDIATE);
-    console.log(redPatients);
     let orangePatients  = this.patients.filter(p => p.triage == Triage.VERY_URGENT);
-    console.log(orangePatients);
     let yelloPatients  = this.patients.filter(p => p.triage == Triage.URGENT);
-    console.log(yelloPatients);
     let greenPatients  = this.patients.filter(p => p.triage == Triage.STANDARD);
-    console.log(greenPatients);
     let bluePatients  = this.patients.filter(p => p.triage == Triage.NON_URGENT);
-    console.log(greenPatients);
 
     redPatients.forEach(p => {
       if(p.fastTrack) {
