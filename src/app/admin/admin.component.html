@@ -207,7 +207,19 @@
                 message</button>
             </div>
           </div>
+          <div class="form-group">
+            <label class="content-label">Fast-track</label>
+            <div class="form-check form-check-inline">
+              <label class="form-check-label content-label" for="inlineRadio3">Closed</label>
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="fastTrackOpen" name="radioAcutePatients"
+                id="inlineRadio3" value="false">
+              <label class="form-check-label content-label" for="inlineRadio3">Open</label>
+              <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="fastTrackOpen" name="radioAcutePatients"
+                id="inlineRadio3" value="true">
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

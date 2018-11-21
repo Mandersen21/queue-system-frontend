@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AdminServiceService } from './admin-service.service';
 import { IPatient } from '../queue/queue.component';
+import { PusherService } from '../pusher.service';
 
 @Component({
   selector: 'app-admin',
@@ -17,8 +18,9 @@ export class AdminComponent implements OnInit {
 
   acutePatients: string = "0"
   acuteMessage: string = ''
+  fastTrackOpen: string = "false"
 
-  constructor(private adminService: AdminServiceService) {
+  constructor(private adminService: AdminServiceService, private pusherService: PusherService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
     this.getPatients()
   }
@@ -28,6 +30,10 @@ export class AdminComponent implements OnInit {
     this.patientUpdateModel = { patientId: '', name: '', infant: "true", triage: "1", queueType: "true" }
 
     this.getPatientOption()
+
+    this.pusherService.channel.bind('new-option', data => {
+      this.getPatientOption()
+    });
   }
 
   public registerPatient() {
@@ -76,13 +82,13 @@ export class AdminComponent implements OnInit {
 
   public getPatientOption() {
     this.adminService.getOptions().subscribe(
-      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage },
+      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage, this.fastTrackOpen = data[0].fastTrackOpen == true ? "true" : "false" },
       error => { console.log("Error", error) }
     )
   }
 
   public updateOptions() {
-    this.adminService.updateOptions(this.acutePatients, this.acuteMessage).subscribe(
+    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen).subscribe(
       data => { },
       error => { console.log("Error", error) }
     )
@@ -116,5 +122,6 @@ export interface IUpdatePatient {
 
 export interface IPatientOption {
   acutePatients: number,
-  acutePatientMessage: string
+  acutePatientMessage: string,
+  fastTrackOpen: boolean
 }

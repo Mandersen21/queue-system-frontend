@@ -7,7 +7,7 @@
 .acute {
     position: absolute;
     right: 255px;
-    top: 40px;
+    top: 35px;
     font-family: 'Segoe UI';
     font-size: 2rem;
     font-weight: 600;
@@ -28,7 +28,7 @@
     font-size: 2rem;
     font-weight: 600;
     right: 325px;
-    top: -5px;
+    top: -10px;
     font-size: 1.8rem;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
