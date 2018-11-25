@@ -94,8 +94,13 @@ ul.header-group {
     margin: 0;
 }
 
+.queue-header {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
 .list-special .list-group-item {
-    border: none;
+    border: 1px solid #d5d5d5;
 }
 
 .list-special .list-group-item:first-child {

@@ -36,6 +36,7 @@
     font-family: 'Segoe UI';
     background-color: #0063B1;
     display: block;
+    border: 1px solid #0063B1;
 }
 
 .queue-header-fast {
