@@ -46,16 +46,16 @@
     width: 20px;
     height: 20px;
     margin: auto;
-    top: 0; bottom: 0; left: 65px;
+    top: 0; bottom: 0; left: 45px;
 }
 
 .decreased {
     position: absolute;
-    content:url('../../assets/images/arrow-down.png');
+    content:url('../../assets/images/arrow-d.png');
     width: 20px;
     height: 20px;
     margin: auto;
-    top: 0; bottom: 0; left: 65px;
+    top: 0; bottom: 0; left: 45px;
 }
 
 .baby:after

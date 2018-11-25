@@ -21,13 +21,13 @@ export class AdminComponent implements OnInit {
   fastTrackOpen: string = "false"
 
   constructor(private adminService: AdminServiceService, private pusherService: PusherService) {
-    this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true" }
+    this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true", queuePriority: "false", queuePosition: "0" }
     this.getPatients()
   }
 
   ngOnInit() {
-    this.patientRegisterModel = { name: '', infant: "false", triage: "4", queueType: "false" }
-    this.patientUpdateModel = { patientId: '', name: '', infant: "true", triage: "1", queueType: "true" }
+    this.patientRegisterModel = { name: '', infant: "false", triage: "4", queueType: "false", queuePriority: "false", queuePosition: "0" }
+    this.patientUpdateModel = { patientId: '', name: '', infant: "true", triage: "1", queueType: "true", queuePriority: "false", queuePosition: "0" }
 
     this.getPatientOption()
 
@@ -42,7 +42,9 @@ export class AdminComponent implements OnInit {
       let infant = this.patientRegisterModel.infant == "false" ? false : true
       let triage = Number(this.patientRegisterModel.triage)
       let queueType = this.patientRegisterModel.queueType == "false" ? false : true
-      this.adminService.addPatient(name, infant, triage, queueType).subscribe(
+      let queuePriority = this.patientRegisterModel.queuePriority == "false" ? false : true
+      let queuePosition = this.patientRegisterModel.queuePosition
+      this.adminService.addPatient(name, infant, triage, queueType, queuePriority, queuePosition).subscribe(
         data => { },
         error => { console.log("Error", error); },
         () => this.getPatients()
@@ -57,7 +59,9 @@ export class AdminComponent implements OnInit {
       let infant = this.patientUpdateModel.infant == "false" ? false : true
       let triage = Number(this.patientUpdateModel.triage)
       let queueType = this.patientUpdateModel.queueType == "false" ? false : true
-      this.adminService.updatePatient(patientId, name, infant, triage, queueType).subscribe(
+      let queuePriority = this.patientUpdateModel.queuePriority == "false" ? false : true
+      let queuePosition = this.patientUpdateModel.queuePosition
+      this.adminService.updatePatient(patientId, name, infant, triage, queueType, queuePriority, queuePosition).subscribe(
         data => { },
         error => { console.log("Error", error); },
         () => this.getPatients()
@@ -65,12 +69,14 @@ export class AdminComponent implements OnInit {
     }
   }
 
-  public updateValues(patientId, name, age, triage, fastTrack) {
+  public updateValues(patientId, name, age, triage, fastTrack, queuePriority, queuePosition) {
     let _name = name
     let infant = age > 3 ? "false" : "true"
     let _triage = triage.toString()
     let queueType = fastTrack === true ? "true" : "false"
-    this.patientUpdateModel = { patientId: patientId, name: _name, infant: infant, triage: _triage, queueType: queueType }
+    let _queuePriority = queuePriority === true ? "true" : "false"
+    let _queuePosition = queuePosition === undefined ? "0" : queuePosition
+    this.patientUpdateModel = { patientId: patientId, name: _name, infant: infant, triage: _triage, queueType: queueType, queuePriority: _queuePriority, queuePosition: _queuePosition }
   }
 
   public getPatients() {
@@ -110,6 +116,26 @@ export class AdminComponent implements OnInit {
     this.updateOptions()
   }
 
+  public increaseRegister() {
+    this.patientRegisterModel.queuePosition = (Number(this.patientRegisterModel.queuePosition) + 1).toString()
+  }
+
+  public increaseUpdater() {
+    this.patientUpdateModel.queuePosition = (Number(this.patientUpdateModel.queuePosition) + 1).toString()
+  }
+
+  public decreaseRegister() {
+    if ((Number(this.patientRegisterModel.queuePosition)) > 0) {
+      this.patientRegisterModel.queuePosition = (Number(this.patientRegisterModel.queuePosition) - 1).toString()
+    }
+  }
+
+  public decreaseUpdater() {
+    if ((Number(this.patientUpdateModel.queuePosition)) > 0) {
+      this.patientUpdateModel.queuePosition = (Number(this.patientUpdateModel.queuePosition) - 1).toString()
+    }
+  }
+
 }
 
 export interface IUpdatePatient {
@@ -118,6 +144,8 @@ export interface IUpdatePatient {
   infant: string,
   triage: string,
   queueType: string
+  queuePriority: string,
+  queuePosition: string
 }
 
 export interface IPatientOption {

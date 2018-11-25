@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-sm-12">
       <div *ngIf="!usePrioritisation" class="content-header">Ventetider for mindre skader</div>
-      <div *ngIf="usePrioritisation" class="content-header">Patient prioritet</div>
+      <div *ngIf="usePrioritisation && !fastTrack" class="content-header">Patient prioritet</div>
+      <div *ngIf="usePrioritisation && fastTrack" class="content-header">Patient prioritet (Fast-track)</div>
     </div>
   </div>
   <div class="row">
