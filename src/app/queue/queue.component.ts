@@ -74,9 +74,9 @@ export class QueueComponent implements OnInit {
   private sortOnPriority() {
 
     // Add patient with priority queue into the list
-    let patient: IPatient
-    patient = { _id: '321312', age: 23, name: 'Mikkel Andersen', patientInitials: 'MA', triage: Triage.NON_URGENT, patientId: 'MA0003', fastTrack: false, registredTime: new Date(), waitingTime: new Date(), minutesToWait: 23, queuePriority: true, queuePosition: 1 }
-    this.patients.push(patient)
+    // let patient: IPatient
+    // patient = { _id: '321312', age: 23, name: 'Mikkel Andersen', patientInitials: 'MA', triage: Triage.NON_URGENT, patientId: 'MA0003', fastTrack: false, registredTime: new Date(), waitingTime: new Date(), minutesToWait: 23, queuePriority: true, queuePosition: 1 }
+    // this.patients.push(patient)
 
     // let patient1: IPatient
     // patient = { _id: '3213344212', age: 23, name: 'Mikkel Andersen', patientInitials: 'MA', triage: Triage.STANDARD, patientId: 'MA0004', fastTrack: false, registredTime: new Date(), waitingTime: new Date(), minutesToWait: 23, queuePriority: true, queuePosition: 2 }

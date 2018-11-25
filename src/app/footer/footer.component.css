@@ -32,7 +32,7 @@
 }
 
 .footer .footer-text .error {
-    color: red !important;
+    color: #e74c3c !important;
 }
 
 @-webkit-keyframes anim {
