@@ -75,7 +75,7 @@ export class AdminComponent implements OnInit {
     let _triage = triage.toString()
     let queueType = fastTrack === true ? "true" : "false"
     let _queuePriority = queuePriority === true ? "true" : "false"
-    let _queuePosition = queuePosition
+    let _queuePosition = queuePosition === undefined ? "0" : queuePosition
     this.patientUpdateModel = { patientId: patientId, name: _name, infant: infant, triage: _triage, queueType: queueType, queuePriority: _queuePriority, queuePosition: _queuePosition }
   }
 

@@ -218,7 +218,7 @@
             <div *ngIf="patients.length > 0" class="row">
               <div class="col-sm-12">
                 <div *ngFor="let patient of patients; let i = index">
-                  <input class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack)"
+                  <input class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
                     type="radio" name="radioPatient" />
                   <label class="form-check-label content-label">{{i + 1}}</label>
                   <label class="form-check-label content-label">PatientID: {{ patient.patientId }}</label>
