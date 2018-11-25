@@ -51,68 +51,94 @@ export class QueueComponent implements OnInit {
     if (this.patientFastTrackQueueSorted.length > 0) { this.patientFastTrackQueueSorted = [] }
 
     if (!this.usePrioritisation) {
-      this.sortOnWaitingTime();
-      // this.sectionTimes.forEach(time => {
-      //   this.sortOnWaitingTime(time)
-      // });
+      this.sortOnWaitingTime()
     }
     else {
       this.sortOnPriority()
     }
   }
 
-  private sortOnRegistredTimeAndTriage() {
-    let sortedArray = this.patients.sort((a: IPatient, b: IPatient) => {
-      return this.getTime(a.registredTime) - this.getTime(b.registredTime);
-    });
+  // private sortOnRegistredTimeAndTriage() {
+  //   let sortedArray = this.patients.sort((a: IPatient, b: IPatient) => {
+  //     return this.getTime(a.registredTime) - this.getTime(b.registredTime);
+  //   });
 
-    sortedArray.forEach(p => {
-      this.addPatientToQueue(this.patientQueueSorted, p);
-    })
-  }
+  //   sortedArray.forEach(p => {
+  //     this.addPatientToQueue(this.patientQueueSorted, p);
+  //   })
+  // }
 
   private sortOnWaitingTime() {
 
   }
   private sortOnPriority() {
 
-    let redPatients  = this.patients.filter(p => p.triage == Triage.IMMEDIATE);
-    let orangePatients  = this.patients.filter(p => p.triage == Triage.VERY_URGENT);
-    let yelloPatients  = this.patients.filter(p => p.triage == Triage.URGENT);
-    let greenPatients  = this.patients.filter(p => p.triage == Triage.STANDARD);
-    let bluePatients  = this.patients.filter(p => p.triage == Triage.NON_URGENT);
+    // Add patient with priority queue into the list
+    let patient: IPatient
+    patient = { _id: '321312', age: 23, name: 'Mikkel Andersen', patientInitials: 'MA', triage: Triage.NON_URGENT, patientId: 'MA0003', fastTrack: false, registredTime: new Date(), waitingTime: new Date(), minutesToWait: 23, queuePriority: true, queuePosition: 1 }
+    this.patients.push(patient)
+
+    // let patient1: IPatient
+    // patient = { _id: '3213344212', age: 23, name: 'Mikkel Andersen', patientInitials: 'MA', triage: Triage.STANDARD, patientId: 'MA0004', fastTrack: false, registredTime: new Date(), waitingTime: new Date(), minutesToWait: 23, queuePriority: true, queuePosition: 2 }
+    // this.patients.push(patient1)
+
+    console.log(this.patients)
+
+    let redPatients = this.patients.filter(p => p.triage == Triage.IMMEDIATE);
+    let orangePatients = this.patients.filter(p => p.triage == Triage.VERY_URGENT);
+    let yelloPatients = this.patients.filter(p => p.triage == Triage.URGENT);
+    let greenPatients = this.patients.filter(p => p.triage == Triage.STANDARD);
+    let bluePatients = this.patients.filter(p => p.triage == Triage.NON_URGENT);
+    let priorityPatients = this.patients.filter(p => p.queuePriority == true);
+
+    console.log(priorityPatients)
 
     redPatients.forEach(p => {
-      if(p.fastTrack) {
+      if (p.fastTrack) {
         this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-      }else 
-        this.addPatientToQueue(this.patientQueueSorted, p);
-    })
-    orangePatients.forEach(p => {
-      if(p.fastTrack) {
-        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-      }else 
-        this.addPatientToQueue(this.patientQueueSorted, p);
-    })
-    yelloPatients.forEach(p => {
-      if(p.fastTrack) {
-        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-      }else 
-        this.addPatientToQueue(this.patientQueueSorted, p);
-    })
-    greenPatients.forEach(p => {
-      if(p.fastTrack) {
-        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-      }else 
-        this.addPatientToQueue(this.patientQueueSorted, p);
-    })
-    bluePatients.forEach(p => {
-      if(p.fastTrack) {
-        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-      }else 
+      } else
         this.addPatientToQueue(this.patientQueueSorted, p);
     })
 
+    orangePatients.forEach(p => {
+      if (p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      } else
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+
+    yelloPatients.forEach(p => {
+      if (p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      } else
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+
+    greenPatients.forEach(p => {
+      if (p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      } else
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+
+    bluePatients.forEach(p => {
+      if (p.fastTrack) {
+        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+      } else
+        this.addPatientToQueue(this.patientQueueSorted, p);
+    })
+
+    // Add priority patients into the sorted queue.
+    priorityPatients.forEach(p => {
+      if (p.fastTrack) {
+        this.patientFastTrackQueueSorted.splice(p.queuePosition, 0, { _id: p._id, patientId: p.patientId, baby: p.age < 4 ? true : false, decreased: false, increased: true, triage: p.triage, fastTrack: p.fastTrack, registredTime: p.registredTime })
+      }
+      else {
+        this.patientQueueSorted.splice(p.queuePosition, 0, { _id: p._id, patientId: p.patientId, baby: p.age < 4 ? true : false, decreased: false, increased: true, triage: p.triage, fastTrack: p.fastTrack, registredTime: p.registredTime })
+      }
+    })
+
+    // Add queue position index
     this.addPositions();
   }
   // private sortOnWaitingTime(sectionTime: SectionTime) {
@@ -251,7 +277,7 @@ export class QueueComponent implements OnInit {
       increased: false,
       triage: patient.triage,
       fastTrack: patient.fastTrack,
-      registredTime: patient.registredTime
+      registredTime: patient.registredTime,
     })
   }
 }
@@ -297,7 +323,9 @@ export interface IPatient {
   fastTrack: boolean,
   registredTime: Date,
   waitingTime: Date,
-  minutesToWait: number
+  minutesToWait: number,
+  queuePriority: boolean,
+  queuePosition: number
 }
 
 export interface IQueueRow {
