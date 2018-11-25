@@ -97,6 +97,15 @@ ul.header-group {
 .queue-header {
     border-top-right-radius: 0px !important;
     border-top-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.queue-header-fast {
+    border-top-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
 }
 
 .list-special .list-group-item {
