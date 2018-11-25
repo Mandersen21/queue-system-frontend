@@ -68,6 +68,36 @@
                 <label class="form-check-label content-label" for="inlineRadio3">Fast-track</label>
               </div>
             </div>
+            <div class="form-group">
+              <label class="content-label">Queue priority:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.queuePriority" name="radioPatientQueuePriority"
+                  id="inlineRadio2" value="false" checked>
+                <label class="form-check-label content-label" for="inlineRadio2">False</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.queuePriority" name="radioPatientQueuePriority"
+                  id="inlineRadio3" value="true">
+                <label class="form-check-label content-label" for="inlineRadio3">True</label>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="content-label">Queue position:</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" (click)="decreaseRegister()" data-type="minus"
+                    data-field="quant[1]">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </button>
+                </span>
+                <input type="text" name="quant[1]" class="form-control input-number" [(ngModel)]="patientRegisterModel.queuePosition" value="1" min="0" max="100">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" (click)="increaseRegister()" data-type="plus" data-field="quant[1]">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </button>
+                </span>
+              </div>
+            </div>
             <button type="submit" (click)="registerPatient()" class="btn btn-primary btn-block content-button">Submit</button>
           </form>
         </div>
@@ -139,6 +169,36 @@
                 <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.queueType" name="radioPatientQueue"
                   id="inlineRadio3" value="true">
                 <label class="form-check-label content-label" for="inlineRadio3">Fast-track</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="content-label">Queue priority:</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.queuePriority" name="radioPatientQueuePriority"
+                  id="inlineRadio2" value="false" checked>
+                <label class="form-check-label content-label" for="inlineRadio2">False</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.queuePriority" name="radioPatientQueuePriority"
+                  id="inlineRadio3" value="true">
+                <label class="form-check-label content-label" for="inlineRadio3">True</label>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="content-label">Queue position:</label>
+              <div class="input-group">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" (click)="decreaseUpdater()" data-type="minus"
+                    data-field="quant[1]">
+                    <span class="glyphicon glyphicon-minus"></span>
+                  </button>
+                </span>
+                <input type="text" name="quant[1]" class="form-control input-number" [(ngModel)]="patientUpdateModel.queuePosition" value="1" min="0" max="100">
+                <span class="input-group-btn">
+                  <button type="button" class="btn btn-default btn-number" (click)="increaseUpdater()" data-type="plus" data-field="quant[1]">
+                    <span class="glyphicon glyphicon-plus"></span>
+                  </button>
+                </span>
               </div>
             </div>
             <button type="submit" (click)="updatePatient()" class="btn btn-primary btn-block content-button">Update
