@@ -35,7 +35,7 @@ export class AdminServiceService {
         "triage": triage,
         "fastTrack": queueType,
         "queuePriority": queuePriority,
-        "queuePosition": queuePosition
+        "queuePosition": Number(queuePosition)
       })
   }
 
