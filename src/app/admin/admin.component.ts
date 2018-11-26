@@ -117,6 +117,7 @@ export class AdminComponent implements OnInit {
   }
 
   public increaseRegister() {
+    this.patientRegisterModel.queuePriority = "true"
     this.patientRegisterModel.queuePosition = (Number(this.patientRegisterModel.queuePosition) + 1).toString()
   }
 
@@ -127,13 +128,14 @@ export class AdminComponent implements OnInit {
   }
 
   public decreaseRegister() {
+    this.patientRegisterModel.queuePriority = "true"
     if ((Number(this.patientRegisterModel.queuePosition)) > 0) {
       this.patientRegisterModel.queuePosition = (Number(this.patientRegisterModel.queuePosition) - 1).toString()
     }
   }
 
   public decreaseUpdater() {
-
+    this.patientUpdateModel.queuePriority = "true"
     if ((Number(this.patientUpdateModel.queuePosition)) > 0) {
       this.patientUpdateModel.queuePosition = (Number(this.patientUpdateModel.queuePosition) - 1).toString()
     }
