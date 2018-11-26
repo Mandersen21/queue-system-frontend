@@ -87,3 +87,8 @@ select.form-control {
 .triage-blue {
     color: blue;
 }
+
+.dark {
+    color: white;
+    margin-top: 4rem;
+}
