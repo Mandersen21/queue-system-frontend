@@ -111,6 +111,14 @@ export class AdminComponent implements OnInit {
     }
   }
 
+  public deleteAllPatients() {
+    this.adminService.deleteAllPatients().subscribe(
+      data => { },
+      error => { console.log("Error", error); },
+      () => this.getPatients()
+    );
+  }
+
   public clearMessage() {
     this.acuteMessage = ''
     this.updateOptions()
