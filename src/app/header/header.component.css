@@ -20,6 +20,15 @@
     display: relative;
 }
 
+.test {
+    font-size: 2rem;
+    position: absolute;
+    top: 20px;
+    color: red;
+    font-weight: 900;
+    left: 200px;
+}
+
 .navbar-brand:hover {
     color: black; 
 }

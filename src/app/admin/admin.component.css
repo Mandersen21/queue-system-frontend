@@ -67,3 +67,23 @@ select.form-control {
 .acuteText {
     margin-bottom: 1rem;
 }
+
+.triage-red {
+    color: red;
+}
+
+.triage-orange {
+    color: orange
+}
+
+.triage-yellow {
+    color: yellow
+}
+
+.triage-green {
+    color: green
+}
+
+.triage-blue {
+    color: blue;
+}

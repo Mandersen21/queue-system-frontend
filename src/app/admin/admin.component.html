@@ -6,16 +6,16 @@
         <div class="col-sm-12 padding-top">
           <form>
             <div class="form-group">
-              <label class="content-label">Patient ID</label>
+              <label class="content-label boldtext">Patient ID</label>
               <input type="text" class="form-control" disabled name="PatientId" id="Nameofinput1" placeholder="Name of patient">
             </div>
             <div class="form-group">
-              <label class="content-label">Patient name</label>
+              <label class="content-label boldtext">Patient name</label>
               <input type="text" [(ngModel)]="patientRegisterModel.name" class="form-control" name="patientName" id="Nameofinput1"
                 placeholder="Name of patient">
             </div>
             <div class="form-group">
-              <label class="content-label">Patient type:</label>
+              <label class="content-label boldtext">Patient type:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" [(ngModel)]="patientRegisterModel.infant" type="radio" name="radioPatientType"
                   value="false" checked>
@@ -28,7 +28,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="content-label">Patient triage:</label>
+              <label class="content-label boldtext">Patient triage:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.triage" name="radioPatientTriage"
                   id="inlineRadio1" value="1">
@@ -56,7 +56,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="content-label">Queue type:</label>
+              <label class="content-label boldtext">Queue type:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.queueType" name="radioPatientQueue"
                   id="inlineRadio2" value="false" checked>
@@ -69,7 +69,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="content-label">Queue priority:</label>
+              <label class="content-label boldtext">Queue priority:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.queuePriority" name="radioPatientQueuePriority"
                   id="inlineRadio2" value="false" checked>
@@ -82,7 +82,7 @@
               </div>
             </div>
             <div class="form-group">
-                <label class="content-label">Queue position:</label>
+                <label class="content-label boldtext">Queue position:</label>
               <div class="input-group">
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" (click)="decreaseRegister()" data-type="minus"
@@ -109,16 +109,16 @@
         <div class="col-sm-12 padding-top">
           <form>
             <div class="form-group">
-              <label class="content-label">Patient ID</label>
+              <label class="content-label boldtext">Patient ID</label>
               <input type="text" class="form-control" [(ngModel)]="patientUpdateModel.patientId" value="{{patientUpdateModel.patientId" name="PatientId" id="Nameofinput1" placeholder="Name of patient">
             </div>
             <div class="form-group">
-              <label class="content-label">Patient name</label>
+              <label class="content-label boldtext">Patient name</label>
               <input type="text" class="form-control" [(ngModel)]="patientUpdateModel.name" value="{{patientUpdateModel.name}}"
                 name="PatientName" id="Nameofinput1" placeholder="Name of patient">
             </div>
             <div class="form-group">
-              <label class="content-label">Patient type:</label>
+              <label class="content-label boldtext">Patient type:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.infant" name="radioPatientType"
                   id="inlineRadio1" value="false" checked>
@@ -131,7 +131,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="content-label">Patient triage:</label>
+              <label class="content-label boldtext">Patient triage:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.triage" name="radioPatientTriage"
                   id="inlineRadio1" value="1">
@@ -159,7 +159,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="content-label">Queue type:</label>
+              <label class="content-label boldtext">Queue type:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.queueType" name="radioPatientQueue"
                   id="inlineRadio2" value="false" checked>
@@ -172,7 +172,7 @@
               </div>
             </div>
             <div class="form-group">
-              <label class="content-label">Queue priority:</label>
+              <label class="content-label boldtext">Queue priority:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.queuePriority" name="radioPatientQueuePriority"
                   id="inlineRadio2" value="false" checked>
@@ -185,7 +185,7 @@
               </div>
             </div>
             <div class="form-group">
-                <label class="content-label">Queue position:</label>
+                <label class="content-label boldtext">Queue position:</label>
               <div class="input-group">
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" (click)="decreaseUpdater()" data-type="minus"
@@ -214,17 +214,33 @@
       <div *ngIf="patients" class="row">
         <div class="col-sm-12 padding-top">
           <div class="form-group">
-            <label class="content-label">Patient queue</label>
+            <label class="content-label boldtext">Patient queue Regular</label>
             <div *ngIf="patients.length > 0" class="row">
               <div class="col-sm-12">
                 <div *ngFor="let patient of patients; let i = index">
-                  <input class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
+                  <input *ngIf="!patient.fastTrack" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
                     type="radio" name="radioPatient" />
-                  <label class="form-check-label content-label">{{i + 1}}</label>
-                  <label class="form-check-label content-label">PatientID: {{ patient.patientId }}</label>
-                  <label class="form-check-label content-label">Age: {{ patient.age }}</label>
-                  <label class="form-check-label content-label">Triage: {{ patient.triage }}</label>
-                  <label class="form-check-label content-label">FastTrack: {{ patient.fastTrack }}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">{{patient.queuePosition + 1}}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">PatientID: {{ patient.patientId }}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">Age: {{ patient.age }}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage: {{ patient.triage }}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">FastTrack: {{ patient.fastTrack }}</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="content-label boldtext">Patient queue Fast-track</label>
+            <div *ngIf="patients.length > 0" class="row">
+              <div class="col-sm-12">
+                <div *ngFor="let patient of patients; let i = index">
+                  <input *ngIf="patient.fastTrack" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
+                    type="radio" name="radioPatient" />
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label">{{patient.queuePosition + 1}}</label>
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label">PatientID: {{ patient.patientId }}</label>
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label">Age: {{ patient.age }}</label>
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage: {{ patient.triage }}</label>
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label">FastTrack: {{ patient.fastTrack }}</label>
                 </div>
               </div>
             </div>
@@ -232,7 +248,7 @@
         </div>
         <div class="col-sm-12 white">
           <div class="form-group">
-            <label class="content-label">Number of acute</label>
+            <label class="content-label boldtext">Number of acute</label>
             <div class="form-check form-check-inline">
               <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="acutePatients" name="radioAcutePatients"
                 id="inlineRadio3" value="0">
@@ -255,7 +271,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="content-label">Acute message</label>
+            <label class="content-label boldtext">Acute message</label>
             <input type="text" [(ngModel)]="acuteMessage" class="acuteText form-control" name="patientName" id="Nameofinput1"
               placeholder="Acute message">
             <div>
@@ -268,7 +284,7 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="content-label">Fast-track</label>
+            <label class="content-label boldtext">Fast-track</label>
             <div class="form-check form-check-inline">
               <label class="form-check-label content-label" for="inlineRadio3">Closed</label>
               <input class="form-check-input" (change)="updateOptions()" type="radio" [(ngModel)]="fastTrackOpen" name="radioAcutePatients"
