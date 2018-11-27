@@ -228,13 +228,15 @@
                     type="radio" name="radioPatient" />
                   <label *ngIf="!patient.fastTrack" class="form-check-label content-label">{{patient.queuePosition +
                     1}}</label>
-                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">PatientID: {{
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
-                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">Age: {{ patient.age }}</label>
-                  <label *ngIf="!patient.fastTrack" class="form-check-label" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage:
+                  <label *ngIf="!patient.fastTrack && patient.age > 3" class="form-check-label content-label">Adult</label>
+                  <label *ngIf="!patient.fastTrack && patient.age <= 3" class="form-check-label content-label">Infant</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label triage" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage:
                     {{ patient.triage }}</label>
-                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">FastTrack: {{
-                    patient.fastTrack }}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label" [ngClass]="{'fasttrack': patient.fastTrack, 'regular': !patient.fastTrack}">Regular queue</label>
+                    <label *ngIf="!patient.fastTrack" class="form-check-label content-label name">( {{
+                      patient.name }} )</label>
                 </div>
               </div>
             </div>
@@ -250,10 +252,11 @@
                   <label *ngIf="patient.fastTrack" class="form-check-label content-label">PatientID: {{
                     patient.patientId }}</label>
                   <label *ngIf="patient.fastTrack" class="form-check-label content-label">Age: {{ patient.age }}</label>
-                  <label *ngIf="patient.fastTrack" class="form-check-label content-label" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage:
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label triage" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage:
                     {{ patient.triage }}</label>
-                  <label *ngIf="patient.fastTrack" class="form-check-label content-label">FastTrack: {{
-                    patient.fastTrack }}</label>
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label" [ngClass]="{'fasttrack': patient.fastTrack, 'regular': !patient.fastTrack}">Fasttrack queue</label>
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label name">( {{
+                    patient.name }} )</label>
                 </div>
               </div>
             </div>
