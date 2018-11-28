@@ -226,8 +226,7 @@
                 <div *ngFor="let patient of patients; let i = index">
                   <input *ngIf="!patient.fastTrack" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
                     type="radio" name="radioPatient" />
-                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">{{patient.queuePosition +
-                    1}}</label>
+                  <label *ngIf="!patient.fastTrack" class="form-check-label content-label">{{patient.queuePosition + 1}}</label>
                   <label *ngIf="!patient.fastTrack" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
                   <label *ngIf="!patient.fastTrack && patient.age > 3" class="form-check-label content-label">Adult</label>
@@ -249,7 +248,7 @@
                   <input *ngIf="patient.fastTrack" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
                     type="radio" name="radioPatient" />
                   <label *ngIf="patient.fastTrack" class="form-check-label content-label">{{patient.queuePosition + 1}}</label>
-                  <label *ngIf="patient.fastTrack" class="form-check-label content-label">PatientID: {{
+                  <label *ngIf="patient.fastTrack" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
                   <label *ngIf="patient.fastTrack" class="form-check-label content-label">Age: {{ patient.age }}</label>
                   <label *ngIf="patient.fastTrack" class="form-check-label content-label triage" [ngClass]="{'triage-red': patient.triage == 1, 'triage-orange': patient.triage == 2, 'triage-yellow': patient.triage == 3, 'triage-green': patient.triage == 4, 'triage-blue': patient.triage == 5}">Triage:
