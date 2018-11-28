@@ -72,12 +72,20 @@ select.form-control {
     color: red;
 }
 
+.triage {
+    font-weight: bold;
+}
+
+.content-label {
+    margin-right: 2rem !important;
+}
+
 .triage-orange {
-    color: orange
+    color: #e67e22
 }
 
 .triage-yellow {
-    color: yellow
+    color: #f1c40f;
 }
 
 .triage-green {
@@ -85,10 +93,24 @@ select.form-control {
 }
 
 .triage-blue {
-    color: blue;
+    color: #3498db;
 }
 
 .dark {
     color: white;
     margin-top: 4rem;
+}
+
+.fasttrack {
+    font-weight: bold;
+    color: #16A085;
+}
+
+.regular {
+    font-weight: bold;
+    color: #0063B1;
+}
+
+.name {
+    font-weight: bold;
 }
