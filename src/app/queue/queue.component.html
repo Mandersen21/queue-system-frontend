@@ -1,4 +1,4 @@
-<div class="queue-container">
+<div class="queue-container hidden-xs">
     <div class="row" *ngIf="patientQueueSorted">
         <div class="col-xs-12 mr-4">
             <ul class="header-group">
@@ -144,6 +144,57 @@
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- Mobile viewport -->
+<div class="hidden-lg hidden-md visible-xs-*">
+    <div class="header padding-bottom">
+        Skades spor
+    </div>
+
+    <div class="header-group-mobile hidden-lg hidden-md visible-xs-*">
+        <div class="row" *ngIf="patientQueueSorted">
+            <div class="col-xs-4">
+                Position
+            </div>
+            <div class="col-xs-4">
+                Patient id
+            </div>
+            <div class="col-xs-4 text-right">
+                Prioritet
+            </div>
+        </div>
+    </div>
+    <div class="content hidden-lg hidden-md visible-xs-*">
+        <div *ngFor="let row of patientQueueSorted; let i = index" class="content-group-mobile" [ngClass]="{'content-group-mobile-even': i%2==0}">
+            <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
+                [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"></app-queue-row>
+        </div>
+    </div>
+
+    <div class="header padding-top padding-bottom">
+        Fast-track spor
+    </div>
+
+    <div class="header-group-fasttrack-mobile hidden-lg hidden-md visible-xs-*">
+        <div class="row" *ngIf="patientQueueSorted">
+            <div class="col-xs-4">
+                Position
+            </div>
+            <div class="col-xs-4">
+                Patient id
+            </div>
+            <div class="col-xs-4 text-right">
+                Prioritet
+            </div>
+        </div>
+    </div>
+    <div class="content hidden-lg hidden-md visible-xs-* padding-bottom">
+        <div *ngFor="let row of patientFastTrackQueueSorted; let i = index" class="content-group-mobile" [ngClass]="{'content-group-mobile-even': i%2==0}">
+            <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
+                [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"></app-queue-row>
         </div>
     </div>
 </div>

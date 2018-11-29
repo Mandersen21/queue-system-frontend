@@ -1,7 +1,3 @@
-.queue-container {
-    /* border: 1px solid #dfdfdf; */
-}
-
 .queue {
     background-color: rgb(229, 229, 229);
     max-height: 42rem;
@@ -37,6 +33,19 @@
     background-color: #0063B1;
     display: block;
     border: 1px solid #0063B1;
+}
+
+.header {
+    font-size: 1.7rem;
+    font-weight: 600;
+}
+
+.padding-bottom {
+    padding-bottom: 1rem;
+}
+
+.padding-top {
+    padding-top: 2rem;
 }
 
 .queue-header-fast {

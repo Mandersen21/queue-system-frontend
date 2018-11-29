@@ -12,6 +12,12 @@
     font-weight: 700;
 }
 
+.navbar-brand-mobile img {
+    padding-top: 1rem;
+    max-width: 30%;
+    max-height: 30%;
+}
+
 .navbar-brand .header {
     padding-left: 2rem;
 }
