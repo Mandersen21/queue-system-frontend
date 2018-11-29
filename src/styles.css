@@ -34,6 +34,12 @@ ul > .list-group {
   font-weight: 700;
 }
 
+.content-header-mobile {
+    font-family: 'Segoe UI';
+    font-size: 3rem;
+    font-weight: 700;
+}
+
 .content-label {
   font-family: 'Segoe UI';
   font-weight: 400;
@@ -55,6 +61,11 @@ ul > .list-group {
 .content-text {
   font-size: 1.8rem;
   color: #47525E;
+}
+
+.content-text-mobile {
+    font-size: 1.8rem;
+    color: #47525E;
 }
 
 .gutter {
@@ -97,6 +108,18 @@ ul.header-group {
     grid-auto-flow: column;
     padding: 0;
     margin: 0;
+}
+
+.header-group-mobile {
+    padding: 2rem;
+    color: white;
+    width:100%;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    background-color: #0063B1;
+    display: block;
+    border: 1px solid #0063B1;
 }
 
 .queue-header {

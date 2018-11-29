@@ -92,6 +92,15 @@
     top: 0; bottom: 0; right: 20px;
 }
 
+.triage3-mobile {
+    position: absolute;
+    content:url('../../assets/images/3.png');
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    top: 40px; bottom: 0; right: 20px;
+}
+
 .triage4 {
     position: absolute;
     content:url('../../assets/images/4.png');

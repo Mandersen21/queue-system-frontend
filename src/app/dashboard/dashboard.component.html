@@ -1,4 +1,4 @@
-<div class="container-fluid custom-container dashboard-container">
+<div class="container-fluid custom-container dashboard-container hidden-xs">
   <div class="row">
     <div class="col-sm-12">
       <div *ngIf="!usePrioritisation" class="content-header">Ventetider for mindre skader</div>
@@ -8,10 +8,42 @@
   </div>
   <div class="row">
     <div class="col-sm-12 gutter">
-      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin estimeret ventetid ved at følge sit patient id nedenfor.</span>
-      <span *ngIf="!fastTrack && usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin prioritet i køen ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin
+        estimeret ventetid ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="!fastTrack && usePrioritisation" class="content-text">Patienter der skal vente længe kan tjekke sin
+        prioritet i køen ved at følge sit patient id nedenfor.</span>
       <span *ngIf="fastTrack" class="content-text">Fast-track sporet kan være åben fra 10-23 hver dag.</span>
-      <span class="text-right"><app-triage [fastTrack]="fastTrack"></app-triage></span>
+      <span class="text-right">
+        <app-triage [fastTrack]="fastTrack"></app-triage>
+      </span>
+    </div>
+  </div>
+  <div class="row gutter">
+    <div class="col-sm-12 gutter">
+      <app-queue [usePrioritisation]="usePrioritisation" [fastTrack]="fastTrack"></app-queue>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile viewport -->
+<div class="container-fluid hidden-lg hidden-md visible-xs-* gutter">
+  <div class="row">
+    <div class="col-sm-12">
+      <div *ngIf="!usePrioritisation" class="content-header-mobile">Ventetider for mindre skader</div>
+      <div *ngIf="usePrioritisation && !fastTrack" class="content-header-mobile">Patient prioritet</div>
+      <div *ngIf="usePrioritisation && fastTrack" class="content-header-mobile">Patient prioritet (Fast-track)</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 gutter">
+      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text-mobile">Patienter der skal vente længe kan tjekke sin
+        estimeret ventetid ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="!fastTrack && usePrioritisation" class="content-text-mobile">Patienter der skal vente længe kan tjekke sin
+        prioritet i køen ved at følge sit patient id nedenfor.</span>
+      <span *ngIf="fastTrack" class="content-text-mobile">Fast-track sporet kan være åben fra 10-23 hver dag.</span>
+      <span class="text-right">
+        <!-- <app-triage [fastTrack]="fastTrack"></app-triage> -->
+      </span>
     </div>
   </div>
   <div class="row gutter">
