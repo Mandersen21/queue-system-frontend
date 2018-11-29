@@ -111,15 +111,39 @@ ul.header-group {
 }
 
 .header-group-mobile {
-    padding: 2rem;
+    padding: 1rem;
     color: white;
     width:100%;
     font-size: 1.7rem;
     font-weight: 600;
     font-family: 'Segoe UI';
     background-color: #0063B1;
-    display: block;
-    border: 1px solid #0063B1;
+}
+
+.header-group-fasttrack-mobile {
+    padding: 1rem;
+    color: white;
+    width:100%;
+    font-size: 1.7rem;
+    font-weight: 600;
+    font-family: 'Segoe UI';
+    background-color: #16A085;
+}
+
+.content-group-mobile {
+    padding: 1rem;
+    background-color: #efefef;
+    color: black;
+    font-weight: 600;
+    font-size: 1.7rem;
+    position: relative;
+    border-bottom: 1px solid #d5d5d5;
+    border-left: 1px solid #d5d5d5;
+    border-right: 1px solid #d5d5d5;
+}
+
+.content-group-mobile-even {
+    background-color: white !important;
 }
 
 .queue-header {
@@ -156,4 +180,8 @@ ul.header-group {
 
 .nopadding {
     padding: 0;
+}
+
+.col-xs-4 {
+    /* padding: 0; */
 }

@@ -17,25 +17,18 @@
 </div>
 
 <!-- Mobile viewport -->
-<div  class="row hidden-lg hidden-md visible-xs-*" *ngIf="patientId && triage">
+<div class="row hidden-lg hidden-md visible-xs-*" *ngIf="patientId && triage">
     <div class="col-xs-4">
         {{position}}
     </div>
     <div class="col-xs-4">
         {{patientId}}
     </div>
-    <div class="col-xs-4 text-right">
-    <span [ngClass]="{'triage1': triage === 1 && !fastTrack,'triage2': triage === 2 && !fastTrack ,'triage3': triage === 3 && !fastTrack, 'triage4': triage === 4 && !fastTrack, 'triage5': triage === 5 && !fastTrack, 'fasttrack': fastTrack}"> </span>
+    <div>
+        <span *ngIf="baby" class="baby"></span>
+    </div>
+    <div class="text-right">
+        <span [ngClass]="{'triage1': triage === 1 && !fastTrack,'triage2': triage === 2 && !fastTrack ,'triage3': triage === 3 && !fastTrack, 'triage4': triage === 4 && !fastTrack, 'triage5': triage === 5 && !fastTrack, 'fasttrack': fastTrack}">
+        </span>
     </div>
 </div>
-<!-- <div class="row hidden-lg hidden-md visible-xs-*" *ngIf="patientQueueSorted">
-    <div class="col-xs-4">
-
-    </div>
-    <div class="col-xs-4">
-
-    </div>
-    <div class="col-xs-4 text-right">
-
-    </div>
-</div> -->
