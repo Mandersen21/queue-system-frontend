@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
   fastTrackOpen: boolean = false
 
   // Route intervals
-  normalQueueInterval: number = 10000
-  fastQueueInterval: number = 10001
+  normalQueueInterval: number = 30000
+  fastQueueInterval: number = 30001
   informationInterval: number = 5000
   information2Interval: number = 5001
   information3Interval: number = 5002

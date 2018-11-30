@@ -58,27 +58,18 @@ export class QueueComponent implements OnInit {
     }
   }
 
-  // private sortOnRegistredTimeAndTriage() {
-  //   let sortedArray = this.patients.sort((a: IPatient, b: IPatient) => {
-  //     return this.getTime(a.registredTime) - this.getTime(b.registredTime);
-  //   });
-
-  //   sortedArray.forEach(p => {
-  //     this.addPatientToQueue(this.patientQueueSorted, p);
-  //   })
-  // }
-
   private sortOnWaitingTime() {
 
   }
   private sortOnPriority() {
 
-    console.log(this.patients)
     this.patients.forEach(p => {
-      if (p.fastTrack) {
-        this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
-      } else
-        this.addPatientToQueue(this.patientQueueSorted, p);
+      if (p.triage > 0) {
+        if (p.fastTrack) {
+          this.addPatientToQueue(this.patientFastTrackQueueSorted, p);
+        } else
+          this.addPatientToQueue(this.patientQueueSorted, p);
+      }
     })
 
     // let redPatients = this.patients.filter(p => p.triage == Triage.IMMEDIATE && p.queuePriority == false);

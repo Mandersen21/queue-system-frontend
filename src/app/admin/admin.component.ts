@@ -131,7 +131,6 @@ export class AdminComponent implements OnInit {
 
   public increaseUpdater() {
     this.patientUpdateModel.queuePriority = "true"
-    console.log("array length: ", this.patients.length)
     this.patientUpdateModel.queuePosition = (Number(this.patientUpdateModel.queuePosition) + 1).toString()
   }
 
