@@ -3,13 +3,11 @@
 @import './styles/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 
 @font-face {
-    font-family: 'Helvetica';
-    src: url(assets/fonts/Helvetica.woff);
-}
-
-@font-face {
-    font-family: 'HelveticaBold';
-    src: url(assets/fonts/Helvetica-Bold.woff);
+    font-family: 'Segoe UI';
+    src: url(assets/fonts/SegoeUI.otf);
+    src: url(assets/fonts/SegoeUI.svg);
+    src: url(assets/fonts/SegoeUI.ttf);
+    src: url(assets/fonts/segoeui.woff);
 }
 
 body {
@@ -37,7 +35,7 @@ ul > .list-group {
 .content-header-mobile {
     font-family: 'Segoe UI';
     font-size: 3rem;
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .content-label {

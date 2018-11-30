@@ -1,3 +1,7 @@
-<span *ngIf="acutePatients === 0" class="acute-img"><img src="../../assets/images/em_standard.png" class="" alt=""></span>
-<span *ngIf="acutePatients > 0" class="acute-img"><img src="../../assets/images/em.png" class="" alt=""></span>
-<span class="acute">Akutte på vej: <span class="acute-text">{{acutePatients}}</span></span>
+<span *ngIf="acutePatients === 0" class="acute-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/em_standard.png" alt=""></span>
+<span *ngIf="acutePatients > 0" class="acute-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/em.png" alt=""></span>
+<span class="acute hidden-xs hidden-sm hidden-md">Akutte på vej: <span class="acute-text hidden-xs hidden-md">{{acutePatients}}</span></span>
+
+<span *ngIf="acutePatients === 0" class="acute-img-mobile hidden-lg"><img src="../../assets/images/em_standard.png" class="" alt=""></span>
+<span *ngIf="acutePatients > 0" class="acute-img-mobile hidden-lg"><img src="../../assets/images/em.png" class="" alt=""></span>
+<span class="acute-mobile hidden-lg"><span class="acute-text">{{acutePatients}}</span></span>

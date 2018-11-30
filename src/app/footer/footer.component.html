@@ -1,4 +1,4 @@
-<div *ngIf="currentMessage" class="footer hidden-xs">
+<div *ngIf="currentMessage" class="footer hidden-xs hidden-sm hidden-md">
     <div class="footer-text">
         <span [ngClass]="{'error': currentMessage.error === true}">{{currentMessage.message}}</span>
     </div>

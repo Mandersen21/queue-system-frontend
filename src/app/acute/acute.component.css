@@ -3,7 +3,6 @@
     vertical-align: middle;
 }
 
-
 .acute {
     position: absolute;
     right: 255px;
@@ -30,6 +29,26 @@
     right: 325px;
     top: -10px;
     font-size: 1.8rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.acute-img-mobile img {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+    width: 45px;
+    height: 45px;
+}
+
+.acute-mobile {
+    position: absolute;
+    right: 30px;
+    top: 35px;
+    font-family: 'Segoe UI';
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: black;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
 }
