@@ -57,8 +57,9 @@ ul > .list-group {
 }
 
 .content-text {
-  font-size: 1.8rem;
-  color: #47525E;
+  font-family: 'Segoe UI';
+  font-size: 2rem !important;
+  color: black;
 }
 
 .content-text-mobile {
@@ -87,14 +88,26 @@ ul.list-group {
 /* Desktops and laptops ----------- */
 @media only screen  and (min-width : 1224px) {
     ul.list-group {
-        grid-template-rows: repeat(11, 1fr) !important;
+        grid-template-rows: repeat(10, 1fr) !important;
+    }
+}
+
+@media only screen  and (min-width : 1400px) {
+    ul.list-group {
+        grid-template-rows: repeat(10, 1fr) !important;
+    }
+}
+
+@media only screen  and (min-width : 1600px) {
+    ul.list-group {
+        grid-template-rows: repeat(12, 1fr) !important;
     }
 }
     
  /* Large screens ----------- */
  @media only screen  and (min-width : 1824px) {
     ul.list-group {
-        grid-template-rows: repeat(15, 1fr) !important;
+        grid-template-rows: repeat(14, 1fr) !important;
     }
  }
 
