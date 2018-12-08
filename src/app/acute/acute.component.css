@@ -15,6 +15,42 @@
     padding-right: 0.5rem;
 }
 
+.treatment {
+    position: absolute;
+    right: 450px !important;
+    top: 35px;
+    font-family: 'Segoe UI';
+    font-size: 2rem;
+    font-weight: 600;
+    color: black;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.treatment-text {
+    position: absolute;
+    right: 430px !important;
+    top: 35px;
+    font-family: 'Segoe UI';
+    font-size: 2rem;
+    font-weight: 600;
+    color: #c0392b;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.treatment-text-large {
+    position: absolute;
+    right: 420px !important;
+    top: 35px;
+    font-family: 'Segoe UI';
+    font-size: 2rem;
+    font-weight: 600;
+    color: #c0392b;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
 .acute-text {
     color: #c0392b;
 }
@@ -31,6 +67,25 @@
     font-size: 1.8rem;
     padding-top: 0.5rem;
     padding-right: 0.5rem;
+}
+
+.acute-treatment-img {
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    font-family: 'Segoe UI';
+    font-size: 2rem;
+    font-weight: 600;
+    right: 495px;
+    top: -10px;
+    font-size: 1.8rem;
+    padding-top: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.acute-treatment-img img {
+    width: 55px;
+    height: 55px;
 }
 
 .acute-img-mobile img {

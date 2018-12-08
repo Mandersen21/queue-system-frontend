@@ -1,6 +1,12 @@
 <span *ngIf="acutePatients === 0" class="acute-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/em_standard.png" alt=""></span>
 <span *ngIf="acutePatients > 0" class="acute-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/em.png" alt=""></span>
-<span class="acute hidden-xs hidden-sm hidden-md">Akut på vej <!--<span class="acute-text hidden-xs hidden-md">{{acutePatients}}</span></span>-->
+<span class="acute hidden-xs hidden-sm hidden-md">Akut på vej</span>
+
+<span *ngIf="patientInTreatment === 0" class="acute-treatment-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/first-aid.png" alt=""></span>
+<span *ngIf="patientInTreatment > 0" class="acute-treatment-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/first-aid-active.png" alt=""></span>
+<span class="treatment hidden-xs hidden-sm hidden-md">I behandling:</span>  
+<span *ngIf="patientInTreatment < 10" class="treatment-text">{{patientInTreatment}}</span>
+<span *ngIf="patientInTreatment > 9" class="treatment-text-large">{{patientInTreatment}}</span>
 
 <span *ngIf="acutePatients === 0" class="acute-img-mobile hidden-lg"><img src="../../assets/images/em_standard.png" class="" alt=""></span>
 <span *ngIf="acutePatients > 0" class="acute-img-mobile hidden-lg"><img src="../../assets/images/em.png" class="" alt=""></span>

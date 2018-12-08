@@ -10,6 +10,7 @@ import { AdminServiceService } from '../admin/admin-service.service';
 export class AcuteComponent implements OnInit {
 
   acutePatients: number = 0
+  patientInTreatment: number = 0
 
   constructor(private pusherService: PusherService, private adminService: AdminServiceService) { 
    this.getPatientOptions()
