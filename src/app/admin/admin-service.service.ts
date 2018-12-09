@@ -51,12 +51,13 @@ export class AdminServiceService {
     return this.http.get<IPatientOption[]>(environment.backend + '/api/options');
   }
 
-  public updateOptions(acutePatients, message, fastTrackOpen) {
+  public updateOptions(acutePatients, message, fastTrackOpen, patientInTreatment) {
     return this.http.put(environment.backend + '/api/options',
       {
         "acutePatients": acutePatients,
         "acutePatientMessage": message,
-        "fastTrackOpen": fastTrackOpen
+        "fastTrackOpen": fastTrackOpen,
+        "patientInTreatment": patientInTreatment
       })
   }
 

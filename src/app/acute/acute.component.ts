@@ -26,7 +26,7 @@ export class AcuteComponent implements OnInit {
 
   private getPatientOptions() {
     this.adminService.getOptions().subscribe(
-      data => { this.acutePatients = data[0].acutePatients },
+      data => { this.acutePatients = data[0].acutePatients, this.patientInTreatment  = data[0].patientInTreatment },
       error => { console.log("Error", error) }
     )
   }

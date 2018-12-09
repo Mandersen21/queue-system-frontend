@@ -114,3 +114,8 @@ select.form-control {
 .name {
     font-weight: bold;
 }
+
+.select {
+    /* padding: 2rem !important; */
+    color: black;
+}

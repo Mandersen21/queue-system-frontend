@@ -17,6 +17,7 @@ export class AdminComponent implements OnInit {
   patients: Array<IPatient>
 
   acutePatients: string = "0"
+  patientInTreatment: number = 0
   acuteMessage: string = ''
   fastTrackOpen: string = "false"
 
@@ -88,13 +89,13 @@ export class AdminComponent implements OnInit {
 
   public getPatientOption() {
     this.adminService.getOptions().subscribe(
-      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage, this.fastTrackOpen = data[0].fastTrackOpen == true ? "true" : "false" },
+      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage, this.fastTrackOpen = data[0].fastTrackOpen == true ? "true" : "false", this.patientInTreatment = data[0].patientInTreatment },
       error => { console.log("Error", error) }
     )
   }
 
   public updateOptions() {
-    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen).subscribe(
+    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen, this.patientInTreatment).subscribe(
       data => { },
       error => { console.log("Error", error) }
     )
@@ -121,6 +122,11 @@ export class AdminComponent implements OnInit {
 
   public clearMessage() {
     this.acuteMessage = ''
+    this.updateOptions()
+  }
+
+  public updateTreatmentCount() {
+    console.log("Updating patient count")
     this.updateOptions()
   }
 
@@ -163,5 +169,6 @@ export interface IUpdatePatient {
 export interface IPatientOption {
   acutePatients: number,
   acutePatientMessage: string,
-  fastTrackOpen: boolean
+  fastTrackOpen: boolean,
+  patientInTreatment: number
 }
