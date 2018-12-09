@@ -3,7 +3,6 @@
     left: 0;
     bottom: 0;
     width: 100%;
-    /* display: block; */
     height: 7rem;
     font-family: 'Segoe UI';
     font-weight: 500;
@@ -20,6 +19,8 @@
     white-space: nowrap;
     color:black;
     font-size: 2.7em;
+    font-weight: 600;
+    top: 0;
     -webkit-transition: all 0.3s ease-in-out;
                 -moz-transition: all 0.3s ease-in-out;
                 -o-transition: all 0.3s ease-in-out;
