@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  usePrioritisation: boolean = true
+  usePrioritisation: boolean = false
 
   @Input() fastTrack: boolean;
 
