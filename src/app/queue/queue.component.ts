@@ -144,12 +144,21 @@ export class QueueComponent implements OnInit {
       position: (Number(patient.queuePosition) + 1).toString(),
       patientId: patient.patientId,
       baby: patient.age < 4 ? true : false,
-      decreased: false,
-      increased: false,
+      decreased: (patient.minutesToWait > 30 && patient.oldMinutesToWait < 30 || 
+        patient.minutesToWait > 60 && patient.oldMinutesToWait < 60 || 
+        patient.minutesToWait > 120 && patient.oldMinutesToWait < 120 ||
+        patient.minutesToWait > 180 && patient.oldMinutesToWait < 180
+        ) ? true : false,
+      increased: (patient.minutesToWait < 30 && patient.oldMinutesToWait > 29 || 
+        patient.minutesToWait < 60 && patient.oldMinutesToWait > 59 || 
+        patient.minutesToWait < 120 && patient.oldMinutesToWait > 119 ||
+        patient.minutesToWait < 180
+        ) ? true : false,
       triage: patient.triage,
       fastTrack: patient.fastTrack,
       registredTime: patient.registredTime,
-      minutesToWait: patient.minutesToWait
+      minutesToWait: patient.minutesToWait,
+      oldMinutesToWait: patient.oldMinutesToWait
     })
   }
 }
@@ -182,6 +191,7 @@ export interface IPatient {
   registredTime: Date,
   actualTime: Date,
   minutesToWait: number,
+  oldMinutesToWait: number,
   queuePriority: boolean,
   queuePosition: number
 }
@@ -196,5 +206,6 @@ export interface IQueueRow {
   triage?: Triage,
   fastTrack?: boolean,
   registredTime?: Date,
-  minutesToWait?: number
+  minutesToWait?: number,
+  oldMinutesToWait?: number,
 }

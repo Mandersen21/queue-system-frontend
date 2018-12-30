@@ -15,7 +15,6 @@
 
 .list-header-item {
     border-top: none;
-    /* background-color: #6DC3EB; */
     background-color: #0078D7;
     color: black !important;
 }
@@ -34,7 +33,6 @@
     font-family: 'Segoe UI';
     background-color: #0063B1;
     display: block;
-    /* border: 1px solid #0063B1; */
 }
 
 .header {
