@@ -69,16 +69,16 @@ export class QueueComponent implements OnInit {
       }
     })
 
-    let index0 = this.patientQueueSorted.findIndex(p => p.minutesToWait < 30)
+    let index0 = this.patientQueueSorted.findIndex(p => p.minutesToWait < 29)
     if (index0 != -1) { this.patientQueueSorted.splice(index0 , 0, { _id: this.sectionTimes[0] }) }
     
-    let index30 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 30)
+    let index30 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 29 && p.minutesToWait < 61 )
     if (index30 != -1) { this.patientQueueSorted.splice(index30, 0, { _id: this.sectionTimes[1] }) }
     
-    let index60 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 60)
+    let index60 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 60 && p.minutesToWait < 121)
     if (index60 != -1) { this.patientQueueSorted.splice(index60, 0, { _id: this.sectionTimes[2] }) }
     
-    let index120 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 120)
+    let index120 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 120 && p.minutesToWait < 181)
     if (index120 != -1) { this.patientQueueSorted.splice(index120, 0, { _id: this.sectionTimes[3] }) }
 
     let index180 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 180)
@@ -136,20 +136,6 @@ export class QueueComponent implements OnInit {
     })
   }
 }
-
-// function array_move(arr, old_index, new_index) {
-//   if (new_index >= arr.length) {
-//       var k = new_index - arr.length + 1;
-//       while (k--) {
-//           arr.push(undefined);
-//       }
-//   }
-//   arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
-//   return arr; // for testing
-// };
-
-// // returns [2, 1, 3]
-// console.log(array_move([1, 2, 3], 0, 1)); 
 
 export enum SectionTime {
   SMALL = "Under 30 minutter",
