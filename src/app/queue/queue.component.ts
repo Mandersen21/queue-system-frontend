@@ -70,7 +70,7 @@ export class QueueComponent implements OnInit {
     })
 
     // Regular
-    let index0 = this.patientQueueSorted.findIndex(p => p.minutesToWait < 29)
+    let index0 = this.patientQueueSorted.findIndex(p => p.minutesToWait < 30)
     if (index0 != -1) { this.patientQueueSorted.splice(index0 , 0, { _id: this.sectionTimes[0] }) }
     
     let index30 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 29 && p.minutesToWait < 61 )
