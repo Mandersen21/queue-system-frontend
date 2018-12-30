@@ -21,8 +21,9 @@
 }
 
 .list-header-item-fast {
+    border-top: none;
     background-color: #1ABC9C;
-    color: white !important;
+    color: black !important;
 }
 
 .queue-header {

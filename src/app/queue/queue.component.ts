@@ -69,6 +69,7 @@ export class QueueComponent implements OnInit {
       }
     })
 
+    // Regular
     let index0 = this.patientQueueSorted.findIndex(p => p.minutesToWait < 29)
     if (index0 != -1) { this.patientQueueSorted.splice(index0 , 0, { _id: this.sectionTimes[0] }) }
     
@@ -83,6 +84,22 @@ export class QueueComponent implements OnInit {
 
     let index180 = this.patientQueueSorted.findIndex(p => p.minutesToWait > 180)
     if (index180 != -1) { this.patientQueueSorted.splice(index180, 0, { _id: this.sectionTimes[4] }) }
+
+    // fasttrack
+    let indexfast0 = this.patientFastTrackQueueSorted.findIndex(p => p.minutesToWait < 29)
+    if (indexfast0 != -1) { this.patientFastTrackQueueSorted.splice(indexfast0 , 0, { _id: this.sectionTimes[0] }) }
+    
+    let indexfast30 = this.patientFastTrackQueueSorted.findIndex(p => p.minutesToWait > 29 && p.minutesToWait < 61 )
+    if (indexfast30 != -1) { this.patientFastTrackQueueSorted.splice(indexfast30, 0, { _id: this.sectionTimes[1] }) }
+    
+    let indexfast60 = this.patientFastTrackQueueSorted.findIndex(p => p.minutesToWait > 60 && p.minutesToWait < 121)
+    if (indexfast60 != -1) { this.patientFastTrackQueueSorted.splice(indexfast60, 0, { _id: this.sectionTimes[2] }) }
+    
+    let indexfast120 = this.patientFastTrackQueueSorted.findIndex(p => p.minutesToWait > 120 && p.minutesToWait < 181)
+    if (indexfast120 != -1) { this.patientFastTrackQueueSorted.splice(indexfast120, 0, { _id: this.sectionTimes[3] }) }
+
+    let indexfast180 = this.patientFastTrackQueueSorted.findIndex(p => p.minutesToWait > 180)
+    if (indexfast180 != -1) { this.patientFastTrackQueueSorted.splice(indexfast180, 0, { _id: this.sectionTimes[4] }) }
   }
 
   private sortOnPriority() {
