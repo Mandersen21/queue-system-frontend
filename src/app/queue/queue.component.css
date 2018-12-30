@@ -14,14 +14,15 @@
 }
 
 .list-header-item {
-    /* background-color: #6DC3EB; */
+    border-top: none;
     background-color: #0078D7;
-    color: white !important;
+    color: black !important;
 }
 
 .list-header-item-fast {
+    border-top: none;
     background-color: #1ABC9C;
-    color: white !important;
+    color: black !important;
 }
 
 .queue-header {
@@ -32,7 +33,6 @@
     font-family: 'Segoe UI';
     background-color: #0063B1;
     display: block;
-    border: 1px solid #0063B1;
 }
 
 .header {
@@ -55,7 +55,7 @@
     font-family: 'Segoe UI';
     background-color: #16A085;
     display: block;
-    border: 1px solid #16A085;
+    /* border: 1px solid #16A085; */
 }
 
 .queue-header .main-text {

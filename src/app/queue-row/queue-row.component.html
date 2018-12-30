@@ -1,12 +1,13 @@
 <div *ngIf="patientId && triage" class="queue-row hidden-xs hidden-sm hidden-md">
-    <div class="col-xs-4 nopadding position">
-        {{position}}
-    </div>
+    <!-- <div class="col-xs-4 nopadding position">
+        {{minutesToWait}}
+    </div> -->
     <div class="col-xs-4 nopadding id">
-        {{patientId}}
+        {{patientId}} <!--{{minutesToWait}}-->
     </div>
     <span *ngIf="increased" class="increased"></span>
     <span *ngIf="decreased" class="decreased"></span>
+    <span class="right">{{minutesToWait}} - {{oldMinutesToWait}}</span>
     <span *ngIf="baby" class="baby"></span>
     <span class="right" [ngClass]="{'triage1': triage === 1 && !fastTrack,'triage2': triage === 2 && !fastTrack ,'triage3': triage === 3 && !fastTrack, 'triage4': triage === 4 && !fastTrack, 'triage5': triage === 5 && !fastTrack, 'fasttrack': fastTrack}"></span>
 </div>
@@ -17,9 +18,9 @@
 </div>
 
 <!-- Mobile viewport -->
-<div class="row hidden-lg" *ngIf="patientId && triage">
+<div class="row hidden-lg" *ngIf="patientId && triage && minutesToWait">
     <div class="col-xs-4">
-        {{position}}
+        {{minutesToWait}}
     </div>
     <div class="col-xs-4">
         {{patientId}}
