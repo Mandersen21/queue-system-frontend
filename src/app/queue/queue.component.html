@@ -127,7 +127,7 @@
                 <ul class="list-group list-special">
                     <li *ngFor="let row of patientQueueSorted; let i = index" class="" [ngClass]="{'list-group-item': row._id, 'list-header-item': !row.patientId && !fastTrack, 'list-header-item-fast': !row.patientId && fastTrack, 'list-group-item-even': i%2==0}">
                         <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
-                            [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased" [minutesToWait]="row.minutesToWait"></app-queue-row>
+                            [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased" [minutesToWait]="row.minutesToWait" [oldMinutesToWait]="row.oldMinutesToWait"></app-queue-row>
                     </li>
                 </ul>
             </div>

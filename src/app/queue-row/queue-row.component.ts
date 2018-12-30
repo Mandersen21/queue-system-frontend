@@ -17,6 +17,7 @@ export class QueueRowComponent implements OnInit {
   @Input() decreased: boolean
   @Input() fastTrack: boolean
   @Input() minutesToWait: string
+  @Input() oldMinutesToWait: string
   
   constructor() { }
 

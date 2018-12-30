@@ -149,10 +149,10 @@ export class QueueComponent implements OnInit {
         patient.minutesToWait > 120 && patient.oldMinutesToWait < 120 ||
         patient.minutesToWait > 180 && patient.oldMinutesToWait < 180
         ) ? true : false,
-      increased: (patient.minutesToWait < 30 && patient.oldMinutesToWait > 29 || 
-        patient.minutesToWait < 60 && patient.oldMinutesToWait > 59 || 
+      increased: (patient.minutesToWait < 30 && patient.oldMinutesToWait > 29 ||
+        patient.minutesToWait < 60 && patient.oldMinutesToWait > 59 ||
         patient.minutesToWait < 120 && patient.oldMinutesToWait > 119 ||
-        patient.minutesToWait < 180
+        patient.minutesToWait < 180 && patient.oldMinutesToWait > 179
         ) ? true : false,
       triage: patient.triage,
       fastTrack: patient.fastTrack,
