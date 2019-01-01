@@ -5,6 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Modules from outside
 import { AppBoostrapModule } from './app-boostrap/app-boostrap.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 // Components
 import { AppComponent } from './app.component';
@@ -55,7 +56,8 @@ import { PusherService } from './pusher.service';
     BrowserAnimationsModule,
     ReactiveFormsModule,
     AppBoostrapModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgxSpinnerModule
   ],
   providers: [ PusherService ],
   bootstrap: [AppComponent]

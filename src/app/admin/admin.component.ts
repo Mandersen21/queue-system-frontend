@@ -4,12 +4,21 @@ import { AdminServiceService } from './admin-service.service';
 import { IPatient } from '../queue/queue.component';
 import { PusherService } from '../pusher.service';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+
+  spinnerConfig: object = {
+    bdColor: 'rgba(186,186,186,0.38)',
+    size: 'medium',
+    color: '#fff',
+    type: 'ball-beat'
+  }
 
   patientRegisterModel: IUpdatePatient
   patientUpdateModel: IUpdatePatient
@@ -21,7 +30,7 @@ export class AdminComponent implements OnInit {
   acuteMessage: string = ''
   fastTrackOpen: string = "false"
 
-  constructor(private adminService: AdminServiceService, private pusherService: PusherService) {
+  constructor(private adminService: AdminServiceService, private pusherService: PusherService, private spinner: NgxSpinnerService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true", queuePriority: "false", queuePosition: "0" }
     this.getPatients()
   }
@@ -35,10 +44,14 @@ export class AdminComponent implements OnInit {
     this.pusherService.channel.bind('new-option', data => {
       this.getPatientOption()
     });
+
+    //this.spinner.show();
+    //this.spinner.hide();
   }
 
   public registerPatient() {
     if (this.patientRegisterModel.name.length > 0) {
+      this.spinner.show();
       let name = this.patientRegisterModel.name
       let infant = this.patientRegisterModel.infant == "false" ? false : true
       let triage = Number(this.patientRegisterModel.triage)
@@ -47,7 +60,7 @@ export class AdminComponent implements OnInit {
       let queuePosition = this.patientRegisterModel.queuePosition
       this.adminService.addPatient(name, infant, triage, queueType, queuePriority, queuePosition).subscribe(
         data => { },
-        error => { console.log("Error", error); },
+        error => { console.log("Error", error, this.spinner.hide()); },
         () => this.getPatients()
       );
     }
@@ -55,6 +68,7 @@ export class AdminComponent implements OnInit {
 
   public updatePatient() {
     if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
+      this.spinner.show();
       let patientId = this.patientUpdateModel.patientId
       let name = this.patientUpdateModel.name
       let infant = this.patientUpdateModel.infant == "false" ? false : true
@@ -82,27 +96,29 @@ export class AdminComponent implements OnInit {
 
   public getPatients() {
     this.adminService.getPatients().subscribe(
-      data => { this.patients = data },
+      data => { this.patients = data, this.spinner.hide() },
       error => { console.log("Error", error) }
     )
   }
 
   public getPatientOption() {
     this.adminService.getOptions().subscribe(
-      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage, this.fastTrackOpen = data[0].fastTrackOpen == true ? "true" : "false", this.patientInTreatment = data[0].patientInTreatment },
+      data => { this.acutePatients = data[0].acutePatients.toString(), this.acuteMessage = data[0].acutePatientMessage, this.fastTrackOpen = data[0].fastTrackOpen == true ? "true" : "false", this.patientInTreatment = data[0].patientInTreatment, this.spinner.hide() },
       error => { console.log("Error", error) }
     )
   }
 
   public updateOptions() {
+    this.spinner.show();
     this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen, this.patientInTreatment).subscribe(
-      data => { },
+      data => { this.spinner.hide(); },
       error => { console.log("Error", error) }
     )
   }
 
   public deletePatient() {
     if (this.patientUpdateModel.patientId.length > 0 && this.patientUpdateModel.name.length > 0) {
+      this.spinner.show();
       let patientId = this.patientUpdateModel.patientId
       this.adminService.deletePatient(patientId).subscribe(
         data => { },
@@ -113,6 +129,7 @@ export class AdminComponent implements OnInit {
   }
 
   public deleteAllPatients() {
+    this.spinner.show();
     this.adminService.deleteAllPatients().subscribe(
       data => { },
       error => { console.log("Error", error); },
@@ -126,7 +143,6 @@ export class AdminComponent implements OnInit {
   }
 
   public updateTreatmentCount() {
-    console.log("Updating patient count")
     this.updateOptions()
   }
 
