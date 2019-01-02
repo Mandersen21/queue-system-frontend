@@ -1,4 +1,3 @@
-
 <ngx-spinner [bdColor]="bdColor" [size]="size" [color]="color" [type]="type"></ngx-spinner>
 <div class="container-fluid custom-container dashboard-container padding-bottom">
   <div class="row">
@@ -233,7 +232,8 @@
                 <div *ngFor="let patient of patients; let i = index">
                   <input *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.minutesToWait)"
                     type="radio" name="radioPatient" />
-                  <label *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.minutesToWait}} min</label>
+                  <label *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.minutesToWait}}
+                    min</label>
                   <label *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
                   <label *ngIf="!patient.fastTrack && patient.age > 3 && patient.triage > 0" class="form-check-label content-label">Adult</label>
@@ -257,7 +257,8 @@
                 <div *ngFor="let patient of patients; let i = index">
                   <input *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.minutesToWait)"
                     type="radio" name="radioPatient" />
-                  <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.minutesToWait}} min</label>
+                  <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.minutesToWait}}
+                    min</label>
                   <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
                   <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label">Age: {{
@@ -370,6 +371,23 @@
               <option>20</option>
             </select>
           </div>
+          <div class="form-group">
+            <label class="content-label boldtext">All waiting time:</label>
+            <div class="input-group">
+              <input type="text" class="form-control" [(ngModel)]="allWaitingTime">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="submit" (click)="increaseAllTime()" class="acuteText gutter btn btn-primary btn-block content-button">Increase
+                time</button>
+            </div>
+            <div class="col-sm-6">
+              <button type="submit" (click)="decreaseAllTime()" class="acuteText gutter btn btn-primary btn-block content-button">Decrease
+                time</button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>

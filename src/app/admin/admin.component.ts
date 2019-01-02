@@ -27,6 +27,7 @@ export class AdminComponent implements OnInit {
   patientInTreatment: number = 0
   acuteMessage: string = ''
   fastTrackOpen: string = "false"
+  allWaitingTime: string = "0";
 
   oldUpdateWaitingTime: string = ''
 
@@ -112,7 +113,7 @@ export class AdminComponent implements OnInit {
 
   public updateOptions() {
     this.spinner.show();
-    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen, this.patientInTreatment).subscribe(
+    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen, this.patientInTreatment, this.allWaitingTime, false).subscribe(
       data => { this.spinner.hide(); },
       error => { console.log("Error", error) }
     )
@@ -166,6 +167,21 @@ export class AdminComponent implements OnInit {
     if ((Number(this.patientUpdateModel.waitingTime)) > 0) {
       this.patientUpdateModel.waitingTime = (Number(this.patientUpdateModel.waitingTime) - 1).toString()
     }
+  }
+
+  public increaseAllTime() {
+    this.spinner.show();
+    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen, this.patientInTreatment, this.allWaitingTime, true).subscribe(
+      data => { this.spinner.hide(); },
+      error => { console.log("Error", error) }
+    )
+  }
+
+  public decreaseAllTime() {
+    this.adminService.updateOptions(this.acutePatients, this.acuteMessage, this.fastTrackOpen, this.patientInTreatment, this.allWaitingTime, false).subscribe(
+      data => { this.spinner.hide(); },
+      error => { console.log("Error", error) }
+    )
   }
 
 }
