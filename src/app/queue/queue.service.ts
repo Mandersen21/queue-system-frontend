@@ -17,8 +17,8 @@ export class QueueService {
 
   constructor(private http: HttpClient) { }
 
-  getPatients() {
-    return this.http.get<IPatient[]>(environment.backend + '/api/patients').pipe(share())
+  getPatients(update) {
+    return this.http.get<IPatient[]>(environment.backend + '/api/patients?update=' + update + '').pipe(share())
   }
 
 }

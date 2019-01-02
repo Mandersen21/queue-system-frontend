@@ -50,7 +50,6 @@ export class AdminComponent implements OnInit {
     this.pusherService.channel.bind('new-option', data => {
       this.getPatientOption()
     });
-
     
   }
 

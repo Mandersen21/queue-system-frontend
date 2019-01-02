@@ -23,23 +23,27 @@ export class QueueComponent implements OnInit {
 
     // SectionTimes in from small to very high
     this.sectionTimes.push(SectionTime.SMALL, SectionTime.MEDIUM, SectionTime.MEDIUM_HIGH, SectionTime.HIGH, SectionTime.VERY_HIGH)
-    this.getPatientsData()
+    this.getPatientsData(true)
 
     // Get fresh data every 1 min
     setInterval(() => {
-      this.getPatientsData()
+      this.getPatientsData(true)
     }, 60000);
   }
 
   ngOnInit() {
     this.pusherService.channel.bind('new-update', data => {
-      this.getPatientsData()
+      this.getPatientsData(true)
+    });
+
+    this.pusherService.channel.bind('new-update-from-admin', data => {
+      this.getPatientsData(false)
     });
   }
 
-  private getPatientsData(): void {
+  private getPatientsData(update): void {
     // Get patients from backend via service
-    this.queueService.getPatients().subscribe(
+    this.queueService.getPatients(update).subscribe(
       data => { this.patients = data },
       err => console.error(err),
       () => this.sortPatients()
