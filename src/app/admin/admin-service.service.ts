@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 import { IPatient } from '../queue/queue.component';
 import { IPatientOption } from './admin.component';
@@ -44,7 +44,7 @@ export class AdminServiceService {
   }
 
   public getPatients() {
-    return this.http.get<IPatient[]>(environment.backend + '/api/patients/');
+    return this.http.get<IPatient[]>(environment.backend + '/api/patients?update=false');
   }
 
   public getOptions() {

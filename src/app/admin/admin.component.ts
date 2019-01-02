@@ -76,7 +76,7 @@ export class AdminComponent implements OnInit {
       this.adminService.updatePatient(patientId, name, infant, triage, queueType, waitingTime).subscribe(
         data => { },
         error => { console.log("Error", error); },
-        () => this.getPatients()
+        () => this.spinner.hide()
       );
     }
   }
