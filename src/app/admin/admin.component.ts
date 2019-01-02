@@ -33,6 +33,11 @@ export class AdminComponent implements OnInit {
   constructor(private adminService: AdminServiceService, private pusherService: PusherService, private spinner: NgxSpinnerService) {
     this.patientUpdateModel = { name: 'Mads Wehlast', infant: "true", triage: "1", queueType: "true", waitingTime: "0" }
     this.getPatients()
+
+    // Get fresh data every 1 min
+    setInterval(() => {
+      this.getPatients()
+    }, 60000);
   }
 
   ngOnInit() {

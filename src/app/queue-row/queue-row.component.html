@@ -8,7 +8,7 @@
     </div>
     <span *ngIf="increased" class="increased"></span>
     <span *ngIf="decreased" class="decreased"></span>
-    <!-- <span class="right">{{minutesToWait}} - {{oldMinutesToWait}}</span> -->
+    <span class="right">{{minutesToWait}} - {{oldMinutesToWait}}</span>
     <span *ngIf="baby" class="baby"></span>
     <span class="right" [ngClass]="{'triage1': triage === 1 && !fastTrack,'triage2': triage === 2 && !fastTrack ,'triage3': triage === 3 && !fastTrack, 'triage4': triage === 4 && !fastTrack, 'triage5': triage === 5 && !fastTrack, 'fasttrack': fastTrack}"></span>
 </div>
