@@ -127,7 +127,8 @@
                 <ul class="list-group list-special">
                     <li *ngFor="let row of patientQueueSorted; let i = index" class="" [ngClass]="{'list-group-item': row._id, 'list-header-item': !row.patientId && !fastTrack, 'list-header-item-fast': !row.patientId && fastTrack, 'list-group-item-even': i%2==0}">
                         <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
-                            [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased" [minutesToWait]="row.minutesToWait" [oldMinutesToWait]="row.oldMinutesToWait"></app-queue-row>
+                            [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"
+                            [minutesToWait]="row.minutesToWait" [oldMinutesToWait]="row.oldMinutesToWait"></app-queue-row>
                     </li>
                 </ul>
             </div>
@@ -140,7 +141,8 @@
                 <ul class="list-group list-special">
                     <li *ngFor="let row of patientFastTrackQueueSorted; let i = index" class="" [ngClass]="{'list-group-item': row._id, 'list-header-item': !row.patientId && !fastTrack, 'list-header-item-fast': !row.patientId && fastTrack, 'list-group-item-even': i%2==0}">
                         <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
-                            [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased" [minutesToWait]="row.minutesToWait"></app-queue-row>
+                            [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"
+                            [minutesToWait]="row.minutesToWait"></app-queue-row>
                     </li>
                 </ul>
             </div>
@@ -156,21 +158,23 @@
 
     <div class="header-group-mobile hidden-lg">
         <div class="row" *ngIf="patientQueueSorted">
-            <div class="col-xs-4">
-                Position
-            </div>
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 Patient-id
             </div>
-            <div class="col-xs-4 text-right">
+            <div class="col-xs-6 text-right">
                 Prioritet
             </div>
         </div>
     </div>
     <div class="content hidden-lg">
-        <div *ngFor="let row of patientQueueSorted; let i = index" class="content-group-mobile" [ngClass]="{'content-group-mobile-even': i%2==0}">
-            <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
-                [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"></app-queue-row>
+        <div class="row">
+            <div class="col-xs-12">
+                <div *ngFor="let row of patientQueueSorted; let i = index" class="content-group-mobile" [ngClass]="{'list-group-item-mobile': row._id, 'list-header-item-mobile': !row.patientId && !fastTrack, 'list-header-item-mobile': !row.patientId && fastTrack, 'content-group-mobile-even': i%2==0}">
+                    <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
+                        [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"
+                        [minutesToWait]="row.minutesToWait"></app-queue-row>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -180,21 +184,24 @@
 
     <div class="header-group-fasttrack-mobile hidden-lg">
         <div class="row" *ngIf="patientQueueSorted">
-            <div class="col-xs-4">
-                Position
-            </div>
-            <div class="col-xs-4">
+            <div class="col-xs-6">
                 Patient-id
             </div>
-            <div class="col-xs-4 text-right">
+            <div class="col-xs-6 text-right">
                 Prioritet
             </div>
         </div>
     </div>
     <div class="content hidden-lg padding-bottom">
-        <div *ngFor="let row of patientFastTrackQueueSorted; let i = index" class="content-group-mobile" [ngClass]="{'content-group-mobile-even': i%2==0}">
-            <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
-                [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"></app-queue-row>
+        <div class="row">
+            <div class="col-xs-12">
+                <div *ngFor="let row of patientFastTrackQueueSorted; let i = index" class="content-group-mobile"
+                    [ngClass]="{'list-group-item-mobile': row._id, 'list-header-item-mobile-fast': !row.patientId && !fastTrack, 'list-header-item-mobile-fast': !row.patientId && fastTrack, 'content-group-mobile-even': i%2==0}">
+                    <app-queue-row [id]="row._id" [position]="row.position" [patientId]="row.patientId" [triage]="row.triage"
+                        [baby]="row.baby" [fastTrack]="row.fastTrack" [increased]="row.increased" [decreased]="row.decreased"
+                        [minutesToWait]="row.minutesToWait"></app-queue-row>
+                </div>
+            </div>
         </div>
     </div>
 </div>

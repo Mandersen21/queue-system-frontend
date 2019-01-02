@@ -4,7 +4,7 @@
 
 <span *ngIf="patientInTreatment === 0" class="acute-treatment-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/first-aid.png" alt=""></span>
 <span *ngIf="patientInTreatment > 0" class="acute-treatment-img hidden-xs hidden-sm hidden-md"><img src="../../assets/images/first-aid-active.png" alt=""></span>
-<span class="treatment hidden-xs hidden-sm hidden-md">I behandling:</span>  
+<span class="treatment hidden-xs hidden-sm hidden-md">Behandles:</span>  
 <span *ngIf="patientInTreatment < 10" class="treatment-text">{{patientInTreatment}}</span>
 <span *ngIf="patientInTreatment > 9" class="treatment-text-large">{{patientInTreatment}}</span>
 

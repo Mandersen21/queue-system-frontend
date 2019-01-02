@@ -9,6 +9,10 @@
     position: relative;
 }
 
+.list-group-item-mobile {
+    position: relative;
+}
+
 .list-group-item-even {
     background-color: #efefef;
 }
@@ -17,6 +21,24 @@
     border-top: none;
     background-color: #0078D7;
     color: black !important;
+}
+
+.list-header-item-mobile {
+    border-top: none;
+    font-weight: 600;
+    background-color: #0078D7 !important;
+    color: white !important;
+    padding-left: 2.5rem;
+    font-size: 1.7rem;
+}
+
+.list-header-item-mobile-fast {
+    border-top: none;
+    font-weight: 600;
+    background-color: #1ABC9C !important;
+    color: white !important;
+    padding-left: 2.5rem;
+    font-size: 1.7rem;
 }
 
 .list-header-item-fast {

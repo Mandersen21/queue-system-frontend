@@ -75,7 +75,7 @@
                 <label class="form-check-label content-label" for="inlineRadio3">Fast-track</label>
               </div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label class="content-label boldtext">Queue priority:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientRegisterModel.queuePriority" name="radioPatientQueuePriority"
@@ -87,9 +87,9 @@
                   id="inlineRadio3" value="true">
                 <label class="form-check-label content-label" for="inlineRadio3">True</label>
               </div>
-            </div>
+            </div> -->
             <div class="form-group">
-              <label class="content-label boldtext">Queue position:</label>
+              <label class="content-label boldtext">Waiting time:</label>
               <div class="input-group">
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" (click)="decreaseRegister()" data-type="minus"
@@ -97,7 +97,7 @@
                     <span class="glyphicon glyphicon-minus"></span>
                   </button>
                 </span>
-                <input type="text" name="quant[1]" class="form-control input-number" [(ngModel)]="patientRegisterModel.queuePosition"
+                <input type="text" name="quant[1]" class="form-control input-number" [(ngModel)]="patientRegisterModel.waitingTime"
                   value="1" min="0" max="100">
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" (click)="increaseRegister()" data-type="plus"
@@ -180,7 +180,7 @@
                 <label class="form-check-label content-label" for="inlineRadio3">Fast-track</label>
               </div>
             </div>
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label class="content-label boldtext">Queue priority:</label>
               <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" [(ngModel)]="patientUpdateModel.queuePriority" name="radioPatientQueuePriority"
@@ -192,9 +192,9 @@
                   id="inlineRadio3" value="true">
                 <label class="form-check-label content-label" for="inlineRadio3">True</label>
               </div>
-            </div>
+            </div> -->
             <div class="form-group">
-              <label class="content-label boldtext">Queue position:</label>
+              <label class="content-label boldtext">Waiting time:</label>
               <div class="input-group">
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" (click)="decreaseUpdater()" data-type="minus"
@@ -202,7 +202,7 @@
                     <span class="glyphicon glyphicon-minus"></span>
                   </button>
                 </span>
-                <input type="text" name="quant[1]" class="form-control input-number" [(ngModel)]="patientUpdateModel.queuePosition"
+                <input type="text" name="quant[1]" class="form-control input-number" [(ngModel)]="patientUpdateModel.waitingTime"
                   value="1" min="0" max="100">
                 <span class="input-group-btn">
                   <button type="button" class="btn btn-default btn-number" (click)="increaseUpdater()" data-type="plus"
@@ -231,10 +231,9 @@
             <div *ngIf="patients.length > 0" class="row">
               <div class="col-sm-12">
                 <div *ngFor="let patient of patients; let i = index">
-                  <input *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
+                  <input *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.minutesToWait)"
                     type="radio" name="radioPatient" />
-                  <label *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.queuePosition
-                    + 1}}</label>
+                  <label *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.minutesToWait}} min</label>
                   <label *ngIf="!patient.fastTrack && patient.triage > 0" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
                   <label *ngIf="!patient.fastTrack && patient.age > 3 && patient.triage > 0" class="form-check-label content-label">Adult</label>
@@ -256,10 +255,9 @@
             <div *ngIf="patients.length > 0" class="row">
               <div class="col-sm-12">
                 <div *ngFor="let patient of patients; let i = index">
-                  <input *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.queuePriority, patient.queuePosition)"
+                  <input *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-input" (click)="updateValues(patient.patientId, patient.name, patient.age, patient.triage, patient.fastTrack, patient.minutesToWait)"
                     type="radio" name="radioPatient" />
-                  <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.queuePosition
-                    + 1}}</label>
+                  <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label">{{patient.minutesToWait}} min</label>
                   <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label name">{{
                     patient.patientId }}</label>
                   <label *ngIf="patient.fastTrack && patient.triage > 0" class="form-check-label content-label">Age: {{

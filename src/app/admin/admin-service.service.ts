@@ -15,27 +15,27 @@ export class AdminServiceService {
 
   constructor(private http: HttpClient) { }
 
-  public addPatient(name, infant, triage, queueType, queuePriority, queuePosition) {
+  public addPatient(name, infant, triage, queueType, waitingTime) {
     return this.http.post(environment.backend + '/api/patients',
       {
         "name": name,
         "age": infant == true ? 2 : 50,
         "triage": triage,
         "fastTrack": queueType,
-        "queuePriority": queuePriority,
-        "queuePosition": queuePosition
+        "waitingTime": waitingTime,
       })
   }
 
-  public updatePatient(patientId, name, infant, triage, queueType, queuePriority, queuePosition) {
+  public updatePatient(patientId, name, infant, triage, queueType, waitingTime) {
     return this.http.put(environment.backend + '/api/patients/' + patientId,
       {
         "name": name,
         "age": infant == true ? 2 : 50,
         "triage": triage,
         "fastTrack": queueType,
-        "queuePriority": queuePriority,
-        "queuePosition": queuePosition
+        "waitingTime": waitingTime,
+        "queuePriority": false,
+        "queuePosition": 0
       })
   }
 
