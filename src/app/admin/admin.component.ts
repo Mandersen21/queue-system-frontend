@@ -13,12 +13,10 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AdminComponent implements OnInit {
 
-  spinnerConfig: object = {
-    bdColor: 'rgba(186,186,186,0.38)',
-    size: 'medium',
-    color: '#fff',
-    type: 'ball-beat'
-  }
+  bdColor: string = 'rgba(186,186,186,0.38)'
+  size: string = 'medium'
+  color: string = '#fff'
+  type: string = 'ball-beat'
 
   patientRegisterModel: IUpdatePatient
   patientUpdateModel: IUpdatePatient
