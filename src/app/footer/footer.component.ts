@@ -39,7 +39,7 @@ export class FooterComponent implements OnInit {
       this.currentMessage = { message: this.errorMessage.message, error: true}
     }
     else {
-      this.currentMessage = { message: 'Velkommen til akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandling indenfor rimelig tid.', error: false }
+      this.currentMessage = { message: 'Velkommen til Akutmodtagelsen - Vi vil gøre vores bedste for at du kan komme i behandling indenfor rimelig tid.', error: false }
     }
   }
 }

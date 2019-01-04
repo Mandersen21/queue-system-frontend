@@ -169,10 +169,10 @@ export class QueueComponent implements OnInit {
 
 export enum SectionTime {
   SMALL = "Under 30 minutter",
-  MEDIUM = "Ca. 30 - 60 minutter",
-  MEDIUM_HIGH = "Ca. 60 - 120 minutter",
-  HIGH = "Ca. 120 - 180 minutter",
-  VERY_HIGH = "Fra 180 minutter"
+  MEDIUM = "30 - 60 minutter",
+  MEDIUM_HIGH = "1 - 2 timer",
+  HIGH = "2 - 3 timer",
+  VERY_HIGH = "Over 3 timer"
 }
 
 export enum Triage {

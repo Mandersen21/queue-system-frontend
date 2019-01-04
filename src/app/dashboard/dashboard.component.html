@@ -8,9 +8,8 @@
   </div>
   <div class="row">
     <div class="col-sm-12 gutter">
-      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text">Patienter der skal vente kan tjekke sin
-        estimerede ventetid ved at følge sit patient-id nedenfor.</span>
-      <span *ngIf="!fastTrack && usePrioritisation" class="content-text">Patienter der skal vente kan orienterer sig om sin prioritet i køen ved at følge sit patient-id nedenfor.</span>
+      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text">Følg dit patient-id herunder og se, hvor længe du kan regne med at vente.</span>
+      <span *ngIf="!fastTrack && usePrioritisation" class="content-text">Følg dit patient-id herunder og se, hvor længe du kan regne med at vente..</span>
       <span *ngIf="fastTrack" class="content-text">Fast-track sporet kan være åben fra 10-23 hver dag.</span>
       <span class="text-right">
         <app-triage [fastTrack]="fastTrack"></app-triage>
@@ -35,10 +34,8 @@
   </div>
   <div class="row">
     <div class="col-sm-12 gutter">
-      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text-mobile">Patienter der skal vente kan tjekke sin
-        estimerede ventetid ved at følge sit patient-id nedenfor.</span>
-      <span *ngIf="!fastTrack && usePrioritisation" class="content-text-mobile">Patienter der skal vente kan tjekke sin
-        prioritet i køen ved at følge sit patient-id nedenfor.</span>
+      <span *ngIf="!fastTrack && !usePrioritisation" class="content-text-mobile">Følg dit patient-id herunder og se, hvor længe du kan regne med at vente.</span>
+      <span *ngIf="!fastTrack && usePrioritisation" class="content-text-mobile">Følg dit patient-id herunder og se, hvor længe du kan regne med at vente.</span>
       <span *ngIf="fastTrack" class="content-text-mobile">Fast-track sporet kan være åben fra 10-23 hver dag.</span>
       <span class="text-right">
         <!-- <app-triage [fastTrack]="fastTrack"></app-triage> -->
