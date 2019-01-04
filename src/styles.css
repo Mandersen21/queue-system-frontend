@@ -122,6 +122,8 @@ ul.header-group {
 }
 
 .header-group-mobile {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     padding: 1rem;
     color: white;
     border: none;
@@ -133,9 +135,11 @@ ul.header-group {
 }
 
 .header-group-fasttrack-mobile {
+    margin-left: 0.1rem;
+    margin-right: 0.1rem;
     padding: 1rem;
     color: white;
-    width:100%;
+    /* width:100%; */
     border: none;
     font-size: 1.7rem;
     font-weight: 600;
