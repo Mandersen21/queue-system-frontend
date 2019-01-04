@@ -125,7 +125,7 @@ ul.header-group {
     padding: 1rem;
     color: white;
     border: none;
-    width:100%;
+    /* width:100%; */
     font-size: 1.7rem;
     font-weight: 600;
     font-family: 'Segoe UI';
